@@ -1,0 +1,82 @@
+<div class="main">
+    <div class="search-form">
+        <mat-card>
+            <mat-card-header>
+                <h1>
+                    Search for flights
+                </h1>
+            </mat-card-header>
+            <form [formGroup]="searchForm">
+                <mat-card-content class="flight-parameters">
+                    <mat-select class="option-select" formControlName="flightType" (valueChange)="onFlightTypeChange()">
+                        <mat-option class="no-checkbox" *ngFor="let flightType of flightTypes | keyvalue"
+                            value="{{flightType.key}}">{{ flightType.value }}</mat-option>
+                    </mat-select>
+                    <button mat-button type="button" class="passanger-details" (click)="openPassangerDialog()">
+                        <mat-icon>groups</mat-icon>
+                        Economy,2 travelers
+                    </button>
+
+                    <mat-card class="flight-parameters stops">
+
+                        <mat-checkbox class="flight-stop-checkbox" [checked]="isNonStopFlight"
+                            (change)="onNonstopChange()">Nonstop flight</mat-checkbox>
+                        <div class="flight-stops no-arrow" *ngIf="!isNonStopFlight">
+                            <h4 style="margin: 0; padding-right: 1em;">Max stops: </h4>
+                            <button class="decrease-button" type="button" (click)="decreaseMaxStops()">
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                            <mat-select class="stop-select" formControlName="maxStops">
+                                <mat-option class="no-checkbox" *ngFor="let number of [1,2,3,4,5]" [value]="number">{{
+                                    number }}</mat-option>
+                            </mat-select>
+                            <button class="increase-button" type="button" (click)="increaseMaxStops()">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+
+                    </mat-card>
+                </mat-card-content>
+
+                <mat-card-content class="flight-schedule">
+                    <!-- <p>auto search based on location (type airport code as value)</p> -->
+                    <mat-form-field>
+                        <mat-label>Departure airport</mat-label>
+                        <input matInput type="text" name="departureCode" placeholder="Departure airport" formControlName="departureAirport">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Arrival airport</mat-label>
+                        <input matInput type="text" name="arrivalCode" placeholder="Arrival airport" formControlName="arrivalAirport">
+                    </mat-form-field>
+
+                    <!-- Either OR depends on the flight type -->
+                    <mat-form-field *ngIf="isOnewayFlight()">
+                        <mat-label>Departure</mat-label>
+                        <input matInput [matDatepicker]="date" formControlName="departureDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
+                        <mat-datepicker #date></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="!isOnewayFlight()">
+                        <mat-label>Departure - Return</mat-label>
+                        <mat-date-range-input [rangePicker]="dateRange">
+                            <input matStartDate placeholder="Departure" formControlName="departureDate">
+                            <input matEndDate placeholder="Return" formControlName="returnDate">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matIconSuffix [for]="dateRange"></mat-datepicker-toggle>
+                        <mat-date-range-picker #dateRange></mat-date-range-picker>
+                    </mat-form-field>
+                    <span class="spacer"></span>
+                    <div>
+                        <button type="button" class="search-flight-button" mat-raised-button
+                            color="accent">SEARCH</button>
+                    </div>
+                </mat-card-content>
+            </form>
+        </mat-card>
+    </div>
+    <div>
+        <app-search-results></app-search-results>
+    </div>
+</div>

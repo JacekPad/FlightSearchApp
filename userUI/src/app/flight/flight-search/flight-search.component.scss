@@ -1,0 +1,120 @@
+div.main {
+    padding: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+div.search-form {
+    padding-bottom: 30px;
+}
+
+.increase-button,
+.decrease-button {
+    font-size: 2px;
+    font-weight: bold;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.increase-button {
+    border-left: none;
+    border-top: 2px solid black
+}
+
+.increase-button:hover,
+.decrease-button:hover {
+    background-color: #ffd740;
+}
+
+.increase-button:active,
+.decrease-button:active {
+    background-color: #d7b432cf;
+}
+
+.decrease-button {
+    border-right: none;
+    border-top: 2px solid black;
+    border-left: 2px solid black
+}
+
+
+
+.flight-stops {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stop-select {
+    display: flex;
+    width: 3em;
+    height: 1.7em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: #efefef;
+    justify-content: center;
+    align-items: center;
+}
+
+.option-select {
+    max-width: 8%;
+}
+
+.flight-parameters {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-direction: row;
+}
+
+.passanger-details, .flight-stop-checkbox, .option-select, .stops {
+    color: #3b206d;
+    font-weight: 400;
+}
+
+.stops {
+    padding: 0.3em;
+    padding-right: 1em;
+}
+
+::ng-deep .no-arrow .mat-mdc-select-arrow {
+    display: none;
+}
+
+::ng-deep .no-checkbox {
+    .mat-pseudo-checkbox {
+        display: none;
+    }
+}
+
+::ng-deep .stop-select{
+    .mat-mdc-select-value {
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+    }
+}
+
+::ng-deep .flight-stop-checkbox {
+    .mdc-label {
+        color: #3b206d;
+        font-weight: 400;
+        font-size: 16px;
+
+    }
+}
+
+.flight-schedule {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    padding-top: 2em;
+    align-items: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
