@@ -8,7 +8,7 @@
             </mat-card-header>
             <form [formGroup]="searchForm">
                 <mat-card-content class="flight-parameters">
-                    <mat-select class="option-select" formControlName="flightType" (valueChange)="onFlightTypeChange()">
+                    <mat-select class="option-select" formControlName="flightType" (valueChange)="onFlightTypeChange($event)">
                         <mat-option class="no-checkbox" *ngFor="let flightType of flightTypes | keyvalue"
                             value="{{flightType.key}}">{{ flightType.value }}</mat-option>
                     </mat-select>
@@ -44,11 +44,17 @@
                     <mat-form-field>
                         <mat-label>Departure airport</mat-label>
                         <input matInput type="text" name="departureCode" placeholder="Departure airport" formControlName="departureAirport">
+                        <mat-error *ngIf="searchForm.get('departureAirport')?.touched && searchForm.get('departureAirport')?.invalid">
+                            Departure airport is required
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field>
                         <mat-label>Arrival airport</mat-label>
                         <input matInput type="text" name="arrivalCode" placeholder="Arrival airport" formControlName="arrivalAirport">
+                        <mat-error *ngIf="searchForm.get('arrivalAirport')?.touched && searchForm.get('arrivalAirport')?.invalid">
+                            Arrival airport is required
+                        </mat-error>
                     </mat-form-field>
 
                     <!-- Either OR depends on the flight type -->
@@ -57,6 +63,9 @@
                         <input matInput [matDatepicker]="date" formControlName="departureDate">
                         <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
                         <mat-datepicker #date></mat-datepicker>
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.invalid">
+                            Departure date is required
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field *ngIf="!isOnewayFlight()">
@@ -67,7 +76,12 @@
                         </mat-date-range-input>
                         <mat-datepicker-toggle matIconSuffix [for]="dateRange"></mat-datepicker-toggle>
                         <mat-date-range-picker #dateRange></mat-date-range-picker>
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.invalid
+                        || (searchForm.get('returnDate')?.touched && searchForm.get('returnDate')?.invalid)">
+                            Departure and arrival date is required
+                        </mat-error>
                     </mat-form-field>
+
                     <span class="spacer"></span>
                     <div>
                         <button type="button" class="search-flight-button" mat-raised-button
@@ -78,6 +92,6 @@
         </mat-card>
     </div>
     <div>
-        <app-search-results></app-search-results>
+        <app-search-result-list></app-search-result-list>
     </div>
 </div>

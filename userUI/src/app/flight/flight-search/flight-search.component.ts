@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { flightTypesMap, FlightTypes } from '../model/enums/flight-types';
 import { FlightClassTypes, flightClassTypesMap } from '../model/enums/flight-class-types';
-import { Observable, combineLatest, map, startWith } from 'rxjs';
+import { combineLatest, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-flight-search',
@@ -15,7 +15,7 @@ import { Observable, combineLatest, map, startWith } from 'rxjs';
 export class FlightSearchComponent implements OnInit {
 
   searchForm!: FormGroup;
-  flightTypes: Map<FlightTypes,string> = flightTypesMap;
+  flightTypes: Map<FlightTypes, string> = flightTypesMap;
   isNonStopFlight: boolean = true;
 
   passangerNumber: string = '1 traveller';
@@ -31,7 +31,7 @@ export class FlightSearchComponent implements OnInit {
     this.calculateNumOfPassangers();
     this.getFlightClass();
   }
-  
+
   private initFormGroup(): void {
     this.searchForm = this.formBuilder.group({
       flightType: [FlightTypes.ONEWAY, Validators.required],
@@ -49,11 +49,11 @@ export class FlightSearchComponent implements OnInit {
 
   openPassangerDialog() {
     const dialog = this.dialog.open(PassangerOptionsComponent, {
-      data: {formGroup : this.searchForm},
+      data: { formGroup: this.searchForm },
       width: '30%'
     });
     dialog.afterClosed().subscribe(result => {
-    
+
     });
   }
 
@@ -83,29 +83,38 @@ export class FlightSearchComponent implements OnInit {
     }
   }
 
-  isOnewayFlight():boolean {
+  isOnewayFlight(): boolean {
     return this.searchForm.controls['flightType'].value === FlightTypes.ONEWAY;
   }
 
-  onFlightTypeChange() {
+  onFlightTypeChange(event: string) {
+    if (event === FlightTypes.MULTICITY) {
+      this.searchForm.controls['returnDate'].setValidators([Validators.required]);
+    } else {
+      this.searchForm.controls['returnDate'].setValidators(null);
+    }
     this.searchForm.controls['departureDate'].reset();
     this.searchForm.controls['returnDate'].reset();
   }
 
   searchForFlights() {
+    this.searchForm.markAllAsTouched();
+    if (this.searchForm.valid) {
+      console.log('all form is valid');
+    }
     console.log(this.searchForm);
     console.log(this.flightClass);
     console.log(this.passangerNumber);
   }
 
   private calculateNumOfPassangers(): void {
-    let numOfTravellers = 1;    
+    let numOfTravellers = 1;
     const adultObs = this.searchForm.controls['adultNumber'].valueChanges.pipe(startWith(this.searchForm.controls['adultNumber'].value));
     const childObs = this.searchForm.controls['childNumber'].valueChanges.pipe(startWith(this.searchForm.controls['childNumber'].value));
     const infantObs = this.searchForm.controls['infantNumber'].valueChanges.pipe(startWith(this.searchForm.controls['infantNumber'].value));
-    combineLatest([adultObs, childObs, infantObs]).subscribe(([adults,children,infants]) => {
+    combineLatest([adultObs, childObs, infantObs]).subscribe(([adults, children, infants]) => {
       numOfTravellers = adults + children + infants;
-      if (numOfTravellers === 1) {  
+      if (numOfTravellers === 1) {
         this.passangerNumber = numOfTravellers + ' traveller';
       } else {
         this.passangerNumber = numOfTravellers + ' travellers'
@@ -118,6 +127,5 @@ export class FlightSearchComponent implements OnInit {
       this.flightClass = flightClassTypesMap.get(flightClass);
     });
   }
+
 }
-
-
