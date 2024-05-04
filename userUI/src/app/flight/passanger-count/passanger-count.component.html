@@ -1,0 +1,16 @@
+<form [formGroup]="formGroup">
+    <div class="passanger-select no-arrow">
+        <h4 style="margin: 0; padding-right: 1em;">{{passanger?.value}}:</h4>
+        <span class="spacer"></span>
+        <button class="decrease-button" type="button" (click)="decreasePassangerQuantity()">
+            <mat-icon>remove</mat-icon>
+        </button>
+        <mat-select class="passanger-select-box" formControlName="{{passangerFormName}}">
+            <mat-option class="no-checkbox" *ngFor="let number of passanger?.maxQuantity" [value]="number">{{
+                number }}</mat-option>
+        </mat-select>
+        <button class="increase-button" type="button" (click)="increasePassangerQuantity()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</form>

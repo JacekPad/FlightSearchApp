@@ -14,7 +14,8 @@
                     </mat-select>
                     <button mat-button type="button" class="passanger-details" (click)="openPassangerDialog()">
                         <mat-icon>groups</mat-icon>
-                        Economy,2 travelers
+                        {{flightClass}},
+                        {{passangerNumber}}
                     </button>
 
                     <mat-card class="flight-parameters stops">
@@ -70,7 +71,7 @@
                     <span class="spacer"></span>
                     <div>
                         <button type="button" class="search-flight-button" mat-raised-button
-                            color="accent">SEARCH</button>
+                            color="accent" (click)="searchForFlights()">SEARCH</button>
                     </div>
                 </mat-card-content>
             </form>

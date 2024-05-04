@@ -10,6 +10,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PassangerOptionsComponent } from './passanger-options/passanger-options.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PassangerCountComponent } from './passanger-count/passanger-count.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlightDetailsComponent,
     PlaceholderComponent,
     SearchResultsComponent,
-    PassangerOptionsComponent
+    PassangerOptionsComponent,
+    PassangerCountComponent
   ],
   imports: [
     CommonModule,
