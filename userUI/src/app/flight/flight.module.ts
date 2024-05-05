@@ -11,7 +11,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PassangerCountComponent } from './passanger-count/passanger-count.component';
 import { SearchResultListComponent } from './search-results/search-result-list/search-result-list.component';
 import { SearchResultCardComponent } from './search-results/search-result-card/search-result-card.component';
-import { SearchResultDetailsComponent } from './search-results/search-result-details/search-result-details.component';
 import { BookingOptionsComponent } from './search-results/booking-options/booking-options.component';
 
 
@@ -24,7 +23,6 @@ import { BookingOptionsComponent } from './search-results/booking-options/bookin
     PassangerCountComponent,
     SearchResultListComponent,
     SearchResultCardComponent,
-    SearchResultDetailsComponent,
     BookingOptionsComponent
   ],
   imports: [

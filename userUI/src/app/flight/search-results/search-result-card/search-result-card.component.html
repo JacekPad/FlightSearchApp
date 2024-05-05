@@ -1,5 +1,5 @@
 <div class="main-flight-details">
-    <mat-card-content class="display">
+    <mat-card-content class="display" (click)="getFlightDetails()">
         <mat-card-content class="route-details">
             <div class="departure-details">
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin-bottom: 0.5em;">
@@ -31,7 +31,7 @@
         <mat-card-content class="flight-details">
             <div class="flight-details-content">
                 <mat-icon>schedule</mat-icon>
-                Duration: {{flightRoute.duration}} CHANGE FORMQT
+                Duration: {{calculateDuration()}}
             </div>
             <div class="flight-details-content">
                 <mat-icon>flight_class</mat-icon>
@@ -40,8 +40,8 @@
         </mat-card-content>
     </mat-card-content>
     <div class="price-options">
-        <div class="price-details" *ngFor="let num of [1,2,3]">
-            <app-booking-options></app-booking-options>
+        <div class="price-details" *ngFor="let pricing of flightRoute.prices">
+            <app-booking-options (click)="getPricingOptions(pricing.flightClass)" [prices]="pricing"></app-booking-options>
         </div>
     </div>
 </div>

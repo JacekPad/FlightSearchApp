@@ -32,6 +32,7 @@
     flex-direction: row;
     gap: 3em;
     margin-bottom: 3em;
+    flex-grow: 1;
 }
 
 .main-flight-details {
@@ -43,7 +44,12 @@
 }
 
 .display {
-    max-width: 50%;
+    max-width: 60%;
+    flex-grow: 1;
+}
+
+.display:hover, .price-options:hover {
+    cursor: pointer;
 }
 
 .price-options {
@@ -57,6 +63,7 @@
     flex-direction: row;
     align-items: center;
 }
+
 
 .price-details {
     flex-grow: 1;

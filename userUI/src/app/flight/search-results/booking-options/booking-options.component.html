@@ -1,11 +1,11 @@
 <div class="main">
-    <div>
-        <p>bname of the pricing</p>
+    <div class="flight-class-option">
+        <p>{{prices.flightClass}}</p>
     </div>
-    <div>
-        <p>samount of moni cost</p>
+    <div class="flight-price-option">
+        <p>{{calculatePrice() | currency }}</p>
     </div>
-    <div>
-        <p></p>
+    <div class="book-option">
+        <p>BOOK THE FLIGHT</p>
     </div>
 </div>

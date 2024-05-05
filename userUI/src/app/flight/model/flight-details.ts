@@ -1,8 +1,10 @@
+import { FlightPricingOption } from "./flight-pricing-option";
+
 export interface IFlightDetails {
     id: number,
     departureAirport: string,
     arrivalAirpot: string,
-    price: number,
+    pricing: FlightPricingOption[];
     airline: string,
     airplaneType: string,
     seatsLeft: number,
@@ -15,7 +17,7 @@ export class FlightDetails {
     public id: number;
     public departureAirport: string;
     public arrivalAirpot: string;
-    public price: number;
+    public pricing: FlightPricingOption[];
     public airline: string;
     public airplaneType: string;
     public seatsLeft: number;
@@ -29,7 +31,7 @@ export class FlightDetails {
         this.id = obj && obj.id;
         this.departureAirport = obj && obj.departureAirport;
         this.arrivalAirpot = obj && obj.arrivalAirpot;
-        this.price = obj && obj.price;
+        this.pricing = obj && obj.pricing;
         this.airline = obj && obj.airline;
         this.airplaneType = obj && obj.airplaneType;
         this.seatsLeft = obj && obj.seatsLeft;

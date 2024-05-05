@@ -1,1 +1,10 @@
 <p>flight-details works!</p>
+{{flight?.arrivalAirport}}
+{{flight?.arrivalDate}}
+{{flight?.duration}}
+{{flight?.seatsLeft}}
+
+<mat-card *ngFor="let flight of flight?.flights">
+    {{flight.arrivalAirpot}}
+    {{flight.arrivalDate}}
+</mat-card>

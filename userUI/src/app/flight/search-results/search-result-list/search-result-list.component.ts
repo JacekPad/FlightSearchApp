@@ -12,6 +12,7 @@ export class SearchResultListComponent implements OnInit {
 
   flightRoutes$?: Observable<FlightRoute[]>;
 
+  activeRouteDetails: FlightRoute | null = null;
 
   constructor(private flightService: FlightService) {}
 
@@ -23,9 +24,16 @@ export class SearchResultListComponent implements OnInit {
     return this.flightService.getObservable();
   }
 
-  test() {
-    this.getFlights().subscribe(resutl => {
-      console.log(resutl);
-    })
+  openFlightDetails(flightRoute: FlightRoute) {
+    console.log('this flight route is transmited');
+    console.log(flightRoute);
+    this.activeRouteDetails = flightRoute;
   }
+
+  onCloseDetails() {
+    this.activeRouteDetails = null;
+    console.log(this.activeRouteDetails);
+    
+  }
+
 }

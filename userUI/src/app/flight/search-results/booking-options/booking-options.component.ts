@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FlightPricingOption, IFlightPricingOption } from '../../model/flight-pricing-option';
 
 @Component({
   selector: 'app-booking-options',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class BookingOptionsComponent {
 
+  @Input()
+  prices!: IFlightPricingOption;
+
+
+
+  calculatePrice(): string {
+    let formatedPrice = this.prices.price / 100;
+    return formatedPrice.toString();
+  }
 }

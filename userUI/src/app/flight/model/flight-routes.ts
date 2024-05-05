@@ -1,11 +1,12 @@
-import { FlightDetails } from "./flight-details";
+import { FlightDetails, IFlightDetails } from "./flight-details";
+import { FlightPricingOption, IFlightPricingOption } from "./flight-pricing-option";
 
 export interface IFlightRoute {
-    flights: FlightDetails[],
+    flights: IFlightDetails[],
     departureAirport: string,
     arrivalAirport: string
     seatsLeft: number,
-    totalPrice: number,
+    prices: IFlightPricingOption[],
     departureDate: Date,
     arrivalDate: Date,
     duration: number,
@@ -13,11 +14,11 @@ export interface IFlightRoute {
 }
 
 export class FlightRoute {
-    public flights: FlightDetails[];
+    public flights: IFlightDetails[];
     public departureAirport: string;
     public arrivalAirport: string;
     public seatsLeft: number;
-    public totalPrice: number;
+    public prices: IFlightPricingOption[];
     public departureDate: Date;
     public arrivalDate: Date;
     public duration: number;
@@ -30,7 +31,7 @@ export class FlightRoute {
         this.departureAirport = obj && obj.departureAirport;
         this.arrivalAirport = obj && obj.arrivalAirport;
         this.seatsLeft = obj && obj.seatsLeft;
-        this.totalPrice = obj && obj.totalPrice;
+        this.prices = obj && obj.prices;
         this.departureDate = obj && obj.departureDate;
         this.arrivalDate = obj && obj.arrivalDate;
         this.duration = obj && obj.duration;
