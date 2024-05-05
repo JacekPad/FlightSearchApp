@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FlightRoute } from '../../model/flight-routes';
 
 @Component({
   selector: 'app-search-result-card',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class SearchResultCardComponent {
 
+
+  @Input()
+  flightRoute!: FlightRoute
+
+  constructor() {}
 }

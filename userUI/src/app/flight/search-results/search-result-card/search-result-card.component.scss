@@ -1,0 +1,68 @@
+.departure-details, .arrival-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+    color: #3b206d;
+}
+
+.path-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flight-details, .display {
+    display: flex;
+    flex-direction: column;
+    align-items:start
+}
+
+.flight-details-content {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.route-details {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    margin-bottom: 3em;
+}
+
+.main-flight-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5em;
+    height: 100%;
+}
+
+.display {
+    max-width: 50%;
+}
+
+.price-options {
+    border-left: 2px solid #3b206d;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 60%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.price-details {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.price-options > div:not(:last-child) {
+    border-right: 2px solid #3b206d;
+}

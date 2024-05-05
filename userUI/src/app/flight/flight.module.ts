@@ -6,13 +6,13 @@ import { FlightListComponent } from './flight-list/flight-list.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { MaterialImportsModule } from '../shared/material-imports/material-imports.module';
-import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { PassangerOptionsComponent } from './passanger-options/passanger-options.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PassangerCountComponent } from './passanger-count/passanger-count.component';
 import { SearchResultListComponent } from './search-results/search-result-list/search-result-list.component';
 import { SearchResultCardComponent } from './search-results/search-result-card/search-result-card.component';
 import { SearchResultDetailsComponent } from './search-results/search-result-details/search-result-details.component';
+import { BookingOptionsComponent } from './search-results/booking-options/booking-options.component';
 
 
 @NgModule({
@@ -20,12 +20,12 @@ import { SearchResultDetailsComponent } from './search-results/search-result-det
     FlightListComponent,
     FlightSearchComponent,
     FlightDetailsComponent,
-    PlaceholderComponent,
     PassangerOptionsComponent,
     PassangerCountComponent,
     SearchResultListComponent,
     SearchResultCardComponent,
-    SearchResultDetailsComponent
+    SearchResultDetailsComponent,
+    BookingOptionsComponent
   ],
   imports: [
     CommonModule,
