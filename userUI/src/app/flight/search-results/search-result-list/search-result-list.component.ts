@@ -11,9 +11,7 @@ import { FlightRoute } from '../../model/flight-routes';
 export class SearchResultListComponent implements OnInit {
 
   flightRoutes$?: Observable<FlightRoute[]>;
-
-  activeRouteDetails: FlightRoute | null = null;
-
+  
   constructor(private flightService: FlightService) {}
 
   ngOnInit(): void {
@@ -22,18 +20,6 @@ export class SearchResultListComponent implements OnInit {
 
   getFlights(): Observable<FlightRoute[]> {
     return this.flightService.getObservable();
-  }
-
-  openFlightDetails(flightRoute: FlightRoute) {
-    console.log('this flight route is transmited');
-    console.log(flightRoute);
-    this.activeRouteDetails = flightRoute;
-  }
-
-  onCloseDetails() {
-    this.activeRouteDetails = null;
-    console.log(this.activeRouteDetails);
-    
   }
 
 }

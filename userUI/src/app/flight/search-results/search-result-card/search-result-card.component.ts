@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FlightRoute } from '../../model/flight-routes';
+import { MatDialog } from '@angular/material/dialog';
+import { FlightDetailsComponent } from '../../flight-details/flight-details.component';
 
 @Component({
   selector: 'app-search-result-card',
@@ -11,25 +13,15 @@ export class SearchResultCardComponent {
   @Input()
   flightRoute!: FlightRoute
 
-  @Output()
-  flightDetailsEmitter: EventEmitter<FlightRoute> = new EventEmitter();
+  constructor(private dialog: MatDialog) {}
 
-  constructor() {}
-
-
-  calculateDuration(): string {
-    let duration = this.flightRoute.duration;
-    let formatedDuration = duration / 60;
-    if (duration < 60) {
-      return formatedDuration.toString().concat(' Minutes')
-    } else {
-      return formatedDuration.toString().concat(' Hours')
-    }
-  }
-
-  getFlightDetails() {
+  getFlightDetails(flightRoute: FlightRoute) {
     console.log('click works - flights');
-    this.flightDetailsEmitter.emit(this.flightRoute);
+    const flightDetailDialog = this.dialog.open(FlightDetailsComponent, {
+      data: { flightRoute: flightRoute},
+      width: '60%'
+    });
+    flightDetailDialog.afterClosed()
   }
 
   getPricingOptions(event: string) {

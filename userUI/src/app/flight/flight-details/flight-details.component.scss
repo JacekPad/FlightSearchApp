@@ -1,0 +1,55 @@
+.flight-route-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.flights {
+    margin: 1em;
+    border: 2px solid #3b206d;
+}
+
+.flight-route-details {
+    margin: 1em;
+    border: 2px solid #3b206d;
+}
+
+.flights-table {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+.flights-table-header {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-head {
+    color: #3b206d;
+}
+
+.table-content {
+
+}
+
+.dialog-close {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0.5em;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

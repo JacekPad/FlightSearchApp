@@ -1,0 +1,38 @@
+<mat-card-content class="route-details">
+    <div class="departure-details">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin-bottom: 0.5em;">
+            <mat-icon>flight_takeoff</mat-icon>
+            {{ flightRoute.departureDate | date : 'shortTime' }}
+        </div>
+        <div>
+            {{flightRoute.departureAirport}}
+        </div>
+    </div>
+    <div class="path-details">
+        <div>
+            stops
+        </div>
+        <div>
+            ----------------- {{flightRoute.numOfStops}} -----------------
+        </div>
+    </div>
+    <div class="arrival-details">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin-bottom: 0.5em;">
+            <mat-icon>flight_land</mat-icon>
+            {{ flightRoute.arrivalDate | date : 'shortTime'}}
+        </div>
+        <div>
+            {{flightRoute.arrivalAirport}}
+        </div>
+    </div>
+</mat-card-content>
+<mat-card-content class="flight-details">
+    <div class="flight-details-content">
+        <mat-icon>schedule</mat-icon>
+        Duration: {{calculateDuration()}}
+    </div>
+    <div class="flight-details-content">
+        <mat-icon>flight_class</mat-icon>
+        Number of empty seats left: {{ flightRoute.seatsLeft }}
+    </div>
+</mat-card-content>

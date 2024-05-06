@@ -98,6 +98,7 @@ export class FlightService {
     prices.push(pircing3);
 
     const flightRoute = new FlightRoute
+    flightRoute.id = 12345;
     flightRoute.flights = this.createFlight();
     flightRoute.departureAirport = flightRoute.flights[0].departureAirport;
     flightRoute.arrivalAirport = flightRoute.flights[2].arrivalAirpot;

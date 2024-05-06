@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FlightSearchComponent } from './flight/flight-search/flight-search.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { BookingRoutingModule } from './booking/booking-routing.module';
 
 const routes: Routes = [
   {path: '', component: FlightSearchComponent},
+  {path: 'booking', loadChildren: () => BookingRoutingModule},
   {path: '**', component: NotFoundComponent}
 ];
 

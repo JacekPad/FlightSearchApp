@@ -9,6 +9,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FlightModule } from './flight/flight.module';
 import { MaterialImportsModule } from './shared/material-imports/material-imports.module';
+import { BookingModule } from './booking/booking.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MaterialImportsModule } from './shared/material-imports/material-import
     BrowserModule,
     AppRoutingModule,
     FlightModule,
+    BookingModule,
     MaterialImportsModule
   ],
   providers: [

@@ -2,6 +2,7 @@ import { FlightDetails, IFlightDetails } from "./flight-details";
 import { FlightPricingOption, IFlightPricingOption } from "./flight-pricing-option";
 
 export interface IFlightRoute {
+    id: number
     flights: IFlightDetails[],
     departureAirport: string,
     arrivalAirport: string
@@ -14,6 +15,7 @@ export interface IFlightRoute {
 }
 
 export class FlightRoute {
+    public id: number
     public flights: IFlightDetails[];
     public departureAirport: string;
     public arrivalAirport: string;
@@ -27,6 +29,7 @@ export class FlightRoute {
     constructor();
     constructor(obj: IFlightRoute);
     constructor(obj?: any) {
+        this.id = obj && obj.id;
         this.flights = obj && obj.flight;
         this.departureAirport = obj && obj.departureAirport;
         this.arrivalAirport = obj && obj.arrivalAirport;

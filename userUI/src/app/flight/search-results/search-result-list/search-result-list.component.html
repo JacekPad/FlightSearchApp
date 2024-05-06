@@ -1,17 +1,10 @@
 <div class="main">
-    <mat-card class="flight-list" *ngIf="!activeRouteDetails; else details">
+    <mat-card class="flight-list">
         <mat-card-header>
             <h1>Flights</h1>
         </mat-card-header>
         <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes$ | async">
-            <app-search-result-card (flightDetailsEmitter)="openFlightDetails($event)" [flightRoute]="flightRoute"></app-search-result-card>
+            <app-search-result-card [flightRoute]="flightRoute"></app-search-result-card>
         </mat-card>
     </mat-card>
-
-    <ng-template #details>
-        <mat-card>
-            <button type="button" (click)="onCloseDetails()" mat-button>CLOSE</button>
-            <app-flight-details [flight]="activeRouteDetails"></app-flight-details>
-        </mat-card>
-    </ng-template>
 </div>

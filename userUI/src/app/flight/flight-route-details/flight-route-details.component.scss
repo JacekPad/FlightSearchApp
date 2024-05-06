@@ -1,0 +1,36 @@
+.departure-details, .arrival-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+    color: #3b206d;
+}
+
+.path-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flight-details {
+    display: flex;
+    flex-direction: column;
+    align-items:start
+}
+
+.flight-details-content {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.route-details {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    margin-bottom: 3em;
+    flex-grow: 1;
+}

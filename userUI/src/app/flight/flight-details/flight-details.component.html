@@ -1,10 +1,38 @@
-<p>flight-details works!</p>
-{{flight?.arrivalAirport}}
-{{flight?.arrivalDate}}
-{{flight?.duration}}
-{{flight?.seatsLeft}}
+<div>
+    <mat-dialog-content>
+        <mat-card class="flight-route-details">
+            <mat-card-header class="flight-route-header">Flight from {{flight.departureAirport}} to
+                {{flight.arrivalAirport}}</mat-card-header>
+            <mat-card-content class="flight-route-display">
+                <app-flight-route-details [flightRoute]="flight"></app-flight-route-details>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="flights">
+            <mat-card-header class="flights-table-header">Individual flights</mat-card-header>
+            <table class="flights-table">
+                <thead class="table-head">
+                    <th>Flight number</th>
+                    <th>Airline</th>
+                    <th>Airplane</th>
+                    <th>Departure airport</th>
+                    <th>Arrival airport</th>
+                    <th>Flight Duration</th>
+                </thead>
 
-<mat-card *ngFor="let flight of flight?.flights">
-    {{flight.arrivalAirpot}}
-    {{flight.arrivalDate}}
-</mat-card>
+                <tr *ngFor="let flight of flight.flights" class="table-content">
+                    <td>{{flight.id}}</td>
+                    <td>{{flight.airline}}</td>
+                    <td>{{flight.airplaneType}}</td>
+                    <td>{{flight.departureAirport}}</td>
+                    <td>{{flight.arrivalAirpot}}</td>
+                    <td>{{calculateDuration(flight.duration)}}</td>
+                </tr>
+            </table>
+        </mat-card>
+        <mat-dialog-actions class="dialog-close">
+            <span class="spacer"></span>
+            <button mat-flat-button mat-dialog-close color="primary">CLOSE</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+
+</div>
