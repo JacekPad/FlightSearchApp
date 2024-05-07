@@ -63,8 +63,11 @@
                         <input matInput [matDatepicker]="date" formControlName="departureDate">
                         <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
                         <mat-datepicker #date></mat-datepicker>
-                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.invalid">
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.hasError('required')">
                             Departure date is required
+                        </mat-error>
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.hasError('dateBeforeToday')">
+                            Departure date cannot be earlier than today
                         </mat-error>
                     </mat-form-field>
 
@@ -76,9 +79,12 @@
                         </mat-date-range-input>
                         <mat-datepicker-toggle matIconSuffix [for]="dateRange"></mat-datepicker-toggle>
                         <mat-date-range-picker #dateRange></mat-date-range-picker>
-                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.invalid
-                        || (searchForm.get('returnDate')?.touched && searchForm.get('returnDate')?.invalid)">
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.hasError('required')
+                        || (searchForm.get('returnDate')?.touched && searchForm.get('returnDate')?.hasError('required'))">
                             Departure and arrival date is required
+                        </mat-error>
+                        <mat-error *ngIf="searchForm.get('departureDate')?.touched && searchForm.get('departureDate')?.hasError('dateBeforeToday')">
+                            Departure date cannot be earlier than today
                         </mat-error>
                     </mat-form-field>
 

@@ -1,0 +1,106 @@
+.main-booking {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepper {
+    margin: 1em;
+}
+
+.booking-content {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-flight-details {
+    margin: 2em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 1em;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.stepper-buttons-start {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.stepper-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-field-group {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.passanger-header {
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.previous-button, .next-button {
+    margin-left: 2em;
+}
+
+.passanger-card, .information-card {
+    margin: 2em;
+}
+
+.booking-flight-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+}
+
+.booking-flight-class {
+    font-weight: bold;
+    font-size: large;
+    color: #3b206d;
+}
+
+.booking-flight-price {
+    font-weight: bold;
+    font-size: large;
+}

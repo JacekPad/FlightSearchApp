@@ -5,7 +5,8 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { BookingRoutingModule } from './booking/booking-routing.module';
 
 const routes: Routes = [
-  {path: '', component: FlightSearchComponent},
+  {path: 'flights', component: FlightSearchComponent},
+  {path: '', redirectTo: 'flights', pathMatch: 'full'},
   {path: 'booking', loadChildren: () => BookingRoutingModule},
   {path: '**', component: NotFoundComponent}
 ];

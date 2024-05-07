@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PassangerOptionsComponent } from '../passanger-options/passanger-options.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { flightTypesMap, FlightTypes } from '../model/enums/flight-types';
 import { FlightClassTypes, flightClassTypesMap } from '../model/enums/flight-class-types';
@@ -39,7 +39,7 @@ export class FlightSearchComponent implements OnInit {
       maxStops: [1, Validators.required],
       departureAirport: ['', Validators.required],
       arrivalAirport: ['', Validators.required],
-      departureDate: [null, Validators.required],
+      departureDate: [null, [Validators.required, this.departureDateValidator()]],
       returnDate: [null],
       adultNumber: [1, Validators.required],
       childNumber: [0, Validators.required],
@@ -128,4 +128,15 @@ export class FlightSearchComponent implements OnInit {
     });
   }
 
+  private departureDateValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key:string]: any} | null => {
+      const date = control.value == null ? null : new Date(control.value);
+      const today = new Date();
+      if (date != null && date < today) {        
+        return { dateBeforeToday: true};
+      } else {
+        return null;
+      }
+    };
+  }
 }

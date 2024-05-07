@@ -6,5 +6,5 @@ export enum PassangerType {
 
 export const passangerTypeMap = new Map<string, string>()
 .set(PassangerType.ADULT, 'Adult')
-.set(PassangerType.CHILD, 'Children')
+.set(PassangerType.CHILD, 'Child')
 .set(PassangerType.INFANT, 'Infant')

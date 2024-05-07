@@ -30,6 +30,9 @@ import { FlightRouteDetailsComponent } from './flight-route-details/flight-route
     FlightRoutingModule,
     MaterialImportsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    FlightRouteDetailsComponent
   ]
 })
 export class FlightModule { }
