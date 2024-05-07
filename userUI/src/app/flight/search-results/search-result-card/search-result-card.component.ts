@@ -23,10 +23,4 @@ export class SearchResultCardComponent {
     });
     flightDetailDialog.afterClosed()
   }
-
-  getPricingOptions(event: string) {
-    console.log('mioght be router and not click event [different page]');
-    console.log(event);
-    
-  }
 }

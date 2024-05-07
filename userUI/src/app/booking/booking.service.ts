@@ -15,7 +15,7 @@ import { PassangerType } from '../flight/model/enums/passanger-types';
 export class BookingService {
   constructor() { }
 
-  getBookingById(flightRouteId: number): Observable<FlightRoute> {
+  getBookingById(flightRouteId: number, flightClass: string): Observable<FlightRoute> {
     return of(this.createFlightRoute());
   }
 

@@ -1,0 +1,19 @@
+.footer {
+    background-color: #3b206d;
+}
+
+.footer-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3em;
+}
+
+.linkedin, .github {
+    color: white;
+}
+
+.email:hover {
+    cursor: pointer;
+}

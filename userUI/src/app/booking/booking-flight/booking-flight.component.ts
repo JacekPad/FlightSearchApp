@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FlightRoute } from '../../flight/model/flight-routes';
 import { BookingService } from '../booking.service';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { PassangerType, passangerTypeMap } from '../../flight/model/enums/passanger-types';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,14 +29,17 @@ export class BookingFlightComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      // get flightRoute param from ID and start booking process
-      this.flightRouteId = params['id'];
-      this.flightClass = params['class'];
-      this.flightRoute$ = this.bookingService.getBookingById(this.flightRouteId);
-      this.initFormGroup();
-      this.createForm();
+    this.route.queryParams.pipe(take(1)).subscribe(param => {
+      this.flightClass = param['class'];
     });
+    this.route.params.pipe(take(1)).subscribe((params: Params) => {      
+      this.flightRouteId = params['id'];
+      // send bookingId param and class param?
+      this.flightRoute$ = this.bookingService.getBookingById(this.flightRouteId, this.flightClass);
+      this.initFormGroup();
+      this.createPassengerForm();
+    });
+
   }
 
   private initFormGroup(): void {
@@ -48,16 +51,16 @@ export class BookingFlightComponent implements OnInit {
         child: this.formBuilder.array([]),
         infant: this.formBuilder.array([]),
       })
-    })
+    });
   }
 
-  private createForm() {
+  private createPassengerForm() {
     this.flightRoute$.subscribe(flightRoute => {
       flightRoute.passangers.forEach(passangerType => {
         for (let n = 0; n < passangerType.number; n++) {
           const formArray = this.bookingForm.get('passangers.'+passangerType.type.toLowerCase()) as FormArray;
           const passanger = this.formBuilder.group({
-            name: [n, Validators.required],
+            name: ['', Validators.required],
             surname: ['', Validators.required]
           });
           formArray.push(passanger);
