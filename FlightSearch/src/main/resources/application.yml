@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: FlightSearch
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: user
+      password: password
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
