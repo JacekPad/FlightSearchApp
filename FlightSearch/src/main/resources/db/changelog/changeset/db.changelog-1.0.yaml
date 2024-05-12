@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: changeset-1.0
+      author: me
+      comment: create test node
+      description: create Airline objects from .json file
+      changes:
+        - cypher: '
+                    CALL apoc.load.json("airlines.json") YIELD value
+                    MERGE (airline:AIRLINE {iata:value.iata})
+                    ON CREATE SET airline.name = value.name,
+                                  airline.logo_url = value.logo_url
+                  '

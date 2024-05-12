@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class FlightRouteController {
 
-    @GetMapping("")
+    @GetMapping("9")
     public void getFlightRoutes() {
 //    initial get flights from search params
     }
 
-    @GetMapping("")
+    @GetMapping("10")
     public void getFlightRoute() {
 //        get one flight route for booking from redis database (saved during flight route query)
     }

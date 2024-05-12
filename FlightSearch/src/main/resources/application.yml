@@ -4,8 +4,14 @@ spring:
   neo4j:
     uri: bolt://localhost:7687
     authentication:
-      username: user
-      password: password
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
+      username: neo4j
+      password: neo4j
+  liquibase:
+    driver-class-name: liquibase.ext.neo4j.database.jdbc.Neo4jDriver
+    url: jdbc:neo4j:bolt://localhost:7687
+    user: neo4j
+    password: neo4j
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none

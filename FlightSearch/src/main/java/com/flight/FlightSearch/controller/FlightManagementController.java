@@ -7,42 +7,42 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class FlightManagementController {
 
-    @GetMapping()
+    @GetMapping("1")
     public void getFlights() {
 //        get list of flights with search params
     }
 
-    @GetMapping()
+    @GetMapping("2")
     public void getFlight() {
 //        getFLightById
     }
 
-    @PostMapping()
+    @PostMapping("3")
     public void addFlight() {
 //        add new flight
     }
 
-    @PutMapping()
+    @PutMapping("4")
     public void updateFLight() {
 //        update flights parameters
     }
 
-    @PutMapping()
+    @PutMapping("5")
     public void updateFLightStatus() {
 //        update flights status to other than canceled / new
     }
 
-    @PutMapping()
+    @PutMapping("6")
     public void cancelFlight() {
 //         change flights status to canceled
     }
 
-    @DeleteMapping()
+    @DeleteMapping("7")
     public void removeFlight() {
 //        remove flight from the list
     }
 
-    @PutMapping()
+    @PutMapping("8")
     public void updatePassengerNumber() {
 //        update flights passenger number based on booked flights
     }

@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: changeset-2.0
+      author: me
+      comment: create test node
+      description: create country objects from .json file
+      changes:
+        - cypher: '
+                    CALL apoc.load.json("countries.json") YIELD value
+                    MERGE (country:COUNTRY {code:value.code})
+                    ON CREATE SET country.name = value.name
+                  '

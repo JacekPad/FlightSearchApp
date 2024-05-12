@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: changeset-4.0
+      author: me
+      comment: create test node
+      description: Initialize french airports, cities and countries
+      changes:
+        - cypher: '
+                    CALL apoc.load.json("airports_FR.json") YIELD value
+                    MERGE (airport:AIRPORT {iata:value.iata})
+                    ON CREATE SET 
+                      airport.name = value.name,
+                      airport.latitude = value.latitude,
+                      airport.longitude = value.longitude
+                    MERGE (city:CITY {name:value.city})
+                    MERGE (airport)-[:IS_IN]->(city)
+                    WITH value,city
+                    MATCH (country:COUNTRY {code:value.country})
+                    MERGE (city)-[:IS_IN]->(country)
+                  '

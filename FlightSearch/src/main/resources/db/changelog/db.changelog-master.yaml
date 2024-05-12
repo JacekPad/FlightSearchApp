@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: changeset/db.changelog-1.0.yaml
+  - include:
+      file: changeset/db.changelog-2.0.yaml
+  - include:
+      file: changeset/db.changelog-3.0.yaml
+  - include:
+      file: changeset/db.changelog-4.0.yaml
+  - include:
+      file: changeset/db.changelog-5.0.yaml
+  - include:
+      file: changeset/db.changelog-6.0.yaml
