@@ -11,3 +11,7 @@ databaseChangeLog:
       file: changeset/db.changelog-5.0.yaml
   - include:
       file: changeset/db.changelog-6.0.yaml
+  - include:
+      file: changeset/db.changelog-7.0.yaml
+  - include:
+      file: changeset/db.changelog-8.0.yaml

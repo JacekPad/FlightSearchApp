@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: changeset-3.0
+      author: me
+      comment: create test node
+      description: Initialize german airports, cities and countries
+      changes:
+        - cypher: '
+                    CREATE INDEX iata_codes for (a:Airport) on (a.iata);
+                    CREATE INDEX country_codes for (c:Country) on (c.code);
+                  '

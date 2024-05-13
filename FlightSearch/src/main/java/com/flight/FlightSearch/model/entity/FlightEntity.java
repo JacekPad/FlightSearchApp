@@ -16,12 +16,13 @@ public class FlightEntity {
     @GeneratedValue
     String flightId;
 
-    @Relationship(value = "FROM")
-    CityEntity from;
+    @Relationship(value = "FROM", direction = Relationship.Direction.OUTGOING)
+    AirportEntity from;
 
     @Relationship(value = "TO", direction = Relationship.Direction.OUTGOING)
-    CityEntity to;
+    AirportEntity to;
 
+    @Relationship(value = "FLIGHT_OPTION", direction = Relationship.Direction.OUTGOING)
     List<FlightPriceEntity> prices;
 
 //     TODO node?

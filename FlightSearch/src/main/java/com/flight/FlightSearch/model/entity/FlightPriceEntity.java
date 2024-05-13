@@ -9,11 +9,12 @@ import org.springframework.data.neo4j.core.schema.Node;
 import java.math.BigDecimal;
 
 @Data
-//@Node("Flight_Price")
+@Node("FlightPrice")
 public class FlightPriceEntity {
-//    @Id
-//    @GeneratedValue
-//    String id;
+
+    @Id
+    @GeneratedValue
+    String id;
 
     FlightClass flightClass;
 

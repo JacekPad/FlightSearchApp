@@ -7,6 +7,6 @@ databaseChangeLog:
       changes:
         - cypher: '
                     CALL apoc.load.json("countries.json") YIELD value
-                    MERGE (country:COUNTRY {code:value.code})
+                    MERGE (country:Country {code:value.code})
                     ON CREATE SET country.name = value.name
                   '

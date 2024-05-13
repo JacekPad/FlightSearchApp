@@ -1,0 +1,5002 @@
+[
+    {
+    "airline": "AF",
+    "fromIata": "OBF",
+    "toIata": "DIJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RMS",
+    "toIata": "KOI"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HDF",
+    "toIata": "ZOJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XGT",
+    "toIata": "BZZ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SNR",
+    "toIata": "KRH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LKZ",
+    "toIata": "NDZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PIS",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XSL",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MVV",
+    "toIata": "MGL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ERF",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CFR",
+    "toIata": "LME"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "EMA",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BRS",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DCM",
+    "toIata": "QFO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RCO",
+    "toIata": "EGC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PLH",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PGF",
+    "toIata": "NRL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "DCM",
+    "toIata": "DPE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "PSH",
+    "toIata": "XGT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "STR",
+    "toIata": "RHE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSC",
+    "toIata": "BAE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BZZ",
+    "toIata": "ZCD"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XCZ",
+    "toIata": "PSH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ORM",
+    "toIata": "EME"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BHX",
+    "toIata": "CET"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CTT",
+    "toIata": "QUG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QBQ",
+    "toIata": "WIC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BBH",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WRY",
+    "toIata": "NDZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WHS",
+    "toIata": "BBP"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NCE",
+    "toIata": "SYT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "INV",
+    "toIata": "ORY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SQZ",
+    "toIata": "XDA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NIT",
+    "toIata": "VTL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BBJ",
+    "toIata": "NTE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LBG",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SPM",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DOL",
+    "toIata": "BHX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SQZ",
+    "toIata": "NCL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "TUF",
+    "toIata": "SGE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AVN",
+    "toIata": "XLR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XLW",
+    "toIata": "MAN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LGW",
+    "toIata": "WTN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "VAF",
+    "toIata": "BWF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "KRK",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EDI",
+    "toIata": "VNE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "KRH",
+    "toIata": "NCY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EUM",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CLY",
+    "toIata": "BRS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CDG",
+    "toIata": "HLY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "RCO",
+    "toIata": "DLE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BHX",
+    "toIata": "ZAO"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "IDY",
+    "toIata": "FMM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DUS",
+    "toIata": "LSO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SZZ",
+    "toIata": "LCY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QEO",
+    "toIata": "BMK"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ABZ",
+    "toIata": "HEI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ESS",
+    "toIata": "URO"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSC",
+    "toIata": "ILY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "KRK",
+    "toIata": "CSO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DCM",
+    "toIata": "FMO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LTN",
+    "toIata": "OKH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CAL",
+    "toIata": "MME"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FFD",
+    "toIata": "ZWK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LCJ",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LGO",
+    "toIata": "NCE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "TXL",
+    "toIata": "FSS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LSI",
+    "toIata": "DSA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BEB",
+    "toIata": "KRK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DOL",
+    "toIata": "XCR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SOU",
+    "toIata": "BOU"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "TNF",
+    "toIata": "DCM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "GFR",
+    "toIata": "GAT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BBJ",
+    "toIata": "CGN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "KRK",
+    "toIata": "LDE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZCN",
+    "toIata": "WRO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AUR",
+    "toIata": "MHG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XME",
+    "toIata": "BSL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZPQ",
+    "toIata": "LRT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RLG",
+    "toIata": "CAX"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "RNE",
+    "toIata": "HHN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "KRK",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WRO",
+    "toIata": "BZG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "VHY",
+    "toIata": "CMF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BWF",
+    "toIata": "VNE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QUY",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XLR",
+    "toIata": "BOH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XMF",
+    "toIata": "MHG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FNI",
+    "toIata": "GWT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QLC",
+    "toIata": "BYF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BOU",
+    "toIata": "XGT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "AAH",
+    "toIata": "RYN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HRT",
+    "toIata": "BQH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "AUF",
+    "toIata": "GLO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LPL",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ILY",
+    "toIata": "AGE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AGB",
+    "toIata": "DND"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CSF",
+    "toIata": "EGC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ZWK",
+    "toIata": "LEH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XHE",
+    "toIata": "EDM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GLA",
+    "toIata": "BMK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "POZ",
+    "toIata": "LYE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CWL",
+    "toIata": "EXT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "STR",
+    "toIata": "ESH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RCS",
+    "toIata": "CZW"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MEN",
+    "toIata": "ESH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RZE",
+    "toIata": "BFE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FZO",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ODH",
+    "toIata": "CHR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DNR",
+    "toIata": "QYY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NWI",
+    "toIata": "XDK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DIJ",
+    "toIata": "CFR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CDG",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SQZ",
+    "toIata": "FFD"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ESS",
+    "toIata": "BOL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NVS",
+    "toIata": "VHY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CHR",
+    "toIata": "FZO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NDZ",
+    "toIata": "BWF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CWL",
+    "toIata": "XMF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SOU",
+    "toIata": "EOI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QLA",
+    "toIata": "OBN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SOU",
+    "toIata": "BEB"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BQH",
+    "toIata": "RDZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "VTL",
+    "toIata": "RHE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LGO",
+    "toIata": "BBJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "GFR",
+    "toIata": "XME"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LBA",
+    "toIata": "QLA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "OXF",
+    "toIata": "AHZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QEO",
+    "toIata": "AOC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZPQ",
+    "toIata": "TNF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LGO",
+    "toIata": "XLR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "EGC",
+    "toIata": "DPE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XMJ",
+    "toIata": "BXP"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BHX",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SWS",
+    "toIata": "FMO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ORM",
+    "toIata": "BBS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZMG",
+    "toIata": "XMK"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DRS",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LMO",
+    "toIata": "ZPQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NCY",
+    "toIata": "GUT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "YEO",
+    "toIata": "FRZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FEL",
+    "toIata": "NRD"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "HLY",
+    "toIata": "OXF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FZO",
+    "toIata": "TUF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "WIC",
+    "toIata": "GLO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FMM",
+    "toIata": "BBH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "KRK",
+    "toIata": "CZW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XDK",
+    "toIata": "XSL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BIQ",
+    "toIata": "LVA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ANE",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SGE",
+    "toIata": "PLH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BNJ",
+    "toIata": "GUT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ERF",
+    "toIata": "LDE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GDN",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XMW",
+    "toIata": "EUM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GDN",
+    "toIata": "NRN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "GUT",
+    "toIata": "LME"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PAD",
+    "toIata": "QOE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EBU",
+    "toIata": "YEO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LBA",
+    "toIata": "CAL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "POX",
+    "toIata": "QPM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LEQ",
+    "toIata": "WRO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WRO",
+    "toIata": "WIC"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BEQ",
+    "toIata": "QYY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "IEG",
+    "toIata": "MUC"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XMW",
+    "toIata": "NQT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QAM",
+    "toIata": "NRN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WTN",
+    "toIata": "BGN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FZO",
+    "toIata": "AHZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NCE",
+    "toIata": "XBV"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CGN",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "TRE",
+    "toIata": "QLC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BSL",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BHX",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "VNE",
+    "toIata": "BFE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "OXF",
+    "toIata": "BER"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ZPQ",
+    "toIata": "DUS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MGL",
+    "toIata": "COL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NWI",
+    "toIata": "QLC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CLY",
+    "toIata": "BFS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BRS",
+    "toIata": "SYT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HOQ",
+    "toIata": "EGC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DRS",
+    "toIata": "ISC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CVT",
+    "toIata": "LHR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MHZ",
+    "toIata": "XCX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CTT",
+    "toIata": "BAE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XAB",
+    "toIata": "LIG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BEX",
+    "toIata": "AVN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LDV",
+    "toIata": "ZOW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NWI",
+    "toIata": "SGE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "RNS",
+    "toIata": "POX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AGE",
+    "toIata": "DLE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EBU",
+    "toIata": "FEL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "OBN",
+    "toIata": "HRT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "PLH",
+    "toIata": "SCN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CEG",
+    "toIata": "SEN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LPY",
+    "toIata": "ADX"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EVX",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LCY",
+    "toIata": "RCS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BMK",
+    "toIata": "OBN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "URO",
+    "toIata": "URO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "REB",
+    "toIata": "LRT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "GLO",
+    "toIata": "DSA"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SBK",
+    "toIata": "XOG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QFO",
+    "toIata": "GTI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XMK",
+    "toIata": "DPE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LEJ",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LAI",
+    "toIata": "CMR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LBC",
+    "toIata": "RNE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NRL",
+    "toIata": "WTN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HAJ",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SCN",
+    "toIata": "SCN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NDZ",
+    "toIata": "MME"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CER",
+    "toIata": "LDE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "JUI",
+    "toIata": "EDM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "EXT",
+    "toIata": "EBU"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BBJ",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "PEF",
+    "toIata": "RNE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BRV",
+    "toIata": "QEO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EXT",
+    "toIata": "SBK"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LRT",
+    "toIata": "AJA"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "MZM",
+    "toIata": "KRH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "OBN",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSS",
+    "toIata": "XOG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NRL",
+    "toIata": "XAV"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XAC",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BRS",
+    "toIata": "SQZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ZOJ",
+    "toIata": "BWE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QIE",
+    "toIata": "NOD"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "VAF",
+    "toIata": "DND"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MEN",
+    "toIata": "PSL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CCF",
+    "toIata": "GAT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "KTW",
+    "toIata": "XMK"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XMF",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LEQ",
+    "toIata": "XBQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LGW",
+    "toIata": "ZPQ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WVN",
+    "toIata": "XAB"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "HZB",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FRA",
+    "toIata": "OXF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XCX",
+    "toIata": "XBV"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "POX",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BES",
+    "toIata": "KEL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "VAC",
+    "toIata": "PIK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AGF",
+    "toIata": "XAB"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "KOI",
+    "toIata": "XLW"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NVS",
+    "toIata": "CFE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QEF",
+    "toIata": "VTL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XHE",
+    "toIata": "XMW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "OHR",
+    "toIata": "BRS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LPY",
+    "toIata": "NVS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "TLS",
+    "toIata": "BZZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "YEO",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "HZB",
+    "toIata": "NRN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TLS",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LEJ",
+    "toIata": "WBG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ANE",
+    "toIata": "POX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "VHY",
+    "toIata": "XMF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AGB",
+    "toIata": "ENC"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZNF",
+    "toIata": "BLK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CER",
+    "toIata": "QLA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QFO",
+    "toIata": "KSF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "KTW",
+    "toIata": "GLO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QFO",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AUR",
+    "toIata": "XHE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LYS",
+    "toIata": "FRF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XBQ",
+    "toIata": "SYT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HAM",
+    "toIata": "XAC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "URO",
+    "toIata": "LMO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MSE",
+    "toIata": "SZZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SEN",
+    "toIata": "EOI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BOR",
+    "toIata": "MHZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ABZ",
+    "toIata": "BNJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RYN",
+    "toIata": "XCB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "IEG",
+    "toIata": "CTT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ORM",
+    "toIata": "QYD"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BFE",
+    "toIata": "LPL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MAN",
+    "toIata": "SQZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FKB",
+    "toIata": "HOQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HZB",
+    "toIata": "CEG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LYX",
+    "toIata": "LRT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BFE",
+    "toIata": "EDM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SOY",
+    "toIata": "LIL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GKE",
+    "toIata": "MSE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "STR",
+    "toIata": "CAL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "KTW",
+    "toIata": "QPM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QUY",
+    "toIata": "PGX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MRH",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LDV",
+    "toIata": "GLO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XVN",
+    "toIata": "ERF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "HAM",
+    "toIata": "NVS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BLK",
+    "toIata": "CAX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "HHN",
+    "toIata": "EDI"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QNJ",
+    "toIata": "LBI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PUF",
+    "toIata": "XVS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SZW",
+    "toIata": "LGO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BNJ",
+    "toIata": "PEF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QCY",
+    "toIata": "RNE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CWL",
+    "toIata": "WRY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EMA",
+    "toIata": "LKZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PEF",
+    "toIata": "DGX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LWK",
+    "toIata": "BOH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LYX",
+    "toIata": "MFX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CMF",
+    "toIata": "WIE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MRS",
+    "toIata": "ERF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "DOL",
+    "toIata": "MSE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "NWI",
+    "toIata": "BRS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "HUY",
+    "toIata": "SCS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RLG",
+    "toIata": "LEH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BZZ",
+    "toIata": "GLA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BBJ",
+    "toIata": "TXL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSS",
+    "toIata": "CBU"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "MME",
+    "toIata": "FKB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BGN",
+    "toIata": "GLA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FRA",
+    "toIata": "CTT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CEG",
+    "toIata": "TLS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NQT",
+    "toIata": "AOC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "STN",
+    "toIata": "FRA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WXF",
+    "toIata": "LIL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XFW",
+    "toIata": "NIT"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DSA",
+    "toIata": "CSA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "KRH",
+    "toIata": "EDI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "WVN",
+    "toIata": "ZAO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LDY",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "OBN",
+    "toIata": "RLG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EXT",
+    "toIata": "WRO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WXF",
+    "toIata": "BGN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CEG",
+    "toIata": "WMI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PLH",
+    "toIata": "BYF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MPL",
+    "toIata": "WVN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BRR",
+    "toIata": "HGL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "TRE",
+    "toIata": "XCZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CBU",
+    "toIata": "OBF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WHS",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CAX",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XVO",
+    "toIata": "DPE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BOU",
+    "toIata": "CBG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BAE",
+    "toIata": "PIS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XMJ",
+    "toIata": "FFD"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SOY",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "VNE",
+    "toIata": "XCX"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ESH",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSC",
+    "toIata": "MUC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TRE",
+    "toIata": "KTW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "POX",
+    "toIata": "LBC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZCD",
+    "toIata": "XVO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SZZ",
+    "toIata": "LVA"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CFE",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CMF",
+    "toIata": "LBC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CZW",
+    "toIata": "SGE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SOZ",
+    "toIata": "XLR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BNJ",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DOL",
+    "toIata": "SKL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "GAT",
+    "toIata": "QBQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XDK",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EGC",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ETZ",
+    "toIata": "RZE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LDE",
+    "toIata": "LPL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EVX",
+    "toIata": "SBK"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CLY",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "GWT",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QEF",
+    "toIata": "EGC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "IDY",
+    "toIata": "XMF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QYY",
+    "toIata": "CSO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "UPV",
+    "toIata": "XMK"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SKL",
+    "toIata": "HOQ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MVV",
+    "toIata": "QOB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QEF",
+    "toIata": "LDV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MPL",
+    "toIata": "PIS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ENK",
+    "toIata": "HDF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "STR",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PIK",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FDH",
+    "toIata": "HGL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SOY",
+    "toIata": "LCJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BGN",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XDA",
+    "toIata": "PGF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SBK",
+    "toIata": "RLG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DIJ",
+    "toIata": "XBQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BHD",
+    "toIata": "MGL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LUZ",
+    "toIata": "OHR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CEG",
+    "toIata": "DGX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CAL",
+    "toIata": "SWS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "RLG",
+    "toIata": "CZW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BMK",
+    "toIata": "LDY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BWE",
+    "toIata": "QLC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EMA",
+    "toIata": "SYY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BNJ",
+    "toIata": "STN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "AAH",
+    "toIata": "LGW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZQL",
+    "toIata": "QTJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QWS",
+    "toIata": "PGF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BZZ",
+    "toIata": "LHR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "IGS",
+    "toIata": "FRA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NUE",
+    "toIata": "CMF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CBU",
+    "toIata": "YEO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SZZ",
+    "toIata": "XMK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "MCU",
+    "toIata": "VAC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LBG",
+    "toIata": "NRN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BBJ",
+    "toIata": "SOU"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PRP",
+    "toIata": "QWS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LCY",
+    "toIata": "BGN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WXF",
+    "toIata": "CZW"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CER",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FNI",
+    "toIata": "VHY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QYY",
+    "toIata": "QYD"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MZM",
+    "toIata": "NCL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZOJ",
+    "toIata": "IEG"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QEF",
+    "toIata": "QLC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HAM",
+    "toIata": "MVV"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HLY",
+    "toIata": "REB"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FNI",
+    "toIata": "ORE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DOL",
+    "toIata": "EME"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BZR",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ZWK",
+    "toIata": "LDY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "IDY",
+    "toIata": "QUY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SYT",
+    "toIata": "CBU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "AGE",
+    "toIata": "DPE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LCY",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NRD",
+    "toIata": "SEN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BEX",
+    "toIata": "MRH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "STR",
+    "toIata": "SBK"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BER",
+    "toIata": "OXF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "GLO",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BBH",
+    "toIata": "XOG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BWF",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HZB",
+    "toIata": "LRH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LUZ",
+    "toIata": "EMA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "GUT",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AVN",
+    "toIata": "SCS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZQW",
+    "toIata": "DUS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QIE",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WVN",
+    "toIata": "AUR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XFW",
+    "toIata": "XGT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "KSF",
+    "toIata": "LPY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LSI",
+    "toIata": "LTQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TXL",
+    "toIata": "QLA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "REB",
+    "toIata": "UNT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XMJ",
+    "toIata": "MVV"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FKB",
+    "toIata": "XMJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "WXF",
+    "toIata": "DNR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BFS",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "PGF",
+    "toIata": "ENC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SCP",
+    "toIata": "XAV"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XCZ",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "RZE",
+    "toIata": "BEQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NCL",
+    "toIata": "SCP"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MME",
+    "toIata": "LGW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "PPW",
+    "toIata": "FRF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAV",
+    "toIata": "POX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XOG",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DSA",
+    "toIata": "AUR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AVN",
+    "toIata": "EVX"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XCB",
+    "toIata": "QUY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QUY",
+    "toIata": "LDY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SKL",
+    "toIata": "XSU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BBP",
+    "toIata": "ODH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "POX",
+    "toIata": "SPM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAC",
+    "toIata": "MPL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ABZ",
+    "toIata": "XTB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LSI",
+    "toIata": "RCO"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MFX",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BAE",
+    "toIata": "XLW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "AJA",
+    "toIata": "CNG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "VTL",
+    "toIata": "RNE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BMK",
+    "toIata": "FNB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XLR",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FMO",
+    "toIata": "NQT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BIA",
+    "toIata": "STN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NRD",
+    "toIata": "LBY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PIS",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WRO",
+    "toIata": "URO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XMK",
+    "toIata": "HZB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ENK",
+    "toIata": "CEQ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XAB",
+    "toIata": "BEQ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XVN",
+    "toIata": "LSO"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CQF",
+    "toIata": "LHA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QLA",
+    "toIata": "ESH"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BGN",
+    "toIata": "RDZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CVT",
+    "toIata": "POZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DOL",
+    "toIata": "LGO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "PLH",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "RCO",
+    "toIata": "MHZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LVA",
+    "toIata": "BBP"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BYU",
+    "toIata": "GTI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CBU",
+    "toIata": "TLS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MRH",
+    "toIata": "JUI"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "KSF",
+    "toIata": "WVN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "PIS",
+    "toIata": "EXT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LCJ",
+    "toIata": "CFE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MFX",
+    "toIata": "XTB"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HAJ",
+    "toIata": "STR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AAH",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ENK",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GLA",
+    "toIata": "GWT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QFO",
+    "toIata": "SPM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HAM",
+    "toIata": "LTN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "OBF",
+    "toIata": "SOY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XDK",
+    "toIata": "KTW"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TUF",
+    "toIata": "LEH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ETZ",
+    "toIata": "CSO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LEJ",
+    "toIata": "CTT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HHN",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QOE",
+    "toIata": "EDM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WTN",
+    "toIata": "EDM"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PGF",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "POX",
+    "toIata": "KRH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MVV",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SOZ",
+    "toIata": "QTJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WIC",
+    "toIata": "GNB"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "IGS",
+    "toIata": "GLO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NTE",
+    "toIata": "BOD"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CCF",
+    "toIata": "AVN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XSJ",
+    "toIata": "OXF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DNR",
+    "toIata": "LIG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CGN",
+    "toIata": "BLK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BZZ",
+    "toIata": "NTE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NWI",
+    "toIata": "XAC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "EPL",
+    "toIata": "AUR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CET",
+    "toIata": "INV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "AGE",
+    "toIata": "YEO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EGC",
+    "toIata": "HZB"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "JUI",
+    "toIata": "HHN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QIE",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CBG",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XMK",
+    "toIata": "LCJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SZW",
+    "toIata": "PLH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "URO",
+    "toIata": "MPL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CEG",
+    "toIata": "FDH"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WTN",
+    "toIata": "MVV"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZOW",
+    "toIata": "CSO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LUZ",
+    "toIata": "UIP"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LKZ",
+    "toIata": "XVO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CVT",
+    "toIata": "ISC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BFE",
+    "toIata": "YEO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CER",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "EVX",
+    "toIata": "POX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QLU",
+    "toIata": "QOB"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HAM",
+    "toIata": "DUS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NQT",
+    "toIata": "NRD"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QNX",
+    "toIata": "JUI"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HAM",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SXB",
+    "toIata": "MPL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BMR",
+    "toIata": "REB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RYN",
+    "toIata": "GDN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZPQ",
+    "toIata": "PEF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZOW",
+    "toIata": "CLY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QPM",
+    "toIata": "AUF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XLR",
+    "toIata": "HHN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SCS",
+    "toIata": "MRS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NDZ",
+    "toIata": "NRL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BSL",
+    "toIata": "WIE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XAV",
+    "toIata": "LDV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LMO",
+    "toIata": "XMF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PEF",
+    "toIata": "LBI"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ZCD",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GAT",
+    "toIata": "GTI"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WTN",
+    "toIata": "PUF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RHE",
+    "toIata": "QOE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DGX",
+    "toIata": "NRD"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ZWK",
+    "toIata": "PIK"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LRH",
+    "toIata": "XCX"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LYS",
+    "toIata": "MRH"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "GWT",
+    "toIata": "PUF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EPL",
+    "toIata": "CFR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LKZ",
+    "toIata": "OBF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "PRP",
+    "toIata": "LYN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QLC",
+    "toIata": "SCS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LSI",
+    "toIata": "XLW"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PSH",
+    "toIata": "XDK"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LCY",
+    "toIata": "ESS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LIG",
+    "toIata": "NOD"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ODH",
+    "toIata": "QNJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HRT",
+    "toIata": "FZO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LPL",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FMM",
+    "toIata": "HHN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "POZ",
+    "toIata": "XCX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QYD",
+    "toIata": "LIL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZNF",
+    "toIata": "HAJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QLC",
+    "toIata": "LEH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MCU",
+    "toIata": "XLR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NQT",
+    "toIata": "CSF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "OHR",
+    "toIata": "ODH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BXP",
+    "toIata": "NDZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SZW",
+    "toIata": "LDY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FSC",
+    "toIata": "BOR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LTN",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BOU",
+    "toIata": "GLA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QYR",
+    "toIata": "DNR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZCN",
+    "toIata": "FNB"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FDH",
+    "toIata": "XVN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QEO",
+    "toIata": "XBQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LMO",
+    "toIata": "CBU"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XMF",
+    "toIata": "BZZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DUS",
+    "toIata": "NQT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "THF",
+    "toIata": "QYY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ZOJ",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AJA",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QEO",
+    "toIata": "LEQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QTJ",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "OBF",
+    "toIata": "SOU"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XDA",
+    "toIata": "BZR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CEG",
+    "toIata": "CHR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SBK",
+    "toIata": "SYY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "AOC",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ENC",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LHA",
+    "toIata": "SXB"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ODH",
+    "toIata": "WTN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "TRE",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QYY",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BVA",
+    "toIata": "EUM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "NQT",
+    "toIata": "QPM"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NRL",
+    "toIata": "XAN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LHR",
+    "toIata": "BXP"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BAE",
+    "toIata": "ZPQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SQZ",
+    "toIata": "PLH"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ETZ",
+    "toIata": "DGX"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MAN",
+    "toIata": "CGN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SZW",
+    "toIata": "GFR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MEN",
+    "toIata": "CZW"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AGE",
+    "toIata": "RMS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WMI",
+    "toIata": "NCL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MHG",
+    "toIata": "SWS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "HAJ",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SOZ",
+    "toIata": "GKE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FMO",
+    "toIata": "LDY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XCX",
+    "toIata": "XAB"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FEL",
+    "toIata": "LBC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NUE",
+    "toIata": "FIE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "RNS",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "CHR",
+    "toIata": "VAF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BYU",
+    "toIata": "XLW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BIQ",
+    "toIata": "AJA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XHE",
+    "toIata": "JUI"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DOL",
+    "toIata": "CET"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ESS",
+    "toIata": "CSF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HAJ",
+    "toIata": "LCY"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WTN",
+    "toIata": "QTJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EPL",
+    "toIata": "CNG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "URO",
+    "toIata": "FRA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LRT",
+    "toIata": "LEH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BOU",
+    "toIata": "WHS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LTT",
+    "toIata": "DUS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "UPV",
+    "toIata": "HAW"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SOZ",
+    "toIata": "QLU"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LWK",
+    "toIata": "QOE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XGT",
+    "toIata": "QUG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QOE",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FSS",
+    "toIata": "NIT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FZO",
+    "toIata": "CER"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RHE",
+    "toIata": "RNE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WBG",
+    "toIata": "OBN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XVS",
+    "toIata": "DNR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NDZ",
+    "toIata": "GKE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LBG",
+    "toIata": "BRV"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DCM",
+    "toIata": "HRT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XFW",
+    "toIata": "BNJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QEO",
+    "toIata": "KOI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QPM",
+    "toIata": "STR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CHR",
+    "toIata": "ANG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "VHY",
+    "toIata": "MPL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AJA",
+    "toIata": "BBH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CDG",
+    "toIata": "BRV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XMF",
+    "toIata": "CVT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MRS",
+    "toIata": "QLU"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LSO",
+    "toIata": "VHY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAC",
+    "toIata": "OSZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PUF",
+    "toIata": "EMA"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GAT",
+    "toIata": "FZO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CSA",
+    "toIata": "SQZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EVX",
+    "toIata": "WMI"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WTN",
+    "toIata": "LEJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "IGS",
+    "toIata": "LYX"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BEB",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LAI",
+    "toIata": "BLK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LEJ",
+    "toIata": "QIE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MSE",
+    "toIata": "XMK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BWE",
+    "toIata": "DOL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LBY",
+    "toIata": "BBP"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XLW",
+    "toIata": "JUI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BZR",
+    "toIata": "QNJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QEF",
+    "toIata": "DGX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RCO",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CTT",
+    "toIata": "KEL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WVN",
+    "toIata": "PPW"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XFW",
+    "toIata": "GKE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "DSA",
+    "toIata": "CHR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NQT",
+    "toIata": "QYR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DSA",
+    "toIata": "IGS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "PSH",
+    "toIata": "INV"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "GWT",
+    "toIata": "OKH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AHZ",
+    "toIata": "XBV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BEB",
+    "toIata": "SCS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LDV",
+    "toIata": "CSA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NVS",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LIL",
+    "toIata": "XBQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "PIS",
+    "toIata": "BER"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BMK",
+    "toIata": "BQH"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "URO",
+    "toIata": "CET"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SGE",
+    "toIata": "ADX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HRT",
+    "toIata": "QTJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ODH",
+    "toIata": "FRF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LBC",
+    "toIata": "WIC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MUC",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BER",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GDN",
+    "toIata": "CET"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAS",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CSF",
+    "toIata": "TUF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "COL",
+    "toIata": "MAN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "EXT",
+    "toIata": "SGE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XMK",
+    "toIata": "BQH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MRH",
+    "toIata": "RLG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XMK",
+    "toIata": "FDH"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "GFR",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "AGF",
+    "toIata": "XLW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "OBS",
+    "toIata": "BXP"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ADX",
+    "toIata": "XDA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CVT",
+    "toIata": "LGO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZNF",
+    "toIata": "FIE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FMO",
+    "toIata": "SYT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "THF",
+    "toIata": "XCX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "MGL",
+    "toIata": "ISC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QEF",
+    "toIata": "BWF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QLA",
+    "toIata": "BIQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LPL",
+    "toIata": "WHS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XTB",
+    "toIata": "FIE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MCU",
+    "toIata": "COL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CVT",
+    "toIata": "CAL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZQW",
+    "toIata": "XME"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ETZ",
+    "toIata": "POZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SCS",
+    "toIata": "QYD"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XAN",
+    "toIata": "VAF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GNB",
+    "toIata": "XCZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WHS",
+    "toIata": "BWF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QMZ",
+    "toIata": "LDV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZOW",
+    "toIata": "FSC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BMK",
+    "toIata": "LBA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XBV",
+    "toIata": "QYY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BEQ",
+    "toIata": "BAE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "YEO",
+    "toIata": "FRZ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XFW",
+    "toIata": "REB"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "MHZ",
+    "toIata": "LBA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BBS",
+    "toIata": "URO"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EDI",
+    "toIata": "FMO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DCM",
+    "toIata": "TXL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CQF",
+    "toIata": "MRH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LAI",
+    "toIata": "DIJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LGW",
+    "toIata": "PAD"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "THF",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BZG",
+    "toIata": "QPM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XME",
+    "toIata": "BOR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SCP",
+    "toIata": "XMW"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NDY",
+    "toIata": "UPV"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MXN",
+    "toIata": "CEQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EMA",
+    "toIata": "UPV"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BOU",
+    "toIata": "XMJ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NDY",
+    "toIata": "NTE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SNR",
+    "toIata": "FRZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FRZ",
+    "toIata": "ZCN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CAL",
+    "toIata": "DIJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LBG",
+    "toIata": "OXF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CQF",
+    "toIata": "WIE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LEQ",
+    "toIata": "TLS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HAM",
+    "toIata": "RBM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FRF",
+    "toIata": "GTI"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SCP",
+    "toIata": "SYY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ADX",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "DRS",
+    "toIata": "BBJ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ORY",
+    "toIata": "EVX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QFO",
+    "toIata": "INV"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ADX",
+    "toIata": "GNB"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "WMI",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LEQ",
+    "toIata": "QEO"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LTN",
+    "toIata": "QFO"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "WBG",
+    "toIata": "HOQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LYN",
+    "toIata": "LYX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "URO",
+    "toIata": "LEQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CNG",
+    "toIata": "MME"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ZPQ",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MEN",
+    "toIata": "AVN"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EDI",
+    "toIata": "MUC"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FSS",
+    "toIata": "FMM"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XLN",
+    "toIata": "UNT"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "SQZ",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CEQ",
+    "toIata": "QUG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "NRN",
+    "toIata": "PSH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LYN",
+    "toIata": "BMK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "HDF",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SZZ",
+    "toIata": "XME"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ODH",
+    "toIata": "BER"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LYX",
+    "toIata": "NTE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAN",
+    "toIata": "BXP"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BHD",
+    "toIata": "LBA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HAM",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "EDI",
+    "toIata": "UNT"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "ZQW",
+    "toIata": "HHN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "YEO",
+    "toIata": "NCY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FNI",
+    "toIata": "VAF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AHZ",
+    "toIata": "SEN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TNF",
+    "toIata": "AVN"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "GLA",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BMK",
+    "toIata": "KRH"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HEI",
+    "toIata": "XCR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XCR",
+    "toIata": "BEB"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "OBN",
+    "toIata": "DLE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CHR",
+    "toIata": "HAM"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CLY",
+    "toIata": "ISC"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RCO",
+    "toIata": "UNT"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SCN",
+    "toIata": "DSA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "AJA",
+    "toIata": "QAM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XME",
+    "toIata": "DIJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ZQL",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NDZ",
+    "toIata": "XLR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QUY",
+    "toIata": "ADX"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MME",
+    "toIata": "ESH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MRH",
+    "toIata": "LVA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BHD",
+    "toIata": "CNG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SWS",
+    "toIata": "ZOJ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WIE",
+    "toIata": "LYE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BFS",
+    "toIata": "XCZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "OHR",
+    "toIata": "LTT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "PGF",
+    "toIata": "BMK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CTT",
+    "toIata": "XVN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TXL",
+    "toIata": "MZM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "HGL",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "CGN",
+    "toIata": "FEL"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SGE",
+    "toIata": "NCE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QCY",
+    "toIata": "ZPQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FSC",
+    "toIata": "EGC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "QNJ",
+    "toIata": "RLG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BRR",
+    "toIata": "XCB"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LHA",
+    "toIata": "WXF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BQH",
+    "toIata": "CET"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LVA",
+    "toIata": "NRL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SWS",
+    "toIata": "XAB"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WIC",
+    "toIata": "BZR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ANE",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BAE",
+    "toIata": "EMA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BQH",
+    "toIata": "XMW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZAO",
+    "toIata": "BER"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "HZB",
+    "toIata": "LPY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "DGX",
+    "toIata": "SWS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LUZ",
+    "toIata": "XLN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DNR",
+    "toIata": "ZWK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ADX",
+    "toIata": "SOY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FMM",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "ESH",
+    "toIata": "MCU"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SQZ",
+    "toIata": "LCY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HDF",
+    "toIata": "CNG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAB",
+    "toIata": "AJA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BEB",
+    "toIata": "BBS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AGE",
+    "toIata": "MHG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "RCS",
+    "toIata": "EME"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAC",
+    "toIata": "AGE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "SPM",
+    "toIata": "BWE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "THF",
+    "toIata": "RCO"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NQY",
+    "toIata": "XGT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CQF",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "IGS",
+    "toIata": "DCM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XVS",
+    "toIata": "BYF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GTI",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BZG",
+    "toIata": "VTL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CFR",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XAC",
+    "toIata": "QBQ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LGO",
+    "toIata": "RHE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "GDN",
+    "toIata": "WBG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "OSZ",
+    "toIata": "EVX"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EME",
+    "toIata": "SNR"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "NOD",
+    "toIata": "IDY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "MHZ",
+    "toIata": "HLY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XAB",
+    "toIata": "LCY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BQH",
+    "toIata": "PGX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "AVN",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XVN",
+    "toIata": "VAC"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "VNE",
+    "toIata": "PGF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "FNI",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XMJ",
+    "toIata": "BBP"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BZR",
+    "toIata": "NHT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "KOI",
+    "toIata": "LVA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LPL",
+    "toIata": "CWL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QYD",
+    "toIata": "VTL"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LIL",
+    "toIata": "BIQ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CSA",
+    "toIata": "SOZ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FIE",
+    "toIata": "DSA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XSU",
+    "toIata": "GDN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LCY",
+    "toIata": "GUT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XSJ",
+    "toIata": "LIG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "HZB",
+    "toIata": "BNJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "VIY",
+    "toIata": "MHZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PLH",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "MHG",
+    "toIata": "ESS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DCM",
+    "toIata": "NQT"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FIE",
+    "toIata": "PIK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "UIP",
+    "toIata": "NUE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EDM",
+    "toIata": "TXL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BRE",
+    "toIata": "QPM"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "TUF",
+    "toIata": "CBU"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "YEO",
+    "toIata": "BVE"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ORE",
+    "toIata": "SNR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "KSF",
+    "toIata": "QFO"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XAB",
+    "toIata": "BOL"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "NUE",
+    "toIata": "CBU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "QYR",
+    "toIata": "NDY"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BLK",
+    "toIata": "CDG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "GNB",
+    "toIata": "XMJ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BWE",
+    "toIata": "NWI"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "JUI",
+    "toIata": "CMF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "SXB",
+    "toIata": "MHZ"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "WRY",
+    "toIata": "ORM"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BNJ",
+    "toIata": "MFX"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "GLA",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "DND",
+    "toIata": "SQZ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "RNE",
+    "toIata": "FSC"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "LBG",
+    "toIata": "TRE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CFR",
+    "toIata": "VHY"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "WRY",
+    "toIata": "KOI"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "XGT",
+    "toIata": "AHZ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AHZ",
+    "toIata": "AUR"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "XTB",
+    "toIata": "UIP"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "DRS",
+    "toIata": "QUY"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "BEX",
+    "toIata": "OKH"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "FKB",
+    "toIata": "INV"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FAB",
+    "toIata": "BHD"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "WHS",
+    "toIata": "TLS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BFE",
+    "toIata": "NUE"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CER",
+    "toIata": "HOQ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "KRK",
+    "toIata": "ESS"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BOL",
+    "toIata": "RMS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BZR",
+    "toIata": "QYR"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "LBI",
+    "toIata": "ZCN"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "URO",
+    "toIata": "LBA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "CFE",
+    "toIata": "ETZ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "XTB",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "WBG",
+    "toIata": "OBS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LCJ",
+    "toIata": "LYX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HUY",
+    "toIata": "MCU"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ENK",
+    "toIata": "QUG"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "TLS",
+    "toIata": "FIE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "DNR",
+    "toIata": "CQF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "RLG",
+    "toIata": "LYS"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NWI",
+    "toIata": "FIE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "EME",
+    "toIata": "BYU"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "AUF",
+    "toIata": "XDA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "VHY",
+    "toIata": "AGF"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QUY",
+    "toIata": "BVA"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BBS",
+    "toIata": "KRK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FNB",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "NCY",
+    "toIata": "LWK"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ENC",
+    "toIata": "QUG"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "KEL",
+    "toIata": "LUZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "OXF",
+    "toIata": "TUF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BQH",
+    "toIata": "RZE"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BRE",
+    "toIata": "CTT"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "KTW",
+    "toIata": "XSU"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XAV",
+    "toIata": "LEQ"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "SOY",
+    "toIata": "PUF"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "ZAO",
+    "toIata": "BMK"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XCX",
+    "toIata": "LHA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NQY",
+    "toIata": "MGL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "QLA",
+    "toIata": "HAM"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "EVX",
+    "toIata": "NQY"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "NTE",
+    "toIata": "MHG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ERF",
+    "toIata": "MXN"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BNJ",
+    "toIata": "CSA"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "QNJ",
+    "toIata": "AAH"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BOD",
+    "toIata": "LCJ"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "OKH",
+    "toIata": "XAN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LIL",
+    "toIata": "BOR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "FSC",
+    "toIata": "RNS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "EOI",
+    "toIata": "SKL"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "FSC",
+    "toIata": "QWS"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "VNE",
+    "toIata": "CSA"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ORE",
+    "toIata": "WTN"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "LRH",
+    "toIata": "QLA"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "SCP",
+    "toIata": "DIJ"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "BRS",
+    "toIata": "ZMG"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "HHN",
+    "toIata": "FAB"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "ZWK",
+    "toIata": "CER"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "BGN",
+    "toIata": "FSS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "NIT",
+    "toIata": "CTT"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "PSH",
+    "toIata": "BZG"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "CFR",
+    "toIata": "KTW"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "MFX",
+    "toIata": "AUF"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "GTI",
+    "toIata": "BHX"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "HEI",
+    "toIata": "DND"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "AOC",
+    "toIata": "MHG"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "TUF",
+    "toIata": "BWF"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BQH",
+    "toIata": "KOI"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "XOG",
+    "toIata": "NIT"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "ORE",
+    "toIata": "FSC"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "OSZ",
+    "toIata": "THF"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LSO",
+    "toIata": "XBV"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "XBQ",
+    "toIata": "FMM"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "QNX",
+    "toIata": "BRR"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "CER",
+    "toIata": "XME"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "FDH",
+    "toIata": "DLE"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "LIL",
+    "toIata": "LHR"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "NDY",
+    "toIata": "AHZ"
+    },
+    {
+    "airline": "BA",
+    "fromIata": "BOD",
+    "toIata": "NOD"
+    },
+    {
+    "airline": "SN",
+    "fromIata": "YEO",
+    "toIata": "PIK"
+    },
+    {
+    "airline": "LO",
+    "fromIata": "BOD",
+    "toIata": "XVS"
+    },
+    {
+    "airline": "AF",
+    "fromIata": "LHA",
+    "toIata": "DOL"
+    },
+    {
+    "airline": "LH",
+    "fromIata": "DNR",
+    "toIata": "QLU"
+    }
+]
