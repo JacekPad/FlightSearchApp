@@ -6,7 +6,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class FlightPriceDTO {
+public class FlightOptionDTO {
 
     FlightClass flightClass;
     BigDecimal price;

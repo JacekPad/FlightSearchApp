@@ -22,11 +22,11 @@ public class FlightEntity {
     @Relationship(value = "TO", direction = Relationship.Direction.OUTGOING)
     AirportEntity to;
 
-    @Relationship(value = "FLIGHT_OPTION", direction = Relationship.Direction.OUTGOING)
-    List<FlightPriceEntity> prices;
+    @Relationship(value = "OPTION", direction = Relationship.Direction.OUTGOING)
+    List<FlightOptionEntity> options;
 
-//     TODO node?
-    String airline;
+    @Relationship(value = "BELONGS_TO", direction = Relationship.Direction.OUTGOING)
+    AirlineEntity airline;
 
 //    TODO node?
     String airplane;

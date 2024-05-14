@@ -1,22 +1,18 @@
 package com.flight.FlightSearch.model.entity;
 
-import com.flight.FlightSearch.model.enums.FlightClass;
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
-import java.math.BigDecimal;
-
+@Node("Airline")
 @Data
-@Node("FlightPrice")
-public class FlightPriceEntity {
+public class AirlineEntity {
 
     @Id
     @GeneratedValue
     String id;
-
-    FlightClass flightClass;
-
-    BigDecimal price;
+    String iata;
+    String name;
+    String logo_url;
 }

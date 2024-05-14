@@ -11,7 +11,8 @@ databaseChangeLog:
                     ON CREATE SET 
                       airport.name = value.name,
                       airport.latitude = value.latitude,
-                      airport.longitude = value.longitude
+                      airport.longitude = value.longitude,
+                      airport.timezone = value.timezone
                     MERGE (city:City {name:value.city})
                     MERGE (airport)-[:IS_IN]->(city)
                     WITH value,city

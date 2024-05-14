@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: changeset-6.0
+      id: changeset-8.0
       author: me
       comment: create test node
       description: Initialize dummy flights to populate the database for testing purposes
@@ -8,6 +8,8 @@ databaseChangeLog:
         - cypher: '
                     CALL apoc.load.json("flights.json") YIELD value
                     CREATE (flight:Flight)
+                    FOREACH (options in value.flightOptions | CREATE (option:FlightOption {flightClass:options.flightClass, price:options.price, seats:options.seats})
+                    MERGE (flight)-[:OPTION]->(option))
                     WITH value,flight
                     MATCH (airportTo:Airport {iata:value.toIata})
                     MATCH (airportFrom:Airport {iata:value.fromIata})

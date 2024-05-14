@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: changeset-3.0
+      id: changeset-7.0
       author: me
       comment: create test node
       description: Initialize german airports, cities and countries

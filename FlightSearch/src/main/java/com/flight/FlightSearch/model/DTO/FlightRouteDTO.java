@@ -15,7 +15,7 @@ public class FlightRouteDTO {
     CityDTO arrivalAirport;
     ZonedDateTime departureTime;
     ZonedDateTime arrivalTime;
-    List<FlightPriceDTO> prices;
+    List<FlightOptionDTO> prices;
     Long duration;
     Integer stops;
     Integer seatsLeft;
