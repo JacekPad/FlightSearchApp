@@ -7,7 +7,7 @@ databaseChangeLog:
       changes:
         - cypher: '
                     CALL apoc.load.json("flights.json") YIELD value
-                    CREATE (flight:Flight)
+                    CREATE (flight:Flight {departureDate:localdatetime(value.departureDate), arrivalDate:localdatetime(value.arrivalDate)})
                     FOREACH (options in value.flightOptions | CREATE (option:FlightOption {flightClass:options.flightClass, price:options.price, seats:options.seats})
                     MERGE (flight)-[:OPTION]->(option))
                     WITH value,flight

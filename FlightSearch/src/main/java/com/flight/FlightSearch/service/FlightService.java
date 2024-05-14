@@ -1,10 +1,11 @@
 package com.flight.FlightSearch.service;
 
-import com.flight.FlightSearch.model.entity.FlightEntity;
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
+import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 
 import java.util.List;
 
 public interface FlightService {
 
-    List<List<FlightEntity>> findFlightRoutes(String fromCityIata, String toCityIata, int steps, int seatsRequired, String flightClass);
+    List<FlightRouteDTO> prepareFlightRoutes(FlightRouteSearchParams params);
 }

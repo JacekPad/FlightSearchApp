@@ -1,5 +1,7 @@
 package com.flight.FlightSearch.service;
 
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
+import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.entity.AirlineEntity;
 import com.flight.FlightSearch.model.entity.AirportEntity;
 import com.flight.FlightSearch.model.entity.FlightEntity;
@@ -13,9 +15,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -27,17 +32,50 @@ public class FlightServiceImpl implements FlightService {
     private final AirportRepository airportRepository;
     private final AirlineRepository airlineRepository;
 
+
     @Override
-    public List<List<FlightEntity>> findFlightRoutes(String fromCityIata, String toCityIata, int steps, int seatsRequired, String flightClass) {
-        log.info("SERVICE - START");
+    public List<FlightRouteDTO> prepareFlightRoutes(FlightRouteSearchParams params) {
+        AirportEntity departureAirport = airportRepository.findByIata(params.getDepartureAirportIata());
+        AirportEntity arrivalAirport = airportRepository.findByIata(params.getArrivalAirportIata());
+        List<FlightRouteDTO> routes = new ArrayList<>();
+        List<List<FlightEntity>> flightPaths = findFlights(params);
+        for (List<FlightEntity> flightPath : flightPaths) {
+            FlightRouteDTO route = new FlightRouteDTO();
+            route.setFlights(flightPath);
+            route.setDepartureAirport(departureAirport);
+            route.setArrivalAirport(arrivalAirport);
+            route.setSeatsLeft(calculateSeatsLeft(params.getFlightClass(), flightPath));
+            route.setDuration(calculateDuration(flightPath));
+            route.setStops(flightPath.size());
+            routes.add(route);
+        }
+        return routes;
+    }
+
+    private long calculateDuration(List<FlightEntity> flightPath) {
+        LocalDateTime departureDate = flightPath.get(0).getDepartureDate();
+        LocalDateTime arrivalDate = flightPath.get(flightPath.size() - 1).getArrivalDate();
+        return Duration.between(departureDate, arrivalDate).toMinutes();
+    }
+
+    private int calculateSeatsLeft(FlightClass flightClass, List<FlightEntity> flightPath) {
+        return flightPath.stream()
+                .map(s -> s.getOptions().stream()
+                        .filter(opt -> opt.getFlightClass().equals(flightClass)).findFirst().orElseThrow(NoSuchElementException::new))
+                .mapToInt(FlightOptionEntity::getSeats).min().orElseThrow(NoSuchElementException::new);
+    }
+
+    private List<List<FlightEntity>> findFlights(FlightRouteSearchParams params) {
+        log.info("SERVICE: findFlightRoutes - START");
+        LocalDateTime now = LocalDateTime.now();
         List<List<FlightEntity>> flights = new ArrayList<>();
-        AirportEntity airport = airportRepository.findByIata(fromCityIata);
-        dfs(airport, toCityIata, 0, flights, new ArrayList<>(), new HashSet<>(), steps, seatsRequired, flightClass);
-        log.info("Flights found: {}", flights);
+        AirportEntity airport = airportRepository.findByIata(params.getDepartureAirportIata());
+        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), params.getNoOfSeats(), params.getFlightClass(), now);
+        log.info("SERVICE: findFlightRoutes - END - Flights found: {}", flights);
         return flights;
     }
 
-    private void dfs(AirportEntity currentAirport, String arrivalAirportIata, int depth, List<List<FlightEntity>> flights, List<FlightEntity> currPath, HashSet<String> visited, int maxSteps, int seats, String flightClass) {
+    private void dfs(AirportEntity currentAirport, String arrivalAirportIata, int depth, List<List<FlightEntity>> flights, List<FlightEntity> currPath, HashSet<String> visited, int maxSteps, int seats, FlightClass flightClass, LocalDateTime minDepartureTime) {
         if (arrivalAirportIata.equals(currentAirport.getIata())) {
             flights.add(new ArrayList<>(currPath));
             return;
@@ -50,24 +88,27 @@ public class FlightServiceImpl implements FlightService {
 //            TODO move to optionsService
             List<FlightOptionEntity> optionsByFlightId = flightOptionRepository.findOptionsByFlightId(flight.getFlightId());
 //            TODO move to airline service
-            AirlineEntity airline = airlineRepository.findAirlineByFlightId(flight.getFlightId());
             flight.setOptions(optionsByFlightId);
-            flight.setAirline(airline);
-//            TODO move to different validation method
-            if (validateFlightClass(optionsByFlightId, seats, flightClass)) {
+            if (validateDepartureDate(flight.getDepartureDate(), minDepartureTime) && validateFlightOption(optionsByFlightId, seats, flightClass)) {
+                AirlineEntity airline = airlineRepository.findAirlineByFlightId(flight.getFlightId());
+                flight.setAirline(airline);
                 currPath.add(flight);
-                dfs(flight.getTo(), arrivalAirportIata, depth, flights, currPath, visited, maxSteps, seats, flightClass);
+                dfs(flight.getTo(), arrivalAirportIata, depth, flights, currPath, visited, maxSteps, seats, flightClass, flight.getArrivalDate());
                 currPath.remove(flight);
             }
         }
         visited.remove(currentAirport.getIata());
     }
 
-    private boolean validateFlightClass(List<FlightOptionEntity> options, int seats, String flightClass) {
+    private boolean validateDepartureDate(LocalDateTime departureDate, LocalDateTime minDepartureDate) {
+        return departureDate.isAfter(minDepartureDate);
+    }
+
+    private boolean validateFlightOption(List<FlightOptionEntity> options, int seats, FlightClass flightClass) {
+//        TODO move to options serivce?
         log.info("OPTIONS: {}", options);
         long count = options.stream().filter(flightClasses -> flightClasses.getFlightClass().equals(flightClass)).filter(seatCheck -> seatCheck.getSeats() >= seats).count();
         log.info(String.valueOf(count));
-        return true;
-//        return count > 0;
+        return count > 0;
     }
 }
