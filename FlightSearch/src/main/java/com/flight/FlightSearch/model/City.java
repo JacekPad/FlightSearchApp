@@ -1,24 +1,21 @@
-package com.flight.FlightSearch.model.entity;
+package com.flight.FlightSearch.model;
 
-import com.flight.FlightSearch.model.enums.FlightClass;
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.math.BigDecimal;
-
+@Node("City")
 @Data
-@Node("FlightOption")
-public class FlightOptionEntity {
+public class City {
 
     @Id
     @GeneratedValue
     String id;
+    String name;
 
-    FlightClass flightClass;
+    @Relationship(value = "IS_IN", direction = Relationship.Direction.OUTGOING)
+    Country isIn;
 
-    Integer price;
-
-    int seats;
 }

@@ -1,18 +1,19 @@
-package com.flight.FlightSearch.model.entity;
+package com.flight.FlightSearch.model;
 
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
-@Node("Airline")
+@Node("Country")
 @Data
-public class AirlineEntity {
+public class Country {
 
     @Id
     @GeneratedValue
     String id;
-    String iata;
+
+    String code;
+
     String name;
-    String logo_url;
 }

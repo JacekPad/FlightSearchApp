@@ -1,13 +1,14 @@
 package com.flight.FlightSearch.service;
 
-import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.Flight;
+import com.flight.FlightSearch.model.entity.FlightEntity;
 
 import java.util.List;
 
 public interface FlightService {
 
-    List<FlightRouteDTO> prepareFlightRoutes(FlightRouteSearchParams params);
-
-    FlightRouteDTO getVal(String uuid);
+    List<Flight> getFlightByDepartureAirport(String departureIata);
+    List<FlightEntity> getFlightEntityByDepartureAirport(String departureIata);
+    List<List<Flight>> findFlights(FlightRouteSearchParams params);
 }

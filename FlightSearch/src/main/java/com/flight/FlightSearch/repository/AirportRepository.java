@@ -1,9 +1,9 @@
 package com.flight.FlightSearch.repository;
 
-import com.flight.FlightSearch.model.entity.AirportEntity;
+import com.flight.FlightSearch.model.Airport;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
-public interface AirportRepository extends Neo4jRepository<AirportEntity, String> {
+public interface AirportRepository extends Neo4jRepository<Airport, String> {
 
-    AirportEntity findByIata(String iata);
+    Airport findByIata(String iata);
 }

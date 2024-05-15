@@ -1,5 +1,8 @@
 package com.flight.FlightSearch.model.entity;
 
+import com.flight.FlightSearch.model.Airline;
+import com.flight.FlightSearch.model.Airport;
+import com.flight.FlightSearch.model.FlightOption;
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
@@ -18,16 +21,16 @@ public class FlightEntity {
     String flightId;
 
     @Relationship(value = "FROM", direction = Relationship.Direction.OUTGOING)
-    AirportEntity from;
+    Airport from;
 
     @Relationship(value = "TO", direction = Relationship.Direction.OUTGOING)
-    AirportEntity to;
+    Airport to;
 
     @Relationship(value = "OPTION", direction = Relationship.Direction.OUTGOING)
-    List<FlightOptionEntity> options;
+    List<FlightOption> options;
 
     @Relationship(value = "BELONGS_TO", direction = Relationship.Direction.OUTGOING)
-    AirlineEntity airline;
+    Airline airline;
 
     LocalDateTime arrivalDate;
 

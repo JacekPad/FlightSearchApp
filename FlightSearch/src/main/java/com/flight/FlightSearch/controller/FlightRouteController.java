@@ -1,8 +1,8 @@
 package com.flight.FlightSearch.controller;
 
-import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
+import com.flight.FlightSearch.model.FlightRoute;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
-import com.flight.FlightSearch.service.FlightService;
+import com.flight.FlightSearch.service.FlightRouteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,18 +19,18 @@ import java.util.List;
 public class FlightRouteController {
 
 
-    private final FlightService flightService;
+    private final FlightRouteService flightRouteService;
 
     @GetMapping("test")
-    public List<FlightRouteDTO> getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
+    public List<FlightRoute> getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
         log.info("looking for flight routes with params: {}", params);
-        List<FlightRouteDTO> flightRoutes = flightService.prepareFlightRoutes(params);
+        List<FlightRoute> flightRoutes = flightRouteService.prepareFlightRoutes(params);
         return flightRoutes;
     }
 
     @GetMapping("10")
-    public FlightRouteDTO getFlightRoute(@RequestParam String uuid) {
-        return flightService.getVal(uuid);
+    public FlightRoute getFlightRoute(@RequestParam String uuid) {
+        return flightRouteService.getFlightRouteById(uuid);
 //        get one flight route for booking from redis database (saved during flight route query)
     }
 
