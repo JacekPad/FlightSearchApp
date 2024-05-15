@@ -13,7 +13,7 @@ The flight validation is based on:
 
 Compatibile flight routes are aggregated into a list that users can interact with. <br>
 Each flight route calculates:
-- Total flight duration
+- Total route duration
 - Number of stops
 - Minimal number of empty seats left
 - Total price for the route
