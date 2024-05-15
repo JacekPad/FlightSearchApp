@@ -7,20 +7,15 @@ import com.flight.FlightSearch.model.entity.AirportEntity;
 import com.flight.FlightSearch.model.entity.FlightEntity;
 import com.flight.FlightSearch.model.entity.FlightOptionEntity;
 import com.flight.FlightSearch.model.enums.FlightClass;
-import com.flight.FlightSearch.repository.AirlineRepository;
-import com.flight.FlightSearch.repository.AirportRepository;
-import com.flight.FlightSearch.repository.FlightOptionRepository;
-import com.flight.FlightSearch.repository.FlightRepository;
+import com.flight.FlightSearch.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +26,7 @@ public class FlightServiceImpl implements FlightService {
     private final FlightOptionRepository flightOptionRepository;
     private final AirportRepository airportRepository;
     private final AirlineRepository airlineRepository;
-
+    private final FlightRouteRepository flightRouteRepository;
 
     @Override
     public List<FlightRouteDTO> prepareFlightRoutes(FlightRouteSearchParams params) {
@@ -41,15 +36,24 @@ public class FlightServiceImpl implements FlightService {
         List<List<FlightEntity>> flightPaths = findFlights(params);
         for (List<FlightEntity> flightPath : flightPaths) {
             FlightRouteDTO route = new FlightRouteDTO();
+            route.setId(UUID.randomUUID().toString());
             route.setFlights(flightPath);
             route.setDepartureAirport(departureAirport);
+            route.setDepartureTime(flightPath.get(0).getDepartureDate());
             route.setArrivalAirport(arrivalAirport);
+            route.setArrivalTime(flightPath.get(flightPath.size()-1).getArrivalDate());
             route.setSeatsLeft(calculateSeatsLeft(params.getFlightClass(), flightPath));
             route.setDuration(calculateDuration(flightPath));
             route.setStops(flightPath.size());
-            routes.add(route);
+            FlightRouteDTO save = flightRouteRepository.save(route);
+            routes.add(save);
         }
         return routes;
+    }
+
+    public FlightRouteDTO getVal(String uuid) {
+        FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).get();
+        return flightRouteDTO;
     }
 
     private long calculateDuration(List<FlightEntity> flightPath) {

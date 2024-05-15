@@ -8,4 +8,6 @@ import java.util.List;
 public interface FlightService {
 
     List<FlightRouteDTO> prepareFlightRoutes(FlightRouteSearchParams params);
+
+    FlightRouteDTO getVal(String uuid);
 }

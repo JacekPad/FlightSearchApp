@@ -1,24 +1,25 @@
 package com.flight.FlightSearch.model.DTO;
 
 import com.flight.FlightSearch.model.entity.AirportEntity;
-import com.flight.FlightSearch.model.entity.CityEntity;
 import com.flight.FlightSearch.model.entity.FlightEntity;
-import com.flight.FlightSearch.model.entity.FlightOptionEntity;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
-//basic DTO for flightRoute info
 @Data
+@RedisHash(value = "routes", timeToLive = 60)
 public class FlightRouteDTO {
 
+    @Id
     String id;
     List<FlightEntity> flights;
     AirportEntity departureAirport;
     AirportEntity arrivalAirport;
-    ZonedDateTime departureTime;
-    ZonedDateTime arrivalTime;
+    LocalDateTime departureTime;
+    LocalDateTime arrivalTime;
     Long duration;
     Integer stops;
     Integer seatsLeft;
