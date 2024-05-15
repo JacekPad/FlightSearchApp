@@ -20,9 +20,10 @@ export class FlightDetailsComponent implements OnInit {
     console.log(this.flight);
   }
 
-  calculateDuration(duration: number): string {
-    let formatedDuration = duration / 60;
-    if (duration < 60) {
+  calculateDuration(arrivalDate: Date, departureDate: Date): string {
+    let timeDifference = Math.abs(new Date(arrivalDate).getTime() - new Date(departureDate).getTime());
+    let formatedDuration = (timeDifference / (60 * 60 * 1000)).toFixed(0);
+    if (timeDifference < 60) {
       return formatedDuration.toString().concat(' Minutes')
     } else {
       return formatedDuration.toString().concat(' Hours')

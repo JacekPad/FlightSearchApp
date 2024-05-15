@@ -3,8 +3,8 @@
         <app-flight-route-details [flightRoute]="flightRoute"></app-flight-route-details>
     </mat-card-content>
     <div class="price-options">
-        <div class="price-details" *ngFor="let pricing of flightRoute.prices">
-            <app-booking-options [routerLink]="['/booking', flightRoute.id]" [queryParams]="{class: pricing.flightClass}" [prices]="pricing"></app-booking-options>
+        <div class="price-details" *ngFor="let pricing of flightRoute.prices | keyvalue">
+            <app-booking-options [routerLink]="['/booking', flightRoute.id]" [queryParams]="{class: pricing.key}" [prices]="pricing.value" [type]="pricing.key"></app-booking-options>
         </div>
     </div>
 </div>

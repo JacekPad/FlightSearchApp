@@ -13,7 +13,7 @@ export class FlightRouteDetailsComponent {
 
     calculateDuration(): string {
       let duration = this.flightRoute.duration;
-      let formatedDuration = duration / 60;
+      let formatedDuration = (duration / 60).toFixed(0);
       if (duration < 60) {
         return formatedDuration.toString().concat(' Minutes')
       } else {

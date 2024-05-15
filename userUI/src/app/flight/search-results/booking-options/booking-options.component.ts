@@ -9,12 +9,14 @@ import { FlightPricingOption, IFlightPricingOption } from '../../model/flight-pr
 export class BookingOptionsComponent {
 
   @Input()
-  prices!: IFlightPricingOption;
+  prices!: number;
 
+  @Input()
+  type!: string
 
 
   calculatePrice(): string {
-    let formatedPrice = this.prices.price / 100;
+    let formatedPrice = this.prices / 100;
     return formatedPrice.toString();
   }
 }

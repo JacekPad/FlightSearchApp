@@ -1,11 +1,13 @@
+import { IAirline } from "./airline-model";
+import { IAiport } from "./airport-model";
 import { FlightPricingOption } from "./flight-pricing-option";
 
 export interface IFlightDetails {
-    id: number,
-    departureAirport: string,
-    arrivalAirpot: string,
+    flightId: number,
+    from: IAiport,
+    to: IAiport,
     pricing: FlightPricingOption[];
-    airline: string,
+    airline: IAirline,
     airplaneType: string,
     seatsLeft: number,
     departureDate: Date,
@@ -14,11 +16,11 @@ export interface IFlightDetails {
 }
 
 export class FlightDetails {
-    public id: number;
-    public departureAirport: string;
-    public arrivalAirpot: string;
+    public flightId: number;
+    public from: IAiport;
+    public to: IAiport;
     public pricing: FlightPricingOption[];
-    public airline: string;
+    public airline: IAirline;
     public airplaneType: string;
     public seatsLeft: number;
     public departureDate: Date;
@@ -28,9 +30,9 @@ export class FlightDetails {
     constructor()
     constructor(obj: IFlightDetails)
     constructor(obj?: any) {
-        this.id = obj && obj.id;
-        this.departureAirport = obj && obj.departureAirport;
-        this.arrivalAirpot = obj && obj.arrivalAirpot;
+        this.flightId = obj && obj.flightId;
+        this.from = obj && obj.from;
+        this.to = obj && obj.to;
         this.pricing = obj && obj.pricing;
         this.airline = obj && obj.airline;
         this.airplaneType = obj && obj.airplaneType;

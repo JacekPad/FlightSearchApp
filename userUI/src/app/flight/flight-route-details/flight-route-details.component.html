@@ -2,10 +2,10 @@
     <div class="departure-details">
         <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin-bottom: 0.5em;">
             <mat-icon>flight_takeoff</mat-icon>
-            {{ flightRoute.departureDate | date : 'shortTime' }}
+            {{ flightRoute.departureTime | date : 'shortTime' }}
         </div>
         <div>
-            {{flightRoute.departureAirport}}
+            {{flightRoute.departureAirport.iata}}
         </div>
     </div>
     <div class="path-details">
@@ -13,16 +13,16 @@
             stops
         </div>
         <div>
-            ----------------- {{flightRoute.numOfStops}} -----------------
+            ----------------- {{flightRoute.stops}} -----------------
         </div>
     </div>
     <div class="arrival-details">
         <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin-bottom: 0.5em;">
             <mat-icon>flight_land</mat-icon>
-            {{ flightRoute.arrivalDate | date : 'shortTime'}}
+            {{ flightRoute.arrivalTime | date : 'shortTime'}}
         </div>
         <div>
-            {{flightRoute.arrivalAirport}}
+            {{flightRoute.arrivalAirport.iata}}
         </div>
     </div>
 </mat-card-content>

@@ -1,8 +1,8 @@
 <div>
     <mat-dialog-content>
         <mat-card class="flight-route-details">
-            <mat-card-header class="flight-route-header">Flight from {{flight.departureAirport}} to
-                {{flight.arrivalAirport}}</mat-card-header>
+            <mat-card-header class="flight-route-header">Flight from {{flight.departureAirport.name}} to
+                {{flight.arrivalAirport.name}}</mat-card-header>
             <mat-card-content class="flight-route-display">
                 <app-flight-route-details [flightRoute]="flight"></app-flight-route-details>
             </mat-card-content>
@@ -20,12 +20,12 @@
                 </thead>
 
                 <tr *ngFor="let flight of flight.flights" class="table-content">
-                    <td>{{flight.id}}</td>
-                    <td>{{flight.airline}}</td>
+                    <td>{{flight.flightId}}</td>
+                    <td>{{flight.airline.name}}</td>
                     <td>{{flight.airplaneType}}</td>
-                    <td>{{flight.departureAirport}}</td>
-                    <td>{{flight.arrivalAirpot}}</td>
-                    <td>{{calculateDuration(flight.duration)}}</td>
+                    <td>{{flight.from.name}}</td>
+                    <td>{{flight.to.name}}</td>
+                    <td>{{calculateDuration(flight.arrivalDate, flight.departureDate)}}</td>
                 </tr>
             </table>
         </mat-card>
