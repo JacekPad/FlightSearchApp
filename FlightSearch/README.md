@@ -19,7 +19,7 @@ Each flight route calculates:
 - Total price for the route
 <br>
 ### Technologies used <br>
-Springboot Web with Spring Neo4J JPA
+Springboot Web with Spring Neo4J JPA <br>
 Liquibase - for database initialization <br>
 Neo4j - used to store persistent flight data (Airports, Cities, Flights, Flight related details) <br>
 Redis - stores user's search results for a limited period of time <br>
