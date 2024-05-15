@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FlightService } from '../../flight.service';
 import { Observable } from 'rxjs';
 import { FlightRoute } from '../../model/flight-routes';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-search-result-list',
@@ -9,17 +10,12 @@ import { FlightRoute } from '../../model/flight-routes';
   styleUrl: './search-result-list.component.scss'
 })
 export class SearchResultListComponent implements OnInit {
-
-  flightRoutes$?: Observable<FlightRoute[]>;
+  @Input()
+  flightRoutes: FlightRoute[] = [];
   
   constructor(private flightService: FlightService) {}
 
   ngOnInit(): void {
-    this.flightRoutes$ = this.getFlights();  
-  }
 
-  getFlights(): Observable<FlightRoute[]> {
-    return this.flightService.getObservable();
   }
-
 }

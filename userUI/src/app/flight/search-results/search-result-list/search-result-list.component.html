@@ -3,7 +3,7 @@
         <mat-card-header>
             <h1>Flights</h1>
         </mat-card-header>
-        <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes$ | async">
+        <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes">
             <app-search-result-card [flightRoute]="flightRoute"></app-search-result-card>
         </mat-card>
     </mat-card>

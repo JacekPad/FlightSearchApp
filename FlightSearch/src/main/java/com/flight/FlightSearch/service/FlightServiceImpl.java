@@ -50,9 +50,14 @@ public class FlightServiceImpl implements FlightService {
         LocalDateTime now = LocalDateTime.now();
         List<List<Flight>> flights = new ArrayList<>();
         Airport airport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
-        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), params.getNoOfSeats(), params.getFlightClass(), now);
+        int seats = calculateSeats(params);
+        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), now);
         log.info("SERVICE: findFlightRoutes - END - Flights found: {}", flights);
         return flights;
+    }
+
+    private int calculateSeats(FlightRouteSearchParams params) {
+        return params.getAdult() + params.getChild();
     }
 
     private void dfs(Airport currentAirport, String arrivalAirportIata, int depth, List<List<Flight>> flights, List<Flight> currPath, HashSet<String> visited, int maxSteps, int seats, FlightClass flightClass, LocalDateTime minDepartureTime) {

@@ -5,7 +5,10 @@ import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from
 import { ReactiveFormsModule } from '@angular/forms';
 import { flightTypesMap, FlightTypes } from '../model/enums/flight-types';
 import { FlightClassTypes, flightClassTypesMap } from '../model/enums/flight-class-types';
-import { combineLatest, startWith } from 'rxjs';
+import { Observable, combineLatest, map, startWith } from 'rxjs';
+import { ISearchParams, SearchParams } from '../model/search-params';
+import { FlightService } from '../flight.service';
+import { FlightRoute } from '../model/flight-routes';
 
 @Component({
   selector: 'app-flight-search',
@@ -21,9 +24,12 @@ export class FlightSearchComponent implements OnInit {
   passangerNumber: string = '1 traveller';
   flightClass?: string;
 
+  flights$?: Observable<FlightRoute[]>
+
   constructor(
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private flightService: FlightService
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +43,8 @@ export class FlightSearchComponent implements OnInit {
       flightType: [FlightTypes.ONEWAY, Validators.required],
       flightClass: [FlightClassTypes.ECONOMY, Validators.required],
       maxStops: [1, Validators.required],
-      departureAirport: ['', Validators.required],
-      arrivalAirport: ['', Validators.required],
+      departureAirport: ['LEJ', Validators.required],
+      arrivalAirport: ['ERF', Validators.required],
       departureDate: [null, [Validators.required, this.departureDateValidator()]],
       returnDate: [null],
       adultNumber: [1, Validators.required],
@@ -100,11 +106,11 @@ export class FlightSearchComponent implements OnInit {
   searchForFlights() {
     this.searchForm.markAllAsTouched();
     if (this.searchForm.valid) {
-      console.log('all form is valid');
+      console.log("looking for flights");
+      let params: ISearchParams = new SearchParams;
+      params = <SearchParams> this.searchForm.value;
+      this.flights$ = this.flightService.getFlights(params).pipe(map(res => res.routes));
     }
-    console.log(this.searchForm);
-    console.log(this.flightClass);
-    console.log(this.passangerNumber);
   }
 
   private calculateNumOfPassangers(): void {
@@ -129,11 +135,11 @@ export class FlightSearchComponent implements OnInit {
   }
 
   private departureDateValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key:string]: any} | null => {
+    return (control: AbstractControl): { [key: string]: any } | null => {
       const date = control.value == null ? null : new Date(control.value);
       const today = new Date();
-      if (date != null && date < today) {        
-        return { dateBeforeToday: true};
+      if (date != null && date < today) {
+        return { dateBeforeToday: true };
       } else {
         return null;
       }

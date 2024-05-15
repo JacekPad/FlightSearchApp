@@ -97,7 +97,7 @@
             </form>
         </mat-card>
     </div>
-    <div>
-        <app-search-result-list></app-search-result-list>
+    <div *ngIf="(flights$ | async) as flightRoutes">
+        <app-search-result-list [flightRoutes]="flightRoutes"></app-search-result-list>
     </div>
 </div>

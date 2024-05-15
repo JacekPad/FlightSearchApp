@@ -1,11 +1,15 @@
 package com.flight.FlightSearch.service;
 
+import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
+import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
+import com.flight.FlightSearch.model.DTO.PassengerDTO;
 import com.flight.FlightSearch.model.FlightRoute;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.Airport;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.enums.FlightClass;
+import com.flight.FlightSearch.model.enums.PassengerEnum;
 import com.flight.FlightSearch.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +29,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     private final AirportService airportService;
 
     @Override
-    public List<FlightRoute> prepareFlightRoutes(FlightRouteSearchParams params) {
+    public FlightRouteSearch prepareFlightRoutes(FlightRouteSearchParams params) {
         Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
         List<FlightRoute> routes = new ArrayList<>();
@@ -37,20 +41,41 @@ public class FlightRouteServiceImpl implements FlightRouteService {
             route.setDepartureAirport(departureAirport);
             route.setDepartureTime(flightPath.get(0).getDepartureDate());
             route.setArrivalAirport(arrivalAirport);
-            route.setArrivalTime(flightPath.get(flightPath.size()-1).getArrivalDate());
+            route.setArrivalTime(flightPath.get(flightPath.size() - 1).getArrivalDate());
             route.setSeatsLeft(calculateRouteSeatsLeft(params.getFlightClass(), flightPath));
             route.setDuration(calculateRouteDuration(flightPath));
             route.setStops(flightPath.size());
             route.setPrices(calculateRoutePrice(flightPath));
-            FlightRoute redisCache = flightRouteRepository.save(route);
-            routes.add(redisCache);
+            routes.add(route);
         }
-        return routes;
+        FlightRouteSearch flightRouteSearch = new FlightRouteSearch();
+        flightRouteSearch.setRoutes(routes);
+        flightRouteSearch.setPassengers(mapPassengers(params));
+        flightRouteRepository.save(flightRouteSearch);
+        return flightRouteSearch;
     }
 
     @Override
-    public FlightRoute getFlightRouteById(String uuid) {
+    public FlightRouteSearch getFlightRouteById(String uuid) {
         return flightRouteRepository.findById(uuid).orElseThrow(NoSuchElementException::new);
+    }
+
+    @Override
+    public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId) {
+//        TODO do booking next
+        FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
+//        FlightRouteSearch flightRouteSearch = flightRouteRepository.findById(uuid).orElseThrow(NoSuchElementException::new);
+//        flightRouteBookingDTO.setRoute(flightRouteSearch.getRoutes().get(routeId));
+//        flightRouteBookingDTO.setPassengers(flightRouteSearch.getPassengers());
+        return flightRouteBookingDTO;
+    }
+
+    private List<PassengerDTO> mapPassengers(FlightRouteSearchParams params) {
+        List<PassengerDTO> passengers = new ArrayList<>();
+        passengers.add(new PassengerDTO(PassengerEnum.ADULT, params.getAdult()));
+        passengers.add(new PassengerDTO(PassengerEnum.CHILD, params.getChild()));
+        passengers.add(new PassengerDTO(PassengerEnum.INFANT, params.getInfant()));
+        return passengers;
     }
 
     private Map<FlightClass, Integer> calculateRoutePrice(List<Flight> flights) {
@@ -61,12 +86,12 @@ public class FlightRouteServiceImpl implements FlightRouteService {
                     .filter(s -> s.containsKey(c))
                     .count();
             if (count == flights.size()) {
-            int sum = flights.stream()
-                    .map(Flight::getOptions)
-                    .map(s -> s.get(c))
-                    .mapToInt(FlightOption::getPrice)
-                    .sum();
-            prices.put(c,sum);
+                int sum = flights.stream()
+                        .map(Flight::getOptions)
+                        .map(s -> s.get(c))
+                        .mapToInt(FlightOption::getPrice)
+                        .sum();
+                prices.put(c, sum);
             }
         }
         return prices;

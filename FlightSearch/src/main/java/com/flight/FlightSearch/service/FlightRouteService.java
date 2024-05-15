@@ -1,13 +1,15 @@
 package com.flight.FlightSearch.service;
 
-import com.flight.FlightSearch.model.FlightRoute;
+import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
+import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 
-import java.util.List;
 
 public interface FlightRouteService {
 
-    List<FlightRoute> prepareFlightRoutes(FlightRouteSearchParams params);
+    FlightRouteSearch prepareFlightRoutes(FlightRouteSearchParams params);
 
-    FlightRoute getFlightRouteById(String uuid);
+    FlightRouteSearch getFlightRouteById(String uuid);
+
+    FlightRouteBookingDTO getBookingInfo(String uuid, String routeId);
 }

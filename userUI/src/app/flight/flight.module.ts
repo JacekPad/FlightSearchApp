@@ -12,6 +12,7 @@ import { SearchResultListComponent } from './search-results/search-result-list/s
 import { SearchResultCardComponent } from './search-results/search-result-card/search-result-card.component';
 import { BookingOptionsComponent } from './search-results/booking-options/booking-options.component';
 import { FlightRouteDetailsComponent } from './flight-route-details/flight-route-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FlightRouteDetailsComponent } from './flight-route-details/flight-route
     CommonModule,
     FlightRoutingModule,
     MaterialImportsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     FlightRouteDetailsComponent

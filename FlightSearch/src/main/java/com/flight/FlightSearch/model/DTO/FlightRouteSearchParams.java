@@ -10,5 +10,7 @@ public class FlightRouteSearchParams {
     private String departureAirportIata;
     private String arrivalAirportIata;
     private int maxStops;
-    private int noOfSeats;
+    private int adult;
+    private int child;
+    private int infant;
 }
