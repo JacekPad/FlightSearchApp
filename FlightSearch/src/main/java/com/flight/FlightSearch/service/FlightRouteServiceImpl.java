@@ -61,13 +61,20 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     }
 
     @Override
-    public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId) {
-//        TODO do booking next
+    public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId, FlightClass flightClass) {
+        log.info("getting info");
         FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
-//        FlightRouteSearch flightRouteSearch = flightRouteRepository.findById(uuid).orElseThrow(NoSuchElementException::new);
-//        flightRouteBookingDTO.setRoute(flightRouteSearch.getRoutes().get(routeId));
-//        flightRouteBookingDTO.setPassengers(flightRouteSearch.getPassengers());
+        FlightRouteSearch flightRouteSearch = flightRouteRepository.findById(uuid).orElseThrow(NoSuchElementException::new);
+        FlightRoute flightRoute = findRouteById(flightRouteSearch.getRoutes(), routeId);
+        flightRouteBookingDTO.setRoute(flightRoute);
+        flightRouteBookingDTO.setPassengers(flightRouteSearch.getPassengers());
+        flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
+        log.info("found info: {}", flightRouteBookingDTO);
         return flightRouteBookingDTO;
+    }
+
+    private FlightRoute findRouteById(List<FlightRoute> list, String id) {
+        return list.stream().filter(d -> id.equals(d.getId())).findFirst().orElseThrow(NoSuchElementException::new);
     }
 
     private List<PassengerDTO> mapPassengers(FlightRouteSearchParams params) {

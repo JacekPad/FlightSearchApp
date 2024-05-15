@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-@RedisHash(value = "routes", timeToLive = 60)
+@RedisHash(value = "routes", timeToLive = 600)
 public class FlightRouteSearch {
 
     @Id
