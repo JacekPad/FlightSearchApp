@@ -6,6 +6,7 @@ import { BookingFlightComponent } from './booking-flight/booking-flight.componen
 import { MaterialImportsModule } from '../shared/material-imports/material-imports.module';
 import { FlightModule } from '../flight/flight.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BookingRoutingModule,
     MaterialImportsModule,
     FlightModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class BookingModule { }

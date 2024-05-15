@@ -1,16 +1,16 @@
 export interface IFLightRoutePassanger {
     type: string
-    number: number
+    quantity: number
 }
 
 export class FlightRoutePassanger {
     public type: string;
-    public number: number
+    public quantity: number
 
     constructor()
     constructor(obj: IFLightRoutePassanger)
     constructor(obj?: any) {
         this.type = obj && obj.type;
-        this.number = obj && obj.number
+        this.quantity = obj && obj.quantity
     }
 }

@@ -13,6 +13,9 @@ export class SearchResultCardComponent {
   @Input()
   flightRoute!: FlightRoute
 
+  @Input()
+  routeId: string = '';
+
   constructor(private dialog: MatDialog) {}
 
   getFlightDetails(flightRoute: FlightRoute) {

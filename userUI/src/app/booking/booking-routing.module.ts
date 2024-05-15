@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookingFlightComponent } from './booking-flight/booking-flight.component';
 
 const routes: Routes = [
-  {path: ':id', component: BookingFlightComponent}
+  {path: ':id', component: BookingFlightComponent},
+  {path: ':routeId/:id', component: BookingFlightComponent}
 ];
 
 @NgModule({

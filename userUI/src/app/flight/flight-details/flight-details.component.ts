@@ -17,7 +17,6 @@ export class FlightDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.flight = this.data.flightRoute;
-    console.log(this.flight);
   }
 
   calculateDuration(arrivalDate: Date, departureDate: Date): string {

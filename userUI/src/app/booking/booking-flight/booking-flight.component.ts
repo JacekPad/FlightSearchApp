@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FlightRoute } from '../../flight/model/flight-routes';
+import { IFlightRoute } from '../../flight/model/flight-routes';
 import { BookingService } from '../booking.service';
 import { Observable, take } from 'rxjs';
-import { PassangerType, passangerTypeMap } from '../../flight/model/enums/passanger-types';
+import { passangerTypeMap } from '../../flight/model/enums/passanger-types';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-model';
 
 @Component({
   selector: 'app-booking-flight',
@@ -15,12 +16,15 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class BookingFlightComponent implements OnInit {
 
-  flightRouteId!: number;
-  flightRoute$!: Observable<FlightRoute>;
+  flightRouteId!: string;
+  flightId!: string;
+  flightRoute$!: Observable<IFlightRouteBooking>;
   flightClass: string = '';
   passangerMap: Map<string, string> = passangerTypeMap;
   bookingForm!: FormGroup;
 
+
+  flightRoute!: IFlightRoute;
 
   constructor(
     private route: ActivatedRoute, private bookingService: BookingService,
@@ -29,13 +33,15 @@ export class BookingFlightComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.queryParams.pipe(take(1)).subscribe(param => {
-      this.flightClass = param['class'];
-    });
     this.route.params.pipe(take(1)).subscribe((params: Params) => {      
-      this.flightRouteId = params['id'];
-      // send bookingId param and class param?
-      this.flightRoute$ = this.bookingService.getBookingById(this.flightRouteId, this.flightClass);
+      this.route.queryParams.pipe(take(1)).subscribe(param => {
+        this.flightClass = param['class'];
+      });
+      this.flightRouteId = params['routeId'];
+      this.flightId = params['id'];
+      console.log(this.flightRouteId);
+      console.log(this.flightId);
+      this.flightRoute$ = this.bookingService.getBookingById(this.flightRouteId, this.flightId, this.flightClass);    
       this.initFormGroup();
       this.createPassengerForm();
     });
@@ -56,8 +62,8 @@ export class BookingFlightComponent implements OnInit {
 
   private createPassengerForm() {
     this.flightRoute$.subscribe(flightRoute => {
-      flightRoute.passangers.forEach(passangerType => {
-        for (let n = 0; n < passangerType.number; n++) {
+      flightRoute.passengers.forEach(passangerType => {
+        for (let n = 0; n < passangerType.quantity; n++) {
           const formArray = this.bookingForm.get('passangers.'+passangerType.type.toLowerCase()) as FormArray;
           const passanger = this.formBuilder.group({
             name: ['', Validators.required],
@@ -79,8 +85,8 @@ export class BookingFlightComponent implements OnInit {
     return passangerTypeMap.get(passanger);
   }
 
-  calculateCurrency(curr: number): number {
-    return curr/100;
+  calculateCurrency(price: number): number {
+    return price ? price/100 : 0;
   }
 
   validatePassengerInformation(stepper: MatStepper) {

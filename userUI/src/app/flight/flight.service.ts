@@ -16,17 +16,8 @@ export class FlightService {
 
   constructor(private http: HttpClient) { }
 
-  flights$: Observable<IFlightRouteResponse> | undefined;
-
-  flight?: FlightRoute[]
-
-  getObservable(): Observable<IFlightRouteResponse> | undefined {
-    return this.flights$;
-  }
-
 
   getFlights(paramsObj: ISearchParams): Observable<IFlightRouteResponse> {
-    console.log("obs function go");
     const options = { params: new HttpParams()
     .set('flightClass', paramsObj.flightClass)
     .set('departureAirportIata', paramsObj.departureAirport)
@@ -35,6 +26,6 @@ export class FlightService {
     .set('adult', paramsObj.adultNumber)
     .set('child', paramsObj.childNumber)
     .set('infant', paramsObj.infantNumber)}
-    return this.flights$ = this.http.get<IFlightRouteResponse>("/app/routes", options);
+    return this.http.get<IFlightRouteResponse>("/api/v1/routes", options);
   }
 }

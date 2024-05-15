@@ -1,10 +1,7 @@
 import { IAiport } from "./airport-model";
 import { FlightClassTypes } from "./enums/flight-class-types";
-import { FlightDetails, IFlightDetails } from "./flight-details";
-import { FlightPricingOption, IFlightPricingOption } from "./flight-pricing-option";
+import { IFlightDetails } from "./flight-details";
 import { IFLightRoutePassanger } from "./flight-route-passanger";
-
-// will be two different object, for search and for booking, for now theres one for ease of access and testing
 
 export interface IFlightRoute {
     id: number
@@ -12,7 +9,6 @@ export interface IFlightRoute {
     departureAirport: IAiport,
     arrivalAirport: IAiport,
     seatsLeft: number,
-    // prices: IFlightPricingOption[],
     prices: Map<string, number>,
     departureTime: Date,
     arrivalTime: Date,
@@ -29,7 +25,6 @@ export class FlightRoute {
     public departureAirport: IAiport;
     public arrivalAirport: IAiport;
     public seatsLeft: number;
-    // public prices: IFlightPricingOption[];
     public prices: Map<string, number>;
     public departureTime: Date;
     public arrivalTime: Date;

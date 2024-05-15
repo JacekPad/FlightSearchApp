@@ -9,6 +9,7 @@ import { Observable, combineLatest, map, startWith } from 'rxjs';
 import { ISearchParams, SearchParams } from '../model/search-params';
 import { FlightService } from '../flight.service';
 import { FlightRoute } from '../model/flight-routes';
+import { IFlightRouteResponse } from '../model/flight-route-response';
 
 @Component({
   selector: 'app-flight-search',
@@ -24,7 +25,7 @@ export class FlightSearchComponent implements OnInit {
   passangerNumber: string = '1 traveller';
   flightClass?: string;
 
-  flights$?: Observable<FlightRoute[]>
+  flights$?: Observable<IFlightRouteResponse>
 
   constructor(
     private dialog: MatDialog,
@@ -109,7 +110,7 @@ export class FlightSearchComponent implements OnInit {
       console.log("looking for flights");
       let params: ISearchParams = new SearchParams;
       params = <SearchParams> this.searchForm.value;
-      this.flights$ = this.flightService.getFlights(params).pipe(map(res => res.routes));
+      this.flights$ = this.flightService.getFlights(params);
     }
   }
 

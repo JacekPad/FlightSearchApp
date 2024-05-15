@@ -4,14 +4,14 @@
             <mat-step>
                 <ng-template matStepLabel>Confirm your choice</ng-template>
                 <mat-card-header class="booking-header">
-                    Booking flight from {{flightRoute.departureAirport}} to {{flightRoute.arrivalAirport}}
+                    Booking flight from {{flightRoute.route.departureAirport.name}} to {{flightRoute.route.arrivalAirport.name}}
                 </mat-card-header>
                 <mat-card-content class="booking-content">
                     <div class="booking-flight-details">
-                        <app-flight-route-details [flightRoute]="flightRoute"></app-flight-route-details>
+                        <app-flight-route-details [flightRoute]="flightRoute.route"></app-flight-route-details>
                         <div class="booking-flight-pricing">
                             <div class="booking-flight-class">
-                                {{flightRoute.flightClass}}
+                                {{flightRoute.route.flightClass}}
                             </div>
                             <div class="booking-flight-price">
                                 {{calculateCurrency(flightRoute.price) | currency}}
@@ -29,12 +29,12 @@
                     <ng-template matStepLabel>Fill passanger information</ng-template>
                     <form [formGroup]="bookingForm">
                         <div class="form-fields">
-                            <div *ngFor="let passangerType of flightRoute.passangers" formArrayName="passangers">
-                                <mat-card class="passanger-card">
+                            <div *ngFor="let passangerType of flightRoute.passengers" formArrayName="passangers">
+                                <mat-card class="passanger-card" *ngIf="passangerType.quantity > 0">
                                     <mat-card-header class="passanger-header">
-                                        <p>Passangers - {{passangerName(passangerType.type)}}</p>
+                                        <p>Passengers - {{passangerName(passangerType.type)}}</p>
                                     </mat-card-header>
-                                    <div *ngFor="let passanger of createPassangersArray(passangerType.number); index as i"
+                                    <div *ngFor="let passanger of createPassangersArray(passangerType.quantity); index as i"
                                         formArrayName="{{passangerType.type | lowercase}}">
                                         <div class="form-field-group" formGroupName="{{i}}">
                                             <mat-form-field class="form-field">

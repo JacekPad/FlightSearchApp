@@ -3,8 +3,8 @@
         <mat-card-header>
             <h1>Flights</h1>
         </mat-card-header>
-        <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes">
-            <app-search-result-card [flightRoute]="flightRoute"></app-search-result-card>
+        <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes.routes">
+            <app-search-result-card [routeId]="flightRoutes.id" [flightRoute]="flightRoute"></app-search-result-card>
         </mat-card>
     </mat-card>
 </div>
