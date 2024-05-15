@@ -1,5 +1,5 @@
 ## Description
-A Java 21 application used to search for available and compatible flights to create a flight route from departure airport to the arrival airport. Applicaiton uses Neo4J for storing flight related infomration and redis in-memory database for storing temporary data. Sample database can be created with liquibase and provided .json data files. 
+A Java 21 application used to search for available and compatible flights to create a flight route from departure airport to the arrival airport. Applicaiton uses Neo4J for storing flight related information and redis in-memory database for storing temporary data. Sample database can be created with liquibase and provided .json data files. 
 
 ## Usecase
 Based on the users query parameters during flight route search, the application searches for the departure airport and performs depth-first search to find all available paths between departure and arrival airport, until maximum distance has been reached or until there are no compatibile flights found. <br>
