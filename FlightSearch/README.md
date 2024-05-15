@@ -18,10 +18,8 @@ Each flight route calculates:
 - Minimal number of empty seats left
 - Total price for the route
 <br>
-### Technologies used
-Springboot Web with Spring JPA
-
-#### Databases
-Liquibase - for database initialization
+### Technologies used <br>
+Springboot Web with Spring Neo4J JPA
+Liquibase - for database initialization <br>
 Neo4j - used to store persistent flight data (Airports, Cities, Flights, Flight related details) <br>
-Redis - stores user's search results for limited period of time <br>
+Redis - stores user's search results for a limited period of time <br>
