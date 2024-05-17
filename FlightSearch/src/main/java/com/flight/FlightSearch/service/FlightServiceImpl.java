@@ -47,13 +47,11 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public List<List<Flight>> findFlights(FlightRouteSearchParams params) {
-//        TODO params should have departure date
-        LocalDateTime time = LocalDateTime.now();
         log.info("SERVICE: findFlightRoutes - START");
         List<List<Flight>> flights = new ArrayList<>();
         Airport airport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         int seats = calculateSeats(params);
-        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), time);
+        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), params.getDepartureDate());
         log.info("SERVICE: findFlightRoutes - END - Flights found: {}", flights);
         return flights;
     }

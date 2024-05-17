@@ -39,7 +39,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     private Integer MAX_INFANT;
 
     @Override
-    public FlightRouteSearch prepareFlightRoutes(FlightRouteSearchParams params) {
+    public FlightRouteSearch searchFlightRoutes(FlightRouteSearchParams params) {
         log.info("FlightRouteService - prepareFlightRoutes with params: {}", params);
         Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
@@ -49,7 +49,6 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         validateSearchParameters(params);
         List<FlightRoute> routes = new ArrayList<>();
         List<List<Flight>> flightPaths = flightService.findFlights(params);
-//        make method for it
         for (List<Flight> flightPath : flightPaths) {
             FlightRoute route = new FlightRoute();
             route.setId(UUID.randomUUID().toString());
@@ -92,9 +91,8 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     }
 
     private void validateSearchParameters(FlightRouteSearchParams params) {
-//        TODO
-        if (true) {
-//            id date is earlier than today throw exception
+        if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Unacceptable departure date");
         }
 
         if (params.getAdult() == 0) {

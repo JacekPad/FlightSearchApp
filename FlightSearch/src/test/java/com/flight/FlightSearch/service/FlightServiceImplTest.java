@@ -68,6 +68,7 @@ class FlightServiceImplTest {
         params.setMaxStops(4);
         params.setDepartureAirportIata("AAA");
         params.setArrivalAirportIata("BBB");
+        params.setDepartureDate(LocalDateTime.now());
         return params;
     }
 
@@ -91,9 +92,9 @@ class FlightServiceImplTest {
     @Test
     void findFlights_whenNoPlanesForDate_shouldNotAddToList() {
         FlightRouteSearchParams params = getParams();
+        params.setDepartureDate(LocalDateTime.now().minusDays(2));
         FlightOption option = getOption(FlightClass.ECONOMY, 1, 99);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().minusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().minusDays(2), params.getDepartureDate().plusDays(7));
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
         when(flightRepository.findDepartureAirportConnections(params.getDepartureAirportIata())).thenReturn(List.of(flight));
         when(flightOptionService.getFlightOptionsByFlightId(any())).thenReturn(List.of(option));
@@ -105,8 +106,7 @@ class FlightServiceImplTest {
     void findFlights_whenTooFewEmptySeats_shouldNotAddToList() {
         FlightRouteSearchParams params = getParams();
         FlightOption option = getOption(FlightClass.ECONOMY, 1, 0);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
         when(flightRepository.findDepartureAirportConnections(params.getDepartureAirportIata())).thenReturn(List.of(flight));
@@ -119,11 +119,10 @@ class FlightServiceImplTest {
     @Test
     void findFlights_whenInfant_shouldNotAddToRequiredSeats() {
         FlightRouteSearchParams params = getParams();
-//        TODO set localdatetime to now and compare in the code with params.departureDate
         FlightOption option1 = getOption(FlightClass.ECONOMY, 1, 3);
-        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
 
-        FlightEntity flight2 = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight2 = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
         FlightOption option2 = getOption(FlightClass.ECONOMY, 1, 2);
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
@@ -139,8 +138,7 @@ class FlightServiceImplTest {
     void findFlights_whenWrongClassFlight_shouldNotAddToList() {
         FlightRouteSearchParams params = getParams();
         FlightOption option = getOption(FlightClass.FIRST, 1, 99);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
         when(flightRepository.findDepartureAirportConnections(params.getDepartureAirportIata())).thenReturn(List.of(flight));
@@ -150,13 +148,11 @@ class FlightServiceImplTest {
         assert flights.isEmpty();
     }
 
-//  when A->B should add flight A->B
     @Test
     void findFlights_whenValid_shouldAddToList() {
         FlightRouteSearchParams params = getParams();
         FlightOption option = getOption(FlightClass.ECONOMY, 1, 99);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
+        FlightEntity flight = createFlight(getAirport("AAA"), getAirport("BBB"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
         when(flightRepository.findDepartureAirportConnections(params.getDepartureAirportIata())).thenReturn(List.of(flight));
@@ -172,9 +168,8 @@ class FlightServiceImplTest {
 
         FlightRouteSearchParams params = getParams();
         FlightOption option = getOption(FlightClass.ECONOMY, 1, 99);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("AA"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
-        FlightEntity flight2 = createFlight(getAirport("AA"), getAirport("BBB"), flight1.getArrivalDate().plusDays(1), LocalDateTime.now().plusDays(7));
+        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("AA"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
+        FlightEntity flight2 = createFlight(getAirport("AA"), getAirport("BBB"), flight1.getArrivalDate().plusDays(1), params.getDepartureDate().plusDays(7));
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
 
@@ -195,9 +190,8 @@ class FlightServiceImplTest {
 
         FlightRouteSearchParams params = getParams();
         FlightOption option = getOption(FlightClass.ECONOMY, 1, 99);
-//        TODO set localdatetime to now and compare in the code with params.departureDate
-        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("AA"), LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(7));
-        FlightEntity flight2 = createFlight(getAirport("AA"), getAirport("AAA"), flight1.getArrivalDate().plusDays(1), LocalDateTime.now().plusDays(7));
+        FlightEntity flight1 = createFlight(getAirport("AAA"), getAirport("AA"), params.getDepartureDate().plusDays(2), params.getDepartureDate().plusDays(7));
+        FlightEntity flight2 = createFlight(getAirport("AA"), getAirport("AAA"), flight1.getArrivalDate().plusDays(1), params.getDepartureDate().plusDays(7));
 
         when(airportService.findAirportByIataCode(params.getDepartureAirportIata())).thenReturn(getAirport(params.getDepartureAirportIata()));
 

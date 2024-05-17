@@ -7,7 +7,6 @@ import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.FlightRoute;
-import com.flight.FlightSearch.model.entity.FlightEntity;
 import com.flight.FlightSearch.model.enums.FlightClass;
 import com.flight.FlightSearch.repository.FlightRouteRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,6 +51,7 @@ class FlightRouteServiceImplTest {
         params.setMaxStops(4);
         params.setDepartureAirportIata("AAA");
         params.setArrivalAirportIata("BBB");
+        params.setDepartureDate(LocalDateTime.now().plusDays(1));
         return params;
     }
 
@@ -90,11 +90,11 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_whenNoDepartureAirport_shouldThrowException() {
+    void searchFlightRoutes_whenNoDepartureAirport_shouldThrowException() {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(null);
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(getParams());
+            flightRouteService.searchFlightRoutes(getParams());
             fail();
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
@@ -103,11 +103,11 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_whenNoArrivalAirport_shouldThrowException() {
+    void searchFlightRoutes_whenNoArrivalAirport_shouldThrowException() {
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(null);
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(getParams());
+            flightRouteService.searchFlightRoutes(getParams());
             fail();
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
@@ -117,12 +117,24 @@ class FlightRouteServiceImplTest {
 
     //    date is later than today (cannot be)
     @Test
-    void prepareFlightRoutes_whenDateIsEarlierThanToday_shouldThrowException() {
-//TODO
+    void searchFlightRoutes_whenDateIsEarlierThanToday_shouldThrowException() {
+        FlightRouteSearchParams params = getParams();
+        params.setDepartureDate(LocalDateTime.now().minusDays(2));
+        ReflectionTestUtils.setField(flightRouteService, "MAX_ADULT", 1);
+        ReflectionTestUtils.setField(flightRouteService, "MAX_CHILD", 99);
+        ReflectionTestUtils.setField(flightRouteService, "MAX_INFANT", 99);
+        when(airportService.findAirportByIataCode(any())).thenReturn(getAirport("AAA"));
+        try {
+            flightRouteService.searchFlightRoutes(params);
+            fail();
+        } catch (Exception e) {
+            assertInstanceOf(IllegalArgumentException.class, e);
+            assertEquals("Unacceptable departure date", e.getMessage());
+        }
     }
 
     @Test
-    void prepareFlightRoutes_whenTooManyAdultPassengers_shouldThrowException() {
+    void searchFlightRoutes_whenTooManyAdultPassengers_shouldThrowException() {
         FlightRouteSearchParams params = getParams();
         params.setAdult(5);
         ReflectionTestUtils.setField(flightRouteService, "MAX_ADULT", 1);
@@ -130,7 +142,7 @@ class FlightRouteServiceImplTest {
         ReflectionTestUtils.setField(flightRouteService, "MAX_INFANT", 99);
         when(airportService.findAirportByIataCode(any())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(params);
+            flightRouteService.searchFlightRoutes(params);
             fail();
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
@@ -139,7 +151,7 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_whenTooManyChildPassengers_shouldThrowException() {
+    void searchFlightRoutes_whenTooManyChildPassengers_shouldThrowException() {
         FlightRouteSearchParams params = getParams();
         params.setChild(5);
         ReflectionTestUtils.setField(flightRouteService, "MAX_ADULT", 99);
@@ -147,7 +159,7 @@ class FlightRouteServiceImplTest {
         ReflectionTestUtils.setField(flightRouteService, "MAX_INFANT", 99);
         when(airportService.findAirportByIataCode(any())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(params);
+            flightRouteService.searchFlightRoutes(params);
             fail();
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
@@ -156,7 +168,7 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_whenTooManyInfantPassengers_shouldThrowException() {
+    void searchFlightRoutes_whenTooManyInfantPassengers_shouldThrowException() {
         FlightRouteSearchParams params = getParams();
         params.setInfant(5);
         ReflectionTestUtils.setField(flightRouteService, "MAX_ADULT", 99);
@@ -164,7 +176,7 @@ class FlightRouteServiceImplTest {
         ReflectionTestUtils.setField(flightRouteService, "MAX_INFANT", 1);
         when(airportService.findAirportByIataCode(any())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(params);
+            flightRouteService.searchFlightRoutes(params);
             fail();
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
@@ -173,7 +185,7 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_shouldReturnFlights() {
+    void searchFlightRoutes_shouldReturnFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -193,13 +205,13 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.prepareFlightRoutes(getParams());
+        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
         assert flightRouteSearch.getRoutes().size() == 1;
         assert flightRouteSearch.getRoutes().get(0).getFlights().size() == 3;
     }
 
     @Test
-    void prepareFlightRoutes_whenNoAdultPassenger_shouldThrowException() {
+    void searchFlightRoutes_whenNoAdultPassenger_shouldThrowException() {
         FlightRouteSearchParams params = getParams();
         params.setAdult(0);
         ReflectionTestUtils.setField(flightRouteService, "MAX_ADULT", 99);
@@ -207,7 +219,7 @@ class FlightRouteServiceImplTest {
         ReflectionTestUtils.setField(flightRouteService, "MAX_INFANT", 99);
         when(airportService.findAirportByIataCode(any())).thenReturn(getAirport("AAA"));
         try {
-            flightRouteService.prepareFlightRoutes(params);
+            flightRouteService.searchFlightRoutes(params);
         } catch (Exception e) {
             assertInstanceOf(IllegalArgumentException.class, e);
             assertEquals("Must include at least one adult passenger", e.getMessage());
@@ -215,7 +227,7 @@ class FlightRouteServiceImplTest {
     }
 
     @Test
-    void prepareFlightRoutes_whenRouteCreated_shouldCalculateTotalPriceForFlights() {
+    void searchFlightRoutes_whenRouteCreated_shouldCalculateTotalPriceForFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -235,14 +247,14 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.prepareFlightRoutes(getParams());
+        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
         assert flightRouteSearch.getRoutes().size() == 1;
         assert flightRouteSearch.getRoutes().get(0).getPrices().get(FlightClass.FIRST) == 3000;
         assert flightRouteSearch.getRoutes().get(0).getPrices().get(FlightClass.ECONOMY) == 300;
     }
 
     @Test
-    void prepareFlightRoutes_whenRouteCreated_shouldCalculateTotalDurationForFlights() {
+    void searchFlightRoutes_whenRouteCreated_shouldCalculateTotalDurationForFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -262,7 +274,7 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.prepareFlightRoutes(getParams());
+        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
         assert flightRouteSearch.getRoutes().size() == 1;
         long days_15 = 21600L;
         assert flightRouteSearch.getRoutes().get(0).getDuration() == days_15;
@@ -270,7 +282,7 @@ class FlightRouteServiceImplTest {
 
 
     @Test
-    void prepareFlightRoutes_whenRouteCreated_shouldCalculateMinimalSeatsLeftForFlights() {
+    void searchFlightRoutes_whenRouteCreated_shouldCalculateMinimalSeatsLeftForFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -290,13 +302,13 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.prepareFlightRoutes(getParams());
+        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
         assert flightRouteSearch.getRoutes().size() == 1;
         assert flightRouteSearch.getRoutes().get(0).getSeatsLeft() == 5;
     }
 
     @Test
-    void prepareFlightRoutes_whenRouteCreated_shouldCalculateNumberOfStops() {
+    void searchFlightRoutes_whenRouteCreated_shouldCalculateNumberOfStops() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -316,7 +328,7 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.prepareFlightRoutes(getParams());
+        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
         assert flightRouteSearch.getRoutes().size() == 1;
         assert flightRouteSearch.getRoutes().get(0).getStops() == 3;
     }

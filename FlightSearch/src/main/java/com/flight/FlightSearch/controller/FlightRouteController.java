@@ -19,7 +19,7 @@ public class FlightRouteController {
     @GetMapping("routes")
     public FlightRouteSearch getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
         log.info("Looking for flight routes with params: {}", params);
-        FlightRouteSearch flightRoutes = flightRouteService.prepareFlightRoutes(params);
+        FlightRouteSearch flightRoutes = flightRouteService.searchFlightRoutes(params);
         log.info("Found routes: {}", flightRoutes);
         return flightRoutes;
     }

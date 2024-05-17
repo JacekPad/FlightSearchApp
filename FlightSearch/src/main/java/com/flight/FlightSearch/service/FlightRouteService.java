@@ -8,7 +8,7 @@ import com.flight.FlightSearch.model.enums.FlightClass;
 
 public interface FlightRouteService {
 
-    FlightRouteSearch prepareFlightRoutes(FlightRouteSearchParams params);
+    FlightRouteSearch searchFlightRoutes(FlightRouteSearchParams params);
 
     FlightRouteSearch getFlightRouteById(String uuid);
 
