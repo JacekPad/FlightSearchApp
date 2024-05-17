@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/")
 public class FlightRouteController {
 
-//TODO change to /api/v1
     private final FlightRouteService flightRouteService;
     @GetMapping("routes")
     public FlightRouteSearch getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {

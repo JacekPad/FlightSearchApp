@@ -118,10 +118,9 @@ class FlightRouteServiceImplTest {
     //    date is later than today (cannot be)
     @Test
     void prepareFlightRoutes_whenDateIsEarlierThanToday_shouldThrowException() {
-
+//TODO
     }
 
-    //    max passengers of any kind should be excetpion
     @Test
     void prepareFlightRoutes_whenTooManyAdultPassengers_shouldThrowException() {
         FlightRouteSearchParams params = getParams();
@@ -215,7 +214,6 @@ class FlightRouteServiceImplTest {
         }
     }
 
-    //    calculate total price based on all flights of some type (for all)
     @Test
     void prepareFlightRoutes_whenRouteCreated_shouldCalculateTotalPriceForFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
@@ -243,7 +241,6 @@ class FlightRouteServiceImplTest {
         assert flightRouteSearch.getRoutes().get(0).getPrices().get(FlightClass.ECONOMY) == 300;
     }
 
-    //    calculate total duration based on all flights
     @Test
     void prepareFlightRoutes_whenRouteCreated_shouldCalculateTotalDurationForFlights() {
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
@@ -340,7 +337,6 @@ class FlightRouteServiceImplTest {
         }
     }
 
-    //    throw exception when main id is ok, but flight id not found in the list
     @Test
     void getBookingInfo_whenNoFlightWithGivenId_shouldThrowException() {
         Map<FlightClass, FlightOption> map = new HashMap<>();
@@ -362,7 +358,6 @@ class FlightRouteServiceImplTest {
         }
     }
 
-    //    return ok booking info
     @Test
     void getBookingInfo_shouldReturnFlightRouteBooking() {
         Map<FlightClass, FlightOption> map = new HashMap<>();
