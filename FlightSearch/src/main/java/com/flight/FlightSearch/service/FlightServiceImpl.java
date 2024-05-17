@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -46,12 +47,13 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public List<List<Flight>> findFlights(FlightRouteSearchParams params) {
+//        TODO params should have departure date
+        LocalDateTime time = LocalDateTime.now();
         log.info("SERVICE: findFlightRoutes - START");
-        LocalDateTime now = LocalDateTime.now();
         List<List<Flight>> flights = new ArrayList<>();
         Airport airport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         int seats = calculateSeats(params);
-        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), now);
+        dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), time);
         log.info("SERVICE: findFlightRoutes - END - Flights found: {}", flights);
         return flights;
     }

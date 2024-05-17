@@ -19,3 +19,10 @@ spring:
     redis:
       host: localhost
       port: 6379
+app:
+  config:
+    flight-route:
+      max-adult: 5
+      max-child: 5
+      max-infant: 5
+
