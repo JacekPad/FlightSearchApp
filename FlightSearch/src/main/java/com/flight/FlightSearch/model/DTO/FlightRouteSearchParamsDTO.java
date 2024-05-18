@@ -15,10 +15,12 @@ public class FlightRouteSearchParamsDTO {
     private FlightClass flightClass;
 
     @NotNull
+    @Pattern(regexp = "[A-Z]*", message = "Only capital letters are allowed")
     @Size(min = 3, max = 3, message = "Iata code must be 3 characters long")
     private String departureAirportIata;
 
     @NotNull
+    @Pattern(regexp = "[A-Z]*", message = "Only capital letters are allowed")
     @Size(min = 3, max = 3, message = "Iata code must be 3 characters long")
     private String arrivalAirportIata;
 
@@ -26,31 +28,25 @@ public class FlightRouteSearchParamsDTO {
     @DateValidatorConstraint
     private String departureDate;
 
-    @Null
     @DateValidatorConstraint
     private String returnDate;
 
     @NotNull
-    @Size(min = 5, max = 6, message = "Flight type must be between 5 and 6 characters")
     private FlightType flightType;
 
     @NotNull
-    @Max(value = 5, message = "Maximum number of stops is 5")
-    @Min(value = 1, message = "Number of stops must be at least 1")
+    @Positive
     private int maxStops;
 
     @NotNull
-    @Max(value = 5, message = "Maximum number of adults is 5")
-    @Min(value = 1, message = "At least one adult is required")
+    @Positive
     private int adult;
 
     @NotNull
-    @Max(value = 5, message = "Maximum children of adults is 5")
-    @Min(value = 0, message = "Value can not be negative")
+    @PositiveOrZero
     private int child;
 
     @NotNull
-    @Max(value = 5, message = "Maximum number of infants is 5")
-    @Min(value = 0, message = "Value can not be negative")
+    @PositiveOrZero
     private int infant;
 }

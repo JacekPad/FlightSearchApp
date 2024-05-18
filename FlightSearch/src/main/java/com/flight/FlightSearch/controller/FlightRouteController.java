@@ -7,19 +7,22 @@ import com.flight.FlightSearch.model.DTO.FlightRouteSearchParamsDTO;
 import com.flight.FlightSearch.model.enums.FlightClass;
 import com.flight.FlightSearch.service.FlightRouteService;
 import com.flight.FlightSearch.utils.mappers.FlightRouteSearchParamsMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@Validated
 @RequestMapping("api/v1/")
 public class FlightRouteController {
 
     private final FlightRouteService flightRouteService;
     @GetMapping("routes")
-    public FlightRouteDTO getFlightRoutes(@ModelAttribute FlightRouteSearchParamsDTO paramsDTO) {
+    public FlightRouteDTO getFlightRoutes(@Valid @ModelAttribute FlightRouteSearchParamsDTO paramsDTO) {
         log.info("Looking for flight routes with params: {}", paramsDTO);
         FlightRouteSearchParams params = FlightRouteSearchParamsMapper.fromDTO(paramsDTO);
         FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(params);

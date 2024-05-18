@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DateValidatorConstraint {
-    String message() default "Invalid date";
+    String message() default "Invalid date, required format: yyyy-MM-ddTHH:mm:ss";
 
     Class<?>[] groups() default {};
 
