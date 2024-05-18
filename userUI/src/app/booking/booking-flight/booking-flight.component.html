@@ -1,28 +1,51 @@
 <div class="main-booking">
-    <mat-card class="booking-card" *ngIf="(flightRoute$ | async) as flightRoute">
+    <mat-card class="booking-card" *ngIf="(flightRouteDeparture$ | async) as flightRoute">
         <mat-stepper class="stepper" #stepper>
             <mat-step>
                 <ng-template matStepLabel>Confirm your choice</ng-template>
-                <mat-card-header class="booking-header">
-                    Booking flight from {{flightRoute.route.departureAirport.name}} to {{flightRoute.route.arrivalAirport.name}}
-                </mat-card-header>
-                <mat-card-content class="booking-content">
-                    <div class="booking-flight-details">
-                        <app-flight-route-details [flightRoute]="flightRoute.route"></app-flight-route-details>
-                        <div class="booking-flight-pricing">
-                            <div class="booking-flight-class">
-                                {{flightRoute.route.flightClass}}
-                            </div>
-                            <div class="booking-flight-price">
-                                {{calculateCurrency(flightRoute.price) | currency}}
+                <div>
+                    <mat-card-header class="booking-header">
+                        Booking flight from {{flightRoute.route.departureAirport.name}} to
+                        {{flightRoute.route.arrivalAirport.name}}
+                    </mat-card-header>
+                    <mat-card-content class="booking-content">
+                        <div class="booking-flight-details">
+                            <app-flight-route-details [flightRoute]="flightRoute.route"></app-flight-route-details>
+                            <div class="booking-flight-pricing">
+                                <div class="booking-flight-class">
+                                    {{flightRoute.route.flightClass}}
+                                </div>
+                                <div class="booking-flight-price">
+                                    {{calculateCurrency(flightRoute.price) | currency}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="stepper-buttons-start">
-                        <button matStepperNext type="button" mat-raised-button color="primary" class="next-button"> NEXT
-                        </button>
-                    </div>
-                </mat-card-content>
+                    </mat-card-content>
+                </div>
+                <div *ngIf="(flightRouteReturn$ | async) as flightReturn">
+                    <mat-card-header class="booking-header">
+                        Booking flight from {{flightReturn.route.departureAirport.name}} to
+                        {{flightReturn.route.arrivalAirport.name}}
+                    </mat-card-header>
+                    <mat-card-content class="booking-content">
+                        <div class="booking-flight-details">
+                            <app-flight-route-details [flightRoute]="flightReturn.route"></app-flight-route-details>
+                            <div class="booking-flight-pricing">
+                                <div class="booking-flight-class">
+                                    {{flightReturn.route.flightClass}}
+                                </div>
+                                <div class="booking-flight-price">
+                                    {{calculateCurrency(flightReturn.price) | currency}}
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </div>
+                <div class="stepper-buttons-start">
+                    <button matStepperNext type="button" mat-raised-button color="primary" class="next-button">
+                        NEXT
+                    </button>
+                </div>
             </mat-step>
             <mat-step>
                 <mat-card-content>
@@ -41,7 +64,8 @@
                                                 <mat-label>Name {{i}}</mat-label>
                                                 <input matInput type="text" name="passangerName" placeholder="name"
                                                     formControlName="name">
-                                                <mat-error *ngIf="bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.name')?.touched && bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.name')?.invalid">
+                                                <mat-error
+                                                    *ngIf="bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.name')?.touched && bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.name')?.invalid">
                                                     Name is required
                                                 </mat-error>
                                             </mat-form-field>
@@ -50,7 +74,8 @@
                                                 <mat-label>Surname</mat-label>
                                                 <input matInput type="text" name="passangerSurname"
                                                     placeholder="surname" formControlName="surname">
-                                                <mat-error *ngIf="bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.surname')?.touched && bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.surname')?.invalid">
+                                                <mat-error
+                                                    *ngIf="bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.surname')?.touched && bookingForm.get('passangers.'+passangerType.type.toLowerCase()+'.'+i+'.surname')?.invalid">
                                                     Surname is required
                                                 </mat-error>
                                             </mat-form-field>
@@ -67,7 +92,8 @@
 
                                         <mat-form-field class="form-field">
                                             <mat-label>Email</mat-label>
-                                            <input matInput type="email" name="passangerEmail" placeholder="email" formControlName="email">
+                                            <input matInput type="email" name="passangerEmail" placeholder="email"
+                                                formControlName="email">
                                             <mat-error>
                                                 Email is required
                                             </mat-error>
@@ -75,7 +101,8 @@
 
                                         <mat-form-field class="form-field">
                                             <mat-label>Phone number</mat-label>
-                                            <input matInput type="tel" name="passangerPhone" placeholder="phone number" formControlName="phoneNumber">
+                                            <input matInput type="tel" name="passangerPhone" placeholder="phone number"
+                                                formControlName="phoneNumber">
                                             <mat-error>
                                                 Phone number is required
                                             </mat-error>
@@ -91,8 +118,8 @@
                         <span class="spacer"></span>
                         <button matStepperPrevious type="button" mat-raised-button color="accent"
                             class="previous-button">PREVIOUS</button>
-                        <button type="button" mat-raised-button color="primary"
-                            class="next-button" (click)="validatePassengerInformation(stepper)">NEXT</button>
+                        <button type="button" mat-raised-button color="primary" class="next-button"
+                            (click)="validatePassengerInformation(stepper)">NEXT</button>
                     </div>
                 </mat-card-content>
             </mat-step>

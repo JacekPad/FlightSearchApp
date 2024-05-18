@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { FlightModule } from './flight/flight.module';
 import { MaterialImportsModule } from './shared/material-imports/material-imports.module';
 import { BookingModule } from './booking/booking.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,11 @@ import { BookingModule } from './booking/booking.module';
     AppRoutingModule,
     FlightModule,
     BookingModule,
-    MaterialImportsModule
+    MaterialImportsModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

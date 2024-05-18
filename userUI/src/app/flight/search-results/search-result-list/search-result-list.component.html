@@ -1,10 +1,10 @@
 <div class="main">
     <mat-card class="flight-list">
         <mat-card-header>
-            <h1>Flights</h1>
+            <h1>Choose {{flightChoice}} flights</h1>
         </mat-card-header>
-        <mat-card class="flight-card" *ngFor="let flightRoute of flightRoutes.routes">
-            <app-search-result-card [routeId]="flightRoutes.id" [flightRoute]="flightRoute"></app-search-result-card>
+        <mat-card class="flight-card" *ngFor="let flightRoute of currentFlights">
+            <app-search-result-card (bookingChoiceEmitter)="onRouteChoose($event)" [routeId]="flightRoutes.id" [flightRoute]="flightRoute"></app-search-result-card>
         </mat-card>
     </mat-card>
 </div>

@@ -1,10 +1,12 @@
 package com.flight.FlightSearch.controller;
 
 import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.DTO.FlightRouteSearchParamsDTO;
 import com.flight.FlightSearch.model.enums.FlightClass;
 import com.flight.FlightSearch.service.FlightRouteService;
+import com.flight.FlightSearch.utils.mappers.FlightRouteSearchParamsMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +19,18 @@ public class FlightRouteController {
 
     private final FlightRouteService flightRouteService;
     @GetMapping("routes")
-    public FlightRouteSearch getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
-        log.info("Looking for flight routes with params: {}", params);
-        FlightRouteSearch flightRoutes = flightRouteService.searchFlightRoutes(params);
-        log.info("Found routes: {}", flightRoutes);
-        return flightRoutes;
+    public FlightRouteDTO getFlightRoutes(@ModelAttribute FlightRouteSearchParamsDTO paramsDTO) {
+        log.info("Looking for flight routes with params: {}", paramsDTO);
+        FlightRouteSearchParams params = FlightRouteSearchParamsMapper.fromDTO(paramsDTO);
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(params);
+        log.info("Found routes: {}", flightRouteDTO);
+        return flightRouteDTO;
     }
 
     @GetMapping("option/{route}")
-    public FlightRouteSearch getFlightRoute(@PathVariable String route) {
+    public FlightRouteDTO getFlightRoute(@PathVariable String route) {
         log.info("Getting flight route from redis with id: {}", route);
-        FlightRouteSearch flightRoute = flightRouteService.getFlightRouteById(route);
+        FlightRouteDTO flightRoute = flightRouteService.getFlightRouteById(route);
         log.info("Found flight route: {}", flightRoute);
         return flightRoute;
     }

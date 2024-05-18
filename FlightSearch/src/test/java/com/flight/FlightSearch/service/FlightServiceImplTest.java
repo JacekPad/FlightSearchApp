@@ -6,6 +6,7 @@ import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.entity.FlightEntity;
 import com.flight.FlightSearch.model.enums.FlightClass;
+import com.flight.FlightSearch.model.enums.FlightType;
 import com.flight.FlightSearch.repository.FlightRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,6 +70,7 @@ class FlightServiceImplTest {
         params.setDepartureAirportIata("AAA");
         params.setArrivalAirportIata("BBB");
         params.setDepartureDate(LocalDateTime.now());
+        params.setFlightType(FlightType.ONEWAY);
         return params;
     }
 

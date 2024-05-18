@@ -7,13 +7,13 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class FlightRouteSearchParams {
+public class FlightRouteSearchParamsDTO {
 
     private FlightClass flightClass;
     private String departureAirportIata;
     private String arrivalAirportIata;
-    private LocalDateTime departureDate;
-    private LocalDateTime returnDate;
+    private String departureDate;
+    private String returnDate;
     private FlightType flightType;
     private int maxStops;
     private int adult;
