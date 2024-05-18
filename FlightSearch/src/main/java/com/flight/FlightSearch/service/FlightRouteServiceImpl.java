@@ -83,10 +83,10 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
         log.info("what object: {}", flightRouteDTO);
         Optional<FlightRoute> flightRouteOpt = findRouteById(flightRouteDTO.getRouteDeparture(), routeId);
-        if (flightRouteOpt.isEmpty()) {
+        if (flightRouteOpt.isEmpty() && flightRouteDTO.getRouteReturn() != null) {
         flightRouteOpt = findRouteById(flightRouteDTO.getRouteReturn(), routeId);
         }
-        FlightRoute flightRoute = flightRouteOpt.orElseThrow(() -> new NoSuchElementException("Flight route not found"));
+        FlightRoute flightRoute = flightRouteOpt.orElseThrow(() -> new NoSuchElementException("No flight route found"));
         flightRouteBookingDTO.setRoute(flightRoute);
         flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
         flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
@@ -114,13 +114,13 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     }
 
     private void validateSearchParameters(FlightRouteSearchParams params) {
-//        if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
-//            throw new IllegalArgumentException("Unacceptable departure date");
-//        }
+        if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Unacceptable departure date");
+        }
 
-//        if (params.getFlightType().equals(FlightType.ROUND_TRIP) && (params.getReturnDate() == null || params.getReturnDate().isBefore(params.getDepartureDate()))) {
-//            throw new IllegalArgumentException("Unacceptable departure date");
-//        }
+        if (params.getFlightType().equals(FlightType.ROUND) && (params.getReturnDate() == null || params.getReturnDate().isBefore(params.getDepartureDate()))) {
+            throw new IllegalArgumentException("Unacceptable departure date");
+        }
 
         if (params.getAdult() == 0) {
             throw new IllegalArgumentException("Must include at least one adult passenger");
