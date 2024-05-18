@@ -9,6 +9,7 @@ import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.Airport;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.enums.FlightClass;
+import com.flight.FlightSearch.model.enums.FlightType;
 import com.flight.FlightSearch.model.enums.PassengerEnum;
 import com.flight.FlightSearch.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -53,7 +54,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         List<List<Flight>> flightsDeparture = flightService.findFlights(params);
         prepareFlights(flightsDeparture, params, routesDeparture);
         map.put("departure", routesDeparture);
-        if (false) {
+        if (params.getFlightType().equals(FlightType.ROUND_TRIP)) {
             String departureAirportIata = params.getDepartureAirportIata();
             params.setDepartureAirportIata(params.getArrivalAirportIata());
             params.setArrivalAirportIata(departureAirportIata);
@@ -80,10 +81,10 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         log.info("FlightRouteService Start - getting cached info for id: {} and route: {}, for class: {}", uuid, routeId, flightClass);
         FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
         FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
-//        FlightRoute flightRoute = findRouteById(flightRouteDTO.getRoutes(), routeId);
-//        flightRouteBookingDTO.setRoute(flightRoute);
-//        flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
-//        flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
+        FlightRoute flightRoute = findRouteById(flightRouteDTO.getRoutes(), routeId);
+        flightRouteBookingDTO.setRoute(flightRoute);
+        flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
+        flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
         log.info("found info: {}", flightRouteBookingDTO);
         return flightRouteBookingDTO;
     }
@@ -122,8 +123,14 @@ public class FlightRouteServiceImpl implements FlightRouteService {
 
     }
 
-    private FlightRoute findRouteById(List<FlightRoute> list, String id) {
-        return list.stream().filter(d -> id.equals(d.getId())).findFirst().orElseThrow(() -> new NoSuchElementException("No flight route found"));
+    private FlightRoute findRouteById(Map<String, List<FlightRoute>> map, String id) {
+        Optional<FlightRoute> flightRoute = Optional.empty();
+        for (List<FlightRoute> list : map.values()) {
+            if (flightRoute.isEmpty()) {
+                flightRoute = list.stream().filter(route -> id.equals(route.getId())).findFirst();
+            }
+        }
+        return flightRoute.orElseThrow(() -> new NoSuchElementException("No flight route found"));
     }
 
     private List<PassengerDTO> mapPassengers(FlightRouteSearchParams params) {

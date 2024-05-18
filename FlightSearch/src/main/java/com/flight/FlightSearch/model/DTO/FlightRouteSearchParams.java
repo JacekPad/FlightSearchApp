@@ -1,6 +1,7 @@
 package com.flight.FlightSearch.model.DTO;
 
 import com.flight.FlightSearch.model.enums.FlightClass;
+import com.flight.FlightSearch.model.enums.FlightType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ public class FlightRouteSearchParams {
     private String departureAirportIata;
     private String arrivalAirportIata;
     private LocalDateTime departureDate;
+    private FlightType flightType;
     private int maxStops;
     private int adult;
     private int child;
