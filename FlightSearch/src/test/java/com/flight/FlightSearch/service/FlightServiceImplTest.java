@@ -70,7 +70,7 @@ class FlightServiceImplTest {
         params.setDepartureAirportIata("AAA");
         params.setArrivalAirportIata("BBB");
         params.setDepartureDate(LocalDateTime.now());
-        params.setFlightType(FlightType.ONE_WAY);
+        params.setFlightType(FlightType.ONEWAY);
         return params;
     }
 

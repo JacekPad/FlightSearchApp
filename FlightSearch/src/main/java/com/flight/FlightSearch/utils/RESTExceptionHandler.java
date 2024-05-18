@@ -1,5 +1,7 @@
 package com.flight.FlightSearch.utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -28,6 +30,9 @@ public class RESTExceptionHandler {
         ErrorResponse response = new ErrorResponse(e.getMessage(), "500");
         return new ResponseEntity<>(response, null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Setter
+    @Getter
     static class ErrorResponse {
 
         ErrorResponse(String message, String code) {

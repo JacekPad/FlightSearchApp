@@ -42,29 +42,29 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     @Override
     public FlightRouteDTO searchFlightRoutes(FlightRouteSearchParams params) {
         log.info("FlightRouteService - prepareFlightRoutes with params: {}", params);
+        FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
         Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
         if (departureAirport == null || arrivalAirport == null) {
             throw new IllegalArgumentException("No airport found");
         }
         validateSearchParameters(params);
-        Map<String, List<FlightRoute>> map = new HashMap<>();
         List<FlightRoute> routesDeparture = new ArrayList<>();
 
         List<List<Flight>> flightsDeparture = flightService.findFlights(params);
         prepareFlights(flightsDeparture, params, routesDeparture);
-        map.put("departure", routesDeparture);
-        if (params.getFlightType().equals(FlightType.ROUND_TRIP)) {
+        flightRouteDTO.setRouteDeparture(routesDeparture);
+
+        if (params.getFlightType().equals(FlightType.ROUND)) {
             String departureAirportIata = params.getDepartureAirportIata();
             params.setDepartureAirportIata(params.getArrivalAirportIata());
             params.setArrivalAirportIata(departureAirportIata);
+            params.setDepartureDate(params.getReturnDate());
             List<List<Flight>> flightsReturn = flightService.findFlights(params);
             List<FlightRoute> routesReturn = new ArrayList<>();
             prepareFlights(flightsReturn, params, routesReturn);
-            map.put("return", routesReturn);
+        flightRouteDTO.setRouteReturn(routesReturn);
         }
-        FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
-        flightRouteDTO.setRoutes(map);
         flightRouteDTO.setPassengers(mapPassengers(params));
         flightRouteRepository.save(flightRouteDTO);
         log.info("Found flight routes: {}", flightRouteDTO);
@@ -81,7 +81,12 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         log.info("FlightRouteService Start - getting cached info for id: {} and route: {}, for class: {}", uuid, routeId, flightClass);
         FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
         FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
-        FlightRoute flightRoute = findRouteById(flightRouteDTO.getRoutes(), routeId);
+        log.info("what object: {}", flightRouteDTO);
+        Optional<FlightRoute> flightRouteOpt = findRouteById(flightRouteDTO.getRouteDeparture(), routeId);
+        if (flightRouteOpt.isEmpty()) {
+        flightRouteOpt = findRouteById(flightRouteDTO.getRouteReturn(), routeId);
+        }
+        FlightRoute flightRoute = flightRouteOpt.orElseThrow(() -> new NoSuchElementException("Flight route not found"));
         flightRouteBookingDTO.setRoute(flightRoute);
         flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
         flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
@@ -109,9 +114,13 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     }
 
     private void validateSearchParameters(FlightRouteSearchParams params) {
-        if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Unacceptable departure date");
-        }
+//        if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
+//            throw new IllegalArgumentException("Unacceptable departure date");
+//        }
+
+//        if (params.getFlightType().equals(FlightType.ROUND_TRIP) && (params.getReturnDate() == null || params.getReturnDate().isBefore(params.getDepartureDate()))) {
+//            throw new IllegalArgumentException("Unacceptable departure date");
+//        }
 
         if (params.getAdult() == 0) {
             throw new IllegalArgumentException("Must include at least one adult passenger");
@@ -123,14 +132,8 @@ public class FlightRouteServiceImpl implements FlightRouteService {
 
     }
 
-    private FlightRoute findRouteById(Map<String, List<FlightRoute>> map, String id) {
-        Optional<FlightRoute> flightRoute = Optional.empty();
-        for (List<FlightRoute> list : map.values()) {
-            if (flightRoute.isEmpty()) {
-                flightRoute = list.stream().filter(route -> id.equals(route.getId())).findFirst();
-            }
-        }
-        return flightRoute.orElseThrow(() -> new NoSuchElementException("No flight route found"));
+    private Optional<FlightRoute> findRouteById(List<FlightRoute> list, String id) {
+        return list.stream().filter(route -> id.equals(route.getId())).findFirst();
     }
 
     private List<PassengerDTO> mapPassengers(FlightRouteSearchParams params) {

@@ -26,7 +26,6 @@ public class FlightMapper {
         flight.setOptions(map);
         return flight;
     }
-
     public static FlightEntity toFlightEntity(Flight flight) {
         FlightEntity flightEntity = new FlightEntity();
         flightEntity.setFrom(flight.getFrom());

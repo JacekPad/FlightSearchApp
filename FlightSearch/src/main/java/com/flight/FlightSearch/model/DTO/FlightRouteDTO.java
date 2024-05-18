@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ public class FlightRouteDTO {
 
     @Id
     String id;
-    Map<String, List<FlightRoute>> routes;
+    List<FlightRoute> routeDeparture;
+    List<FlightRoute> routeReturn;
     List<PassengerDTO> passengers;
 }

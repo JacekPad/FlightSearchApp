@@ -44,9 +44,10 @@ export class FlightSearchComponent implements OnInit {
       flightType: [FlightTypes.ONEWAY, Validators.required],
       flightClass: [FlightClassTypes.ECONOMY, Validators.required],
       maxStops: [1, Validators.required],
-      departureAirport: ['LEJ', Validators.required],
-      arrivalAirport: ['ERF', Validators.required],
-      departureDate: [null, [Validators.required, this.departureDateValidator()]],
+      departureAirport: ['CCF', Validators.required],
+      arrivalAirport: ['BMK', Validators.required],
+      // departureDate: [null, [Validators.required, this.departureDateValidator()]],
+      departureDate: [null, [Validators.required]],
       returnDate: [null],
       adultNumber: [1, Validators.required],
       childNumber: [0, Validators.required],
@@ -95,7 +96,7 @@ export class FlightSearchComponent implements OnInit {
   }
 
   onFlightTypeChange(event: string) {
-    if (event === FlightTypes.MULTICITY) {
+    if (event === FlightTypes.ROUND) {
       this.searchForm.controls['returnDate'].setValidators([Validators.required]);
     } else {
       this.searchForm.controls['returnDate'].setValidators(null);
@@ -107,7 +108,6 @@ export class FlightSearchComponent implements OnInit {
   searchForFlights() {
     this.searchForm.markAllAsTouched();
     if (this.searchForm.valid) {
-      console.log("looking for flights");
       let params: ISearchParams = new SearchParams;
       params = <SearchParams> this.searchForm.value;
       this.flights$ = this.flightService.getFlights(params);

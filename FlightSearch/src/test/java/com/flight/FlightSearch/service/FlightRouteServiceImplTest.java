@@ -53,7 +53,7 @@ class FlightRouteServiceImplTest {
         params.setDepartureAirportIata("AAA");
         params.setArrivalAirportIata("BBB");
         params.setDepartureDate(LocalDateTime.now().plusDays(1));
-        params.setFlightType(FlightType.ONE_WAY);
+        params.setFlightType(FlightType.ONEWAY);
         return params;
     }
 
@@ -397,8 +397,11 @@ class FlightRouteServiceImplTest {
         String arrivalAirportIata = paramsReturn.getArrivalAirportIata();
         paramsReturn.setArrivalAirportIata(paramsReturn.getDepartureAirportIata());
         paramsReturn.setDepartureAirportIata(arrivalAirportIata);
-        params.setFlightType(FlightType.ROUND_TRIP);
-        paramsReturn.setFlightType(FlightType.ROUND_TRIP);
+        params.setFlightType(FlightType.ROUND);
+        params.setReturnDate(LocalDateTime.now().plusDays(2));
+        paramsReturn.setFlightType(FlightType.ROUND);
+        paramsReturn.setReturnDate(params.getReturnDate());
+        paramsReturn.setDepartureDate(paramsReturn.getReturnDate());
         FlightOption economyClass = getOptions(5, 100, FlightClass.ECONOMY);
         FlightOption firstClass = getOptions(10, 1000, FlightClass.FIRST);
         HashMap<FlightClass, FlightOption> map = new HashMap<>();
@@ -413,7 +416,7 @@ class FlightRouteServiceImplTest {
         Flight flightDep2 = getFlight(getAirport("AA"), getAirport("BB"), LocalDateTime.now().plusDays(6), LocalDateTime.now().plusDays(10), map);
         Flight flightDep3 = getFlight(getAirport("BB"), getAirport("BBB"), LocalDateTime.now().plusDays(11), LocalDateTime.now().plusDays(15), map);
 
-        Flight flightRet1 = getFlight(getAirport("BBB"), getAirport("BB"), LocalDateTime.now(), LocalDateTime.now().plusDays(5), map);
+        Flight flightRet1 = getFlight(getAirport("BBB"), getAirport("BB"), LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(5), map);
         Flight flightRet2 = getFlight(getAirport("BB"), getAirport("AA"), LocalDateTime.now().plusDays(6), LocalDateTime.now().plusDays(10), map);
         Flight flightRet3 = getFlight(getAirport("AA"), getAirport("AAA"), LocalDateTime.now().plusDays(11), LocalDateTime.now().plusDays(15), map);
         List<List<Flight>> flightsDep = getFlights(flightDep1, flightDep2, flightDep3);
