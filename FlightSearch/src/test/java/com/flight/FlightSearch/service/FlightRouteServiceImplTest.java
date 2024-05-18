@@ -2,7 +2,7 @@ package com.flight.FlightSearch.service;
 
 import com.flight.FlightSearch.model.Airport;
 import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
@@ -205,9 +205,9 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
-        assert flightRouteSearch.getRoutes().size() == 1;
-        assert flightRouteSearch.getRoutes().get(0).getFlights().size() == 3;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(getParams());
+        assert flightRouteDTO.getRoutes().size() == 1;
+        assert flightRouteDTO.getRoutes().get(0).getFlights().size() == 3;
     }
 
     @Test
@@ -247,10 +247,10 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
-        assert flightRouteSearch.getRoutes().size() == 1;
-        assert flightRouteSearch.getRoutes().get(0).getPrices().get(FlightClass.FIRST) == 3000;
-        assert flightRouteSearch.getRoutes().get(0).getPrices().get(FlightClass.ECONOMY) == 300;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(getParams());
+        assert flightRouteDTO.getRoutes().size() == 1;
+        assert flightRouteDTO.getRoutes().get(0).getPrices().get(FlightClass.FIRST) == 3000;
+        assert flightRouteDTO.getRoutes().get(0).getPrices().get(FlightClass.ECONOMY) == 300;
     }
 
     @Test
@@ -274,10 +274,10 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
-        assert flightRouteSearch.getRoutes().size() == 1;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(getParams());
+        assert flightRouteDTO.getRoutes().size() == 1;
         long days_15 = 21600L;
-        assert flightRouteSearch.getRoutes().get(0).getDuration() == days_15;
+        assert flightRouteDTO.getRoutes().get(0).getDuration() == days_15;
     }
 
 
@@ -302,9 +302,9 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
-        assert flightRouteSearch.getRoutes().size() == 1;
-        assert flightRouteSearch.getRoutes().get(0).getSeatsLeft() == 5;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(getParams());
+        assert flightRouteDTO.getRoutes().size() == 1;
+        assert flightRouteDTO.getRoutes().get(0).getSeatsLeft() == 5;
     }
 
     @Test
@@ -328,9 +328,9 @@ class FlightRouteServiceImplTest {
         when(airportService.findAirportByIataCode(getParams().getDepartureAirportIata())).thenReturn(getAirport("AAA"));
         when(airportService.findAirportByIataCode(getParams().getArrivalAirportIata())).thenReturn(getAirport("BBB"));
 
-        FlightRouteSearch flightRouteSearch = flightRouteService.searchFlightRoutes(getParams());
-        assert flightRouteSearch.getRoutes().size() == 1;
-        assert flightRouteSearch.getRoutes().get(0).getStops() == 3;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(getParams());
+        assert flightRouteDTO.getRoutes().size() == 1;
+        assert flightRouteDTO.getRoutes().get(0).getStops() == 3;
     }
 
     @Test
@@ -354,13 +354,13 @@ class FlightRouteServiceImplTest {
         Map<FlightClass, FlightOption> map = new HashMap<>();
         FlightOption options = getOptions(2, 55, FlightClass.ECONOMY);
         map.put(FlightClass.ECONOMY, options);
-        FlightRouteSearch flightRouteSearch = new FlightRouteSearch();
+        FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
         FlightRoute flightRoute = new FlightRoute();
         flightRoute.setId(String.valueOf(UUID.randomUUID()));
         flightRoute.setFlights(List.of(getFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now(), LocalDateTime.now().plusDays(3), map)));
         flightRoute.setPrices(Map.of(FlightClass.ECONOMY, 55));
-        flightRouteSearch.setRoutes(List.of(flightRoute));
-        when(flightRouteRepository.findById(any())).thenReturn(Optional.of(flightRouteSearch));
+        flightRouteDTO.setRoutes(List.of(flightRoute));
+        when(flightRouteRepository.findById(any())).thenReturn(Optional.of(flightRouteDTO));
         try {
             FlightRouteBookingDTO bookingInfo = flightRouteService.getBookingInfo("random", "differentID", FlightClass.ECONOMY);
             fail();
@@ -375,13 +375,13 @@ class FlightRouteServiceImplTest {
         Map<FlightClass, FlightOption> map = new HashMap<>();
         FlightOption options = getOptions(2, 55, FlightClass.ECONOMY);
         map.put(FlightClass.ECONOMY, options);
-        FlightRouteSearch flightRouteSearch = new FlightRouteSearch();
+        FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
         FlightRoute flightRoute = new FlightRoute();
         flightRoute.setId(String.valueOf(UUID.randomUUID()));
         flightRoute.setFlights(List.of(getFlight(getAirport("AAA"), getAirport("BBB"), LocalDateTime.now(), LocalDateTime.now().plusDays(3), map)));
         flightRoute.setPrices(Map.of(FlightClass.ECONOMY, 55));
-        flightRouteSearch.setRoutes(List.of(flightRoute));
-        when(flightRouteRepository.findById(any())).thenReturn(Optional.of(flightRouteSearch));
+        flightRouteDTO.setRoutes(List.of(flightRoute));
+        when(flightRouteRepository.findById(any())).thenReturn(Optional.of(flightRouteDTO));
 
         FlightRouteBookingDTO bookingInfo = flightRouteService.getBookingInfo("random", flightRoute.getId(), FlightClass.ECONOMY);
         assert bookingInfo.getRoute().getFlights().size()==1;

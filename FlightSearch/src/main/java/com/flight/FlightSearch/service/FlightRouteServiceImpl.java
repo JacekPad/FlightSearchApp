@@ -1,7 +1,7 @@
 package com.flight.FlightSearch.service;
 
 import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.PassengerDTO;
 import com.flight.FlightSearch.model.FlightRoute;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
@@ -39,7 +39,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
     private Integer MAX_INFANT;
 
     @Override
-    public FlightRouteSearch searchFlightRoutes(FlightRouteSearchParams params) {
+    public FlightRouteDTO searchFlightRoutes(FlightRouteSearchParams params) {
         log.info("FlightRouteService - prepareFlightRoutes with params: {}", params);
         Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
@@ -47,9 +47,51 @@ public class FlightRouteServiceImpl implements FlightRouteService {
             throw new IllegalArgumentException("No airport found");
         }
         validateSearchParameters(params);
-        List<FlightRoute> routes = new ArrayList<>();
-        List<List<Flight>> flightPaths = flightService.findFlights(params);
-        for (List<Flight> flightPath : flightPaths) {
+        Map<String, List<FlightRoute>> map = new HashMap<>();
+        List<FlightRoute> routesDeparture = new ArrayList<>();
+
+        List<List<Flight>> flightsDeparture = flightService.findFlights(params);
+        prepareFlights(flightsDeparture, params, routesDeparture);
+        map.put("departure", routesDeparture);
+        if (false) {
+            String departureAirportIata = params.getDepartureAirportIata();
+            params.setDepartureAirportIata(params.getArrivalAirportIata());
+            params.setArrivalAirportIata(departureAirportIata);
+            List<List<Flight>> flightsReturn = flightService.findFlights(params);
+            List<FlightRoute> routesReturn = new ArrayList<>();
+            prepareFlights(flightsReturn, params, routesReturn);
+            map.put("return", routesReturn);
+        }
+        FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
+        flightRouteDTO.setRoutes(map);
+        flightRouteDTO.setPassengers(mapPassengers(params));
+        flightRouteRepository.save(flightRouteDTO);
+        log.info("Found flight routes: {}", flightRouteDTO);
+        return flightRouteDTO;
+    }
+
+    @Override
+    public FlightRouteDTO getFlightRouteById(String uuid) {
+        return flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
+    }
+
+    @Override
+    public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId, FlightClass flightClass) {
+        log.info("FlightRouteService Start - getting cached info for id: {} and route: {}, for class: {}", uuid, routeId, flightClass);
+        FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
+        FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
+//        FlightRoute flightRoute = findRouteById(flightRouteDTO.getRoutes(), routeId);
+//        flightRouteBookingDTO.setRoute(flightRoute);
+//        flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
+//        flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
+        log.info("found info: {}", flightRouteBookingDTO);
+        return flightRouteBookingDTO;
+    }
+
+    private void prepareFlights(List<List<Flight>> flights, FlightRouteSearchParams params, List<FlightRoute> list) {
+        Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
+        Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
+        for (List<Flight> flightPath : flights) {
             FlightRoute route = new FlightRoute();
             route.setId(UUID.randomUUID().toString());
             route.setFlights(flightPath);
@@ -61,33 +103,8 @@ public class FlightRouteServiceImpl implements FlightRouteService {
             route.setDuration(calculateRouteDuration(flightPath));
             route.setStops(flightPath.size());
             route.setPrices(calculateRoutePrice(flightPath));
-            routes.add(route);
+            list.add(route);
         }
-
-        FlightRouteSearch flightRouteSearch = new FlightRouteSearch();
-        flightRouteSearch.setRoutes(routes);
-        flightRouteSearch.setPassengers(mapPassengers(params));
-        flightRouteRepository.save(flightRouteSearch);
-        log.info("Found flight routes: {}", flightRouteSearch);
-        return flightRouteSearch;
-    }
-
-    @Override
-    public FlightRouteSearch getFlightRouteById(String uuid) {
-        return flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
-    }
-
-    @Override
-    public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId, FlightClass flightClass) {
-        log.info("FlightRouteService Start - getting cached info for id: {} and route: {}, for class: {}", uuid, routeId, flightClass);
-        FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
-        FlightRouteSearch flightRouteSearch = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
-        FlightRoute flightRoute = findRouteById(flightRouteSearch.getRoutes(), routeId);
-        flightRouteBookingDTO.setRoute(flightRoute);
-        flightRouteBookingDTO.setPassengers(flightRouteSearch.getPassengers());
-        flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
-        log.info("found info: {}", flightRouteBookingDTO);
-        return flightRouteBookingDTO;
     }
 
     private void validateSearchParameters(FlightRouteSearchParams params) {

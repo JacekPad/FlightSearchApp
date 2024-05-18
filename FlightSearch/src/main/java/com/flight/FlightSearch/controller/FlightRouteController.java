@@ -1,7 +1,7 @@
 package com.flight.FlightSearch.controller;
 
 import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearch;
+import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.enums.FlightClass;
 import com.flight.FlightSearch.service.FlightRouteService;
@@ -17,17 +17,17 @@ public class FlightRouteController {
 
     private final FlightRouteService flightRouteService;
     @GetMapping("routes")
-    public FlightRouteSearch getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
+    public FlightRouteDTO getFlightRoutes(@ModelAttribute FlightRouteSearchParams params) {
         log.info("Looking for flight routes with params: {}", params);
-        FlightRouteSearch flightRoutes = flightRouteService.searchFlightRoutes(params);
-        log.info("Found routes: {}", flightRoutes);
-        return flightRoutes;
+        FlightRouteDTO flightRouteDTO = flightRouteService.searchFlightRoutes(params);
+        log.info("Found routes: {}", flightRouteDTO);
+        return flightRouteDTO;
     }
 
     @GetMapping("option/{route}")
-    public FlightRouteSearch getFlightRoute(@PathVariable String route) {
+    public FlightRouteDTO getFlightRoute(@PathVariable String route) {
         log.info("Getting flight route from redis with id: {}", route);
-        FlightRouteSearch flightRoute = flightRouteService.getFlightRouteById(route);
+        FlightRouteDTO flightRoute = flightRouteService.getFlightRouteById(route);
         log.info("Found flight route: {}", flightRoute);
         return flightRoute;
     }
