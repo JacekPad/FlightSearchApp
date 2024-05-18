@@ -10,12 +10,16 @@ import { PassangerCount } from '../flight/model/passanger-count-model';
 import { PassangerType } from '../flight/model/enums/passanger-types';
 import { IFlightRouteBooking } from '../flight/model/flight-route-booking-model';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { FlightBooking } from './model/flight-booking-model';
+import { FlightBookingChoice } from '../flight/model/flight-booking-choice';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
   constructor(private http: HttpClient) { }
+
+  bookingChoice!: FlightBooking;
 
   getBookingById(flightRouteId: string, routeId: string, flightClass: string): Observable<IFlightRouteBooking> {
     const options = {params: new HttpParams()
@@ -24,4 +28,6 @@ export class BookingService {
     }
     return this.http.get<IFlightRouteBooking>(`/api/v1/option/${flightRouteId}/booking`, options);
   }
+
+  
 }

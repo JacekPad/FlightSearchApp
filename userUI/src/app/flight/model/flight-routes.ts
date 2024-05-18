@@ -4,7 +4,7 @@ import { IFlightDetails } from "./flight-details";
 import { IFLightRoutePassanger } from "./flight-route-passanger";
 
 export interface IFlightRoute {
-    id: number
+    id: string
     flights: IFlightDetails[],
     departureAirport: IAiport,
     arrivalAirport: IAiport,
@@ -20,7 +20,7 @@ export interface IFlightRoute {
 }
 
 export class FlightRoute {
-    public id: number
+    public id: string
     public flights: IFlightDetails[];
     public departureAirport: IAiport;
     public arrivalAirport: IAiport;

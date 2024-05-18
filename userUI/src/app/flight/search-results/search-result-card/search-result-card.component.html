@@ -4,7 +4,7 @@
     </mat-card-content>
     <div class="price-options">
         <div class="price-details" *ngFor="let pricing of flightRoute.prices | keyvalue">
-            <app-booking-options [routerLink]="['/booking', routeId, flightRoute.id]" [queryParams]="{class: pricing.key}" [prices]="pricing.value" [type]="pricing.key"></app-booking-options>
+            <app-booking-options (click)="chooseFlightOption(pricing)" [prices]="pricing.value" [type]="pricing.key"></app-booking-options>
         </div>
     </div>
 </div>

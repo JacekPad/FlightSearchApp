@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IFlightRoute } from '../../flight/model/flight-routes';
 import { BookingService } from '../booking.service';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { passangerTypeMap } from '../../flight/model/enums/passanger-types';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,36 +16,40 @@ import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-mod
 })
 export class BookingFlightComponent implements OnInit {
 
-  flightRouteId!: string;
-  flightId!: string;
-  flightRoute$!: Observable<IFlightRouteBooking>;
-  flightClass: string = '';
+  flightRouteDeparture$!: Observable<IFlightRouteBooking>;
+  flightRouteReturn$!: Observable<IFlightRouteBooking>;
   passangerMap: Map<string, string> = passangerTypeMap;
   bookingForm!: FormGroup;
-
-
   flightRoute!: IFlightRoute;
 
   constructor(
-    private route: ActivatedRoute, private bookingService: BookingService,
+    private route: ActivatedRoute,
+     private bookingService: BookingService,
     private formBuilder: FormBuilder
   ) { }
 
 
   ngOnInit(): void {
-    this.route.params.pipe(take(1)).subscribe((params: Params) => {      
-      this.route.queryParams.pipe(take(1)).subscribe(param => {
-        this.flightClass = param['class'];
-      });
-      this.flightRouteId = params['routeId'];
-      this.flightId = params['id'];
-      console.log(this.flightRouteId);
-      console.log(this.flightId);
-      this.flightRoute$ = this.bookingService.getBookingById(this.flightRouteId, this.flightId, this.flightClass);    
-      this.initFormGroup();
-      this.createPassengerForm();
-    });
+    this.getDepartureRoute();
+    if (this.bookingService.bookingChoice.returnFlight != null) {
+        this.getReturnRoute();
+    }
+    this.initFormGroup();
+    this.createPassengerForm();
+  }
 
+  private getDepartureRoute() {
+    const flightRouteId = this.bookingService.bookingChoice.departureFlight.routeId
+    const flightId = this.bookingService.bookingChoice.departureFlight.flightId
+    const flightClass = this.bookingService.bookingChoice.departureFlight.flightClass
+    this.flightRouteDeparture$ = this.bookingService.getBookingById(flightRouteId, flightId, flightClass);   
+  }
+
+  private getReturnRoute() {
+    const flightRouteIdReturn = this.bookingService.bookingChoice.returnFlight.routeId
+    const flightIdReturn = this.bookingService.bookingChoice.returnFlight.flightId
+    const flightClassReturn = this.bookingService.bookingChoice.returnFlight.flightClass
+    this.flightRouteReturn$ = this.bookingService.getBookingById(flightRouteIdReturn, flightIdReturn, flightClassReturn);
   }
 
   private initFormGroup(): void {
@@ -61,7 +65,7 @@ export class BookingFlightComponent implements OnInit {
   }
 
   private createPassengerForm() {
-    this.flightRoute$.subscribe(flightRoute => {
+    this.flightRouteDeparture$.subscribe(flightRoute => {
       flightRoute.passengers.forEach(passangerType => {
         for (let n = 0; n < passangerType.quantity; n++) {
           const formArray = this.bookingForm.get('passangers.'+passangerType.type.toLowerCase()) as FormArray;
