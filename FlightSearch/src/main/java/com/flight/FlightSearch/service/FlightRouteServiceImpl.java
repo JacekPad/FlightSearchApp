@@ -115,11 +115,11 @@ public class FlightRouteServiceImpl implements FlightRouteService {
 
     private void validateSearchParameters(FlightRouteSearchParams params) {
         if (params.getDepartureDate().isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Unacceptable departure date");
+            throw new IllegalArgumentException("Unacceptable departure date, must be after today");
         }
 
         if (params.getFlightType().equals(FlightType.ROUND) && (params.getReturnDate() == null || params.getReturnDate().isBefore(params.getDepartureDate()))) {
-            throw new IllegalArgumentException("Unacceptable departure date");
+            throw new IllegalArgumentException("Unacceptable return date, must be after departure date");
         }
 
         if (params.getAdult() == 0) {
