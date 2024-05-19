@@ -16,3 +16,6 @@ Users fill the main form, choosing:
 After filling the form, users get a list of compatibile flights with price options. Clicking on flight card shows flight details, while clicking on pricing option allows to book a flight for that class, after filling passenger form for booking. <br>
 ## Exemplary application screenshots
 
+## Installation
+From the root directory, run command: <br>
+```npm start```
