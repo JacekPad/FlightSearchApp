@@ -23,3 +23,15 @@ Springboot Web with Spring Neo4J JPA <br>
 Liquibase - for database initialization <br>
 Neo4j - used to store persistent flight data (Airports, Cities, Flights, Flight related details) <br>
 Redis - stores user's search results for a limited period of time <br>
+
+## Instalation
+### Initializing data
+To create neo4j and redis docker containers: <br>
+```cd docker``` and run command: <br>
+```docker-compose up```. <br>
+
+To initialize data: <br>
+```cd src/main/resources/db/changelog``` and run command: <br>
+```liquibase update --changelog-file=db.changelog-master.yaml --url=jdbc:neo4j:bolt://localhost --username=neo4j --password=neo4j``` <br>
+### Running the application
+run the application from the ```FlightSearchApplication``` class.
