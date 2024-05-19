@@ -19,4 +19,4 @@ An Angular frontend application allowing users to search for flights, check each
 More info in the userUI directory.
 
 ## Installation
-TODO
+Follow ```FlightSearch``` installation instructions and ```userUI``` installation instructions
