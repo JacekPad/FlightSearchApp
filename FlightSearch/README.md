@@ -35,3 +35,15 @@ To initialize data: <br>
 ```liquibase update --changelog-file=db.changelog-master.yaml --url=jdbc:neo4j:bolt://localhost --username=neo4j --password=neo4j``` <br>
 ### Running the application
 run the application from the ```FlightSearchApplication``` class.
+### Requesting resources
+GET request with params: ```localhost:8080/api/v1/routes?departureAirportIata={IATACODE}&arrivalAirportIata={IATACODE}&maxStops={stopNum}&adult={adultNum}&flightClass={ECONOMY/BUSINESS/FIRST}&child={childNum}&infant={infantNum}&departureDate={date yyyy-MM-dd:HH:mm:ss}&FlightType={ONEWAY/ROUND}&returnDate={date yyyy-MM-dd:HH:mm:ss}``` <br>
+- departureAirportIata - 3-letter long IATA code of the departure airport
+- arrivalAirportIata- 3-letter long IATA code of the arrival airport
+- maxStops - maximum number of stops (min 1, max 5)
+- adult - number of adult passengers (min 1, max 5)
+- child - number of child passengers (min 0, max 5)
+- infant - number of infant passengers (min 0, max 5)
+- flightClass - class of the flight (ECONOMY / BUISNESS / FIRST)
+- departureDate - date of the planned departure (yyyy-MM-ddT:HH:mm:ss format)
+- flightType - type of desired flight (ONEWAY / ROUND)
+- returnDate (optional) - date of the plnned return (yyyy-MM-ddTHH:mm:ss format)
