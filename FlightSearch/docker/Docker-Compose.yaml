@@ -1,0 +1,22 @@
+services:
+  redis-cache:
+    image: redis:7.2.4
+    container_name: redis-cache-db
+    ports:
+      - 6379:6379
+    restart: always
+
+  neo4j:
+    image: neo4j:5.19
+    container_name: neo4j-db
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - ./data:/var/lib/neo4j/import
+    environment:
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_AUTH=none
+    restart: always
