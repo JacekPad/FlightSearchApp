@@ -1,6 +1,6 @@
 package com.flight.FlightSearch.utils.mappers;
 
-import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.DTO.FlightRouteSearchParamsDTO;
 
 import java.time.LocalDateTime;

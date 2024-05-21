@@ -4,7 +4,7 @@ import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
 import com.flight.FlightSearch.model.DTO.PassengerDTO;
 import com.flight.FlightSearch.model.FlightRoute;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.Airport;
 import com.flight.FlightSearch.model.FlightOption;
@@ -41,7 +41,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
 
     @Override
     public FlightRouteDTO searchFlightRoutes(FlightRouteSearchParams params) {
-        log.info("FlightRouteService - prepareFlightRoutes with params: {}", params);
+        log.info("SERVICE - searchFlightRoutes with params: {}, START", params);
         FlightRouteDTO flightRouteDTO = new FlightRouteDTO();
         Airport departureAirport = airportService.findAirportByIataCode(params.getDepartureAirportIata());
         Airport arrivalAirport = airportService.findAirportByIataCode(params.getArrivalAirportIata());
@@ -67,18 +67,19 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         }
         flightRouteDTO.setPassengers(mapPassengers(params));
         flightRouteRepository.save(flightRouteDTO);
-        log.info("Found flight routes: {}", flightRouteDTO);
+        log.info("SERVICE - searchFlightRoutes found routes: {}, END", flightRouteDTO);
         return flightRouteDTO;
     }
 
     @Override
     public FlightRouteDTO getFlightRouteById(String uuid) {
+        log.info("SERVICE - getFlightRouteById with uuid: {}, START", uuid);
         return flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
     }
 
     @Override
     public FlightRouteBookingDTO getBookingInfo(String uuid, String routeId, FlightClass flightClass) {
-        log.info("FlightRouteService Start - getting cached info for id: {} and route: {}, for class: {}", uuid, routeId, flightClass);
+        log.info("SERVICE - getBookingInfo for id: {} and route: {}, for class: {}, START", uuid, routeId, flightClass);
         FlightRouteBookingDTO flightRouteBookingDTO = new FlightRouteBookingDTO();
         FlightRouteDTO flightRouteDTO = flightRouteRepository.findById(uuid).orElseThrow(() -> new NoSuchElementException("No flight route found"));
         log.info("what object: {}", flightRouteDTO);
@@ -90,7 +91,7 @@ public class FlightRouteServiceImpl implements FlightRouteService {
         flightRouteBookingDTO.setRoute(flightRoute);
         flightRouteBookingDTO.setPassengers(flightRouteDTO.getPassengers());
         flightRouteBookingDTO.setPrice(flightRoute.getPrices().get(flightClass));
-        log.info("found info: {}", flightRouteBookingDTO);
+        log.info("SERVICE - getBookingInfo found: {}, END", flightRouteBookingDTO);
         return flightRouteBookingDTO;
     }
 

@@ -2,7 +2,8 @@ package com.flight.FlightSearch.service;
 
 import com.flight.FlightSearch.model.Airline;
 import com.flight.FlightSearch.model.Airport;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.DTO.SaveFlightDTO;
+import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.entity.FlightEntity;
@@ -13,12 +14,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -54,6 +51,53 @@ public class FlightServiceImpl implements FlightService {
         dfs(airport, params.getArrivalAirportIata(), 0, flights, new ArrayList<>(), new HashSet<>(), params.getMaxStops(), seats, params.getFlightClass(), params.getDepartureDate());
         log.info("SERVICE: findFlightRoutes - END - Flights found: {}", flights);
         return flights;
+    }
+
+    @Override
+    public Flight saveFlight(Flight flight) {
+        log.info("SERVICE - saveFlight, {}, start", flight);
+        FlightEntity flightEntity = FlightMapper.toFlightEntity(flight);
+        FlightEntity savedEntity = flightRepository.save(flightEntity);
+        Flight savedFlight = FlightMapper.toFlight(savedEntity);
+        log.info("SERVICE - saveFlight, saved flight {}, END", savedEntity);
+        return savedFlight;
+    }
+
+    @Override
+    public void deleteFlight(String flightId) {
+        log.info("SERVICE - deleteFlight for id {}", flightId);
+        FlightEntity flight = flightRepository.findById(flightId).orElseThrow(() -> new NoSuchElementException("No flight for provided id"));
+        flightRepository.delete(flight);
+        log.info("SERVICE - deleteFlight, deleted flight for id {}", flightId);
+    }
+
+    @Override
+    public Flight updateFlight(Flight flight) {
+        log.info("SERVICE - updateFlight {}", flight);
+        FlightEntity flightEntity = flightRepository.findById(flight.getFlightId()).orElseThrow(() -> new NoSuchElementException("No flight for provided Id"));
+        System.out.println("this?");
+        FlightEntity updatedFlightEntity = updateFlightValues(flightEntity, flight);
+        flightRepository.save(updatedFlightEntity);
+        log.info("SERVICE - updateFlight, updated flight from {}, to {}",flightEntity, updatedFlightEntity);
+        return FlightMapper.toFlight(updatedFlightEntity);
+    }
+
+    private FlightEntity updateFlightValues(FlightEntity flightEntity, Flight flight) {
+        if (flight.getArrivalDate() != null) flightEntity.setArrivalDate(flight.getArrivalDate());
+        if (flight.getDepartureDate() != null) flightEntity.setDepartureDate(flight.getDepartureDate());
+        if (flight.getAirline() != null) flightEntity.setAirline(flight.getAirline());
+        if (flight.getOptions() != null) flightEntity.setOptions(new ArrayList<>(flight.getOptions().values()));
+        if (flight.getFrom() != null) flightEntity.setFrom(flight.getFrom());
+        if (flight.getTo() != null) flightEntity.setTo(flight.getTo());
+        return flightEntity;
+    }
+
+    @Override
+    public Flight findFlightById(String flightId) {
+        log.info("SERVICE - findFlightById for id {}, START", flightId);
+        FlightEntity flightEntity = flightRepository.findById(flightId).orElseThrow(() -> new NoSuchElementException("No flight found for provided id"));
+        log.info("SERVICE - findFlightById found flight {}, END", flightEntity);
+        return FlightMapper.toFlight(flightEntity);
     }
 
     private int calculateSeats(FlightRouteSearchParams params) {

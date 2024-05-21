@@ -1,5 +1,8 @@
 package com.flight.FlightSearch.utils.mappers;
 
+import com.flight.FlightSearch.model.Airline;
+import com.flight.FlightSearch.model.Airport;
+import com.flight.FlightSearch.model.DTO.SaveFlightDTO;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.entity.FlightEntity;
@@ -35,5 +38,18 @@ public class FlightMapper {
         flightEntity.setArrivalDate(flight.getArrivalDate());
         flightEntity.setOptions(new ArrayList<>(flight.getOptions().values()));
         return flightEntity;
+    }
+
+    public static FlightEntity fromSaveFlightDTO(SaveFlightDTO dto, Airport from, Airport to, Airline airline) {
+        FlightEntity flightEntity = new FlightEntity();
+        flightEntity.setFrom(from);
+        flightEntity.setTo(to);
+        flightEntity.setAirline(airline);
+        flightEntity.setDepartureDate(dto.getDepartureDate());
+        flightEntity.setArrivalDate(dto.getArrivalDate());
+        flightEntity.setOptions(new ArrayList<>(dto.getOptions().values()));
+        return flightEntity;
+
+
     }
 }

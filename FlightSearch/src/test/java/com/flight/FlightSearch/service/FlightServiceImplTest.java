@@ -1,7 +1,7 @@
 package com.flight.FlightSearch.service;
 
 import com.flight.FlightSearch.model.Airport;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.FlightOption;
 import com.flight.FlightSearch.model.entity.FlightEntity;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class FlightServiceImplTest {

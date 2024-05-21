@@ -15,4 +15,11 @@ public class AirlineServiceImpl implements AirlineService {
     public Airline findByFlightId(String id) {
         return airlineRepository.findAirlineByFlightId(id);
     }
+
+    @Override
+    public Airline findByIataCode(String iataCode) {
+        Airline byIata = airlineRepository.findByIata(iataCode);
+        return byIata;
+    }
+
 }

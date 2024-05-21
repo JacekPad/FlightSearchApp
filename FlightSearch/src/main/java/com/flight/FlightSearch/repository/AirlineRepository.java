@@ -8,4 +8,6 @@ public interface AirlineRepository extends Neo4jRepository<Airline, String> {
 
     @Query("MATCH (flight:Flight)-[:BELONGS_TO]->(airline:Airline) where elementId(flight)=$flightId return airline")
     Airline findAirlineByFlightId(String flightId);
+
+    Airline findByIata(String iata);
 }

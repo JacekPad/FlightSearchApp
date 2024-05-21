@@ -2,7 +2,7 @@ package com.flight.FlightSearch.service;
 
 import com.flight.FlightSearch.model.DTO.FlightRouteBookingDTO;
 import com.flight.FlightSearch.model.DTO.FlightRouteDTO;
-import com.flight.FlightSearch.model.DTO.FlightRouteSearchParams;
+import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.enums.FlightClass;
 
 

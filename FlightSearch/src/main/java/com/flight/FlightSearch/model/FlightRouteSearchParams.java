@@ -1,4 +1,4 @@
-package com.flight.FlightSearch.model.DTO;
+package com.flight.FlightSearch.model;
 
 import com.flight.FlightSearch.model.enums.FlightClass;
 import com.flight.FlightSearch.model.enums.FlightType;
