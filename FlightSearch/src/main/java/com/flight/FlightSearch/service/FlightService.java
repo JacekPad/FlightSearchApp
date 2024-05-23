@@ -1,6 +1,5 @@
 package com.flight.FlightSearch.service;
 
-import com.flight.FlightSearch.model.DTO.SaveFlightDTO;
 import com.flight.FlightSearch.model.FlightRouteSearchParams;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.model.entity.FlightEntity;

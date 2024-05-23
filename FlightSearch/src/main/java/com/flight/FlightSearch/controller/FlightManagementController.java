@@ -1,6 +1,5 @@
 package com.flight.FlightSearch.controller;
 
-import com.flight.FlightSearch.model.DTO.SaveFlightDTO;
 import com.flight.FlightSearch.model.Flight;
 import com.flight.FlightSearch.service.AirlineService;
 import com.flight.FlightSearch.service.AirportService;
