@@ -13,7 +13,6 @@ public class DateValidator implements ConstraintValidator<DateValidatorConstrain
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (value == null) return true;
-        System.out.println(value);
         String regex = "^20\\d{2}-(0[1-9]|1[0-2])-[0-3][0-9]T([01][0-9]|2[0-4]):[0-5][0-9]:[0-5][0-9]$";
         return value.matches(regex);
     }
