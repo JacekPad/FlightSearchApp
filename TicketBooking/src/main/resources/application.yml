@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: TicketBooking
+server:
+  port: 8090
+stripe:
+  secret_key: your key
+  public_key: your key
