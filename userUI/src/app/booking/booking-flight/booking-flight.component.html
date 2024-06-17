@@ -127,6 +127,11 @@
             <mat-step>
                 <ng-template matStepLabel>Payment</ng-template>
                 <mat-card-content>
+                    <div class="checkout">
+                        <mat-card>
+                            <button (click)="onCheckout()" type="button" mat-raised-button>CHECKOUT</button>
+                        </mat-card>
+                    </div>
                     <div class="stepper-buttons">
                         <span class="spacer"></span>
                         <button matStepperPrevious type="button" mat-raised-button color="accent"

@@ -8,6 +8,9 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-model';
+import { environment } from '../../../environments/environment.development';
+import { loadStripe } from '@stripe/stripe-js';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-booking-flight',
@@ -15,6 +18,8 @@ import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-mod
   styleUrl: './booking-flight.component.scss'
 })
 export class BookingFlightComponent implements OnInit {
+
+  stripe = loadStripe(environment.stripe_key);
 
   flightRouteDeparture$!: Observable<IFlightRouteBooking>;
   flightRouteReturn$!: Observable<IFlightRouteBooking>;
@@ -25,7 +30,8 @@ export class BookingFlightComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
      private bookingService: BookingService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private http: HttpClient
   ) { }
 
 
@@ -42,7 +48,7 @@ export class BookingFlightComponent implements OnInit {
     const flightRouteId = this.bookingService.bookingChoice.departureFlight.routeId
     const flightId = this.bookingService.bookingChoice.departureFlight.flightId
     const flightClass = this.bookingService.bookingChoice.departureFlight.flightClass
-    this.flightRouteDeparture$ = this.bookingService.getBookingById(flightRouteId, flightId, flightClass);   
+    this.flightRouteDeparture$ = this.bookingService.getBookingById(flightRouteId, flightId, flightClass);
   }
 
   private getReturnRoute() {
@@ -99,4 +105,38 @@ export class BookingFlightComponent implements OnInit {
       stepper.next();
     }
   }
+
+  totalPrice(): number {
+    if (this.bookingService.bookingChoice.returnFlight != null) {
+      return this.bookingService.bookingChoice.departureFlight.ticketPrice + this.bookingService.bookingChoice.returnFlight.ticketPrice;
+    } else {
+      return this.bookingService.bookingChoice.departureFlight.ticketPrice;
+    }
+  }
+
+  async onCheckout() {
+    const payment = {
+      routeId: this.bookingService.bookingChoice.departureFlight.routeId,
+      currency: 'usd',
+      price: this.totalPrice(),
+      cancelUrl: 'http://localhost:4200/cancel',
+      successUrl: 'http://localhost:4200/success'
+    };
+    console.log('payment object:');
+    console.log(payment);
+
+    const stripe = await this.stripe;
+
+    this.http.post<IDataResp>('/booking/checkout', payment).subscribe(data => {
+      console.log('resposne');
+      console.log(data);
+      stripe?.redirectToCheckout({
+        sessionId: data.id
+      });
+    });
+  }
+}
+
+export interface IDataResp {
+  id: string
 }
