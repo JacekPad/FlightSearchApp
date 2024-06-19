@@ -44,7 +44,7 @@ public class StripePayment implements PaymentService {
         return SessionCreateParams.builder()
                 .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
                 .addPaymentMethodType(SessionCreateParams.PaymentMethodType.BLIK)
-                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CASHAPP)
+                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.P24)
                 .addPaymentMethodType(SessionCreateParams.PaymentMethodType.PAYPAL)
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(checkoutInfo.getSuccessUrl())

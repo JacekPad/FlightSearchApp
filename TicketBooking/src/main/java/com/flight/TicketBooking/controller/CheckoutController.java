@@ -63,8 +63,8 @@ public class CheckoutController {
     @PostMapping("/checkoutNew")
     private CheckoutSession processCheckout(@RequestBody CheckoutDTO checkout) {
         log.info("CONTROLLER - processCheckout for: {}", checkout);
-//        CheckoutSession checkoutSession = paymentService.processPayment(checkout.checkoutInfo());
-        CheckoutSession checkoutSession = null;
+        CheckoutSession checkoutSession = paymentService.processPayment(checkout.checkoutInfo());
+        checkout.bookingEntity().setPaymentId(checkoutSession.id());
         bookingService.saveBookingData(checkout.bookingEntity());
         log.info("CONTROLLER - processCheckout return session: {}", checkoutSession);
         return checkoutSession;
