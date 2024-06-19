@@ -35,11 +35,6 @@ public class StripePayment implements PaymentService {
         return checkoutSession;
     }
 
-    @Override
-    public boolean updatePaymentStatus(String bookingId, PaymentStatus status) {
-        return false;
-    }
-
     private SessionCreateParams prepareSessionParams(CheckoutInfo checkoutInfo) {
         return SessionCreateParams.builder()
                 .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
