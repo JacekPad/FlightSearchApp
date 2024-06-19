@@ -1,27 +1,14 @@
 package com.flight.TicketBooking.controller;
 
-import com.flight.TicketBooking.model.CheckoutInfo;
 import com.flight.TicketBooking.model.DTO.CheckoutSession;
 import com.flight.TicketBooking.model.DTO.CheckoutDTO;
-import com.flight.TicketBooking.model.entity.BookingEntity;
-import com.flight.TicketBooking.model.entity.FlightEntity;
-import com.flight.TicketBooking.model.entity.PassengerEntity;
-import com.flight.TicketBooking.model.enums.PaymentStatus;
 import com.flight.TicketBooking.service.BookingService;
 import com.flight.TicketBooking.service.PaymentService;
-import com.stripe.Stripe;
-import com.stripe.exception.StripeException;
-import com.stripe.model.checkout.Session;
-import com.stripe.param.checkout.SessionCreateParams;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @Slf4j
