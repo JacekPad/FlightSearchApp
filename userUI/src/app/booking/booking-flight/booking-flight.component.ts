@@ -11,6 +11,12 @@ import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-mod
 import { environment } from '../../../environments/environment.development';
 import { loadStripe } from '@stripe/stripe-js';
 import { HttpClient } from '@angular/common/http';
+import { CheckoutDTO } from '../model/checkout-dto-model';
+import { BookingEntity } from '../model/booking-entity-model';
+import { CheckoutInfo } from '../model/checkout-info-model';
+import { Passenger } from '../model/passenger-model';
+import { IFlightDetails } from '../../flight/model/flight-details';
+import { FlightEntity } from '../model/flight-model';
 
 @Component({
   selector: 'app-booking-flight',
@@ -114,26 +120,58 @@ export class BookingFlightComponent implements OnInit {
     }
   }
 
-  async onCheckout() {
-    const payment = {
-      routeId: this.bookingService.bookingChoice.departureFlight.routeId,
-      currency: 'usd',
-      price: this.totalPrice(),
-      cancelUrl: 'http://localhost:4200/cancel',
-      successUrl: 'http://localhost:4200/success'
-    };
-    console.log('payment object:');
-    console.log(payment);
-
+  async onCheckout(flights: IFlightDetails[]) {
+    const checkoutDTO: CheckoutDTO = new CheckoutDTO();
+    checkoutDTO.checkoutInfo = this.createCheckoutInfo();
+    checkoutDTO.bookingEntity = this.createBookingInfo(flights);
     const stripe = await this.stripe;
-
-    this.http.post<IDataResp>('/booking/checkout', payment).subscribe(data => {
-      console.log('resposne');
-      console.log(data);
+    this.http.post<IDataResp>('/booking/checkout', checkoutDTO).subscribe(data => {
       stripe?.redirectToCheckout({
-        sessionId: data.id
+        sessionId: data.id,
       });
     });
+  }
+
+  createCheckoutInfo(): CheckoutInfo {
+    const checkoutInfo = new CheckoutInfo;
+    checkoutInfo.routeId = this.bookingService.bookingChoice.departureFlight.routeId;
+    checkoutInfo.currency = 'pln';
+    checkoutInfo.price = this.totalPrice();
+    checkoutInfo.cancelUrl = 'http://localhost:4200/checkout/cancel'
+    checkoutInfo.successUrl = 'http://localhost:4200/checkout/success'
+    return checkoutInfo;
+  }
+
+  createBookingInfo(flights: IFlightDetails[]): BookingEntity  {
+    const bookingEntity = new BookingEntity();
+    bookingEntity.passengers = this.mapPassengers();
+    bookingEntity.email = this.bookingForm.get('email')?.value;
+    bookingEntity.phoneNumber = this.bookingForm.get('phoneNumber')?.value;
+    let flightList: FlightEntity[] = [];
+    for (const flight of flights) {
+      const flightEntity = new FlightEntity();
+      flightEntity.id = flight.flightId.toString();
+      flightList.push(flightEntity);
+    }
+    bookingEntity.flights = flightList;
+    return bookingEntity;
+  }
+
+  mapPassengers(): Passenger[] {
+    let passengers: Passenger[] = [];
+    const passengerForm = this.bookingForm.get('passangers') as FormArray;
+    const passengerKeys = Object.keys(passengerForm.controls);
+    for (const key of passengerKeys) {
+      const formArr = passengerForm.get(key) as FormArray;
+      for (const control of formArr.controls) {
+        let passenger = new Passenger();
+        passenger.name = control.get('name')?.value;
+        passenger.surname = control.get('surname')?.value;
+        passenger.passengerAge = key.toUpperCase();
+        passengers.push(passenger);
+      }
+    }
+    return passengers;
   }
 }
 

@@ -22,6 +22,9 @@ public class BookingEntity {
     @Column(name = "payment_session_id")
     private String paymentId;
 
+    @Column(name = "client_reference")
+    private String clientReferenceId;
+
     @Column(name = "email")
     private String email;
 
@@ -32,6 +35,9 @@ public class BookingEntity {
     @Column(name = "payment_status")
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
 //    TODO get method from transaction after customer chooses?
     private String payMethod;

@@ -24,7 +24,6 @@ export class SearchResultCardComponent {
   constructor(private dialog: MatDialog) {}
 
   getFlightDetails(flightRoute: FlightRoute) {
-    console.log('click works - flights');
     const flightDetailDialog = this.dialog.open(FlightDetailsComponent, {
       data: { flightRoute: flightRoute},
       width: '60%'

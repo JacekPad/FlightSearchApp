@@ -5,9 +5,9 @@ import { CancelComponent } from './checkout/cancel/cancel.component';
 import { SuccessComponent } from './checkout/success/success.component';
 
 const routes: Routes = [
-  {path: '', component: BookingFlightComponent},
+  {path: 'checkout', component: BookingFlightComponent},
   {path: 'success', component: SuccessComponent},
-  {path: 'cancel', component: CancelComponent}
+  {path: 'cancel', component: CancelComponent},
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -28,7 +29,7 @@ public class BookingServiceImpl implements BookingService {
     public void updateBookingPaymentStatus(PaymentStatus status) {
         log.info("BookingService - updating payment status for id: {} to {}", "test", status.toString());
 //        TODO some exception and proper ID
-        BookingEntity booking = bookingRepository.findById(123l).orElseThrow(RuntimeException::new);
+        BookingEntity booking = bookingRepository.findById(123l).orElseThrow(NoSuchElementException::new);
         booking.setPaymentStatus(status);
         bookingRepository.save(booking);
     }
