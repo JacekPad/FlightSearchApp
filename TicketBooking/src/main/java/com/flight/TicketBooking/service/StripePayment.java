@@ -44,9 +44,9 @@ public class StripePayment implements PaymentService {
             session = Session.create(params);
         } catch (StripeException e) {
             log.error("Exception while creating stripe session: {}", e.getMessage());
-//            TODO throw some exception
             throw new RuntimeException("todo");
         }
+        System.out.println(session.getUrl());
         CheckoutSession checkoutSession = new CheckoutSession(session.getId(), session.getClientReferenceId());
         log.info("SERVICE - processPayment - created session: {}", checkoutSession);
         return checkoutSession;
@@ -56,7 +56,6 @@ public class StripePayment implements PaymentService {
     public void processWebhook(String json) {
         Event event = ApiResource.GSON.fromJson(json, Event.class);
         log.info("SERVICE - processWebhook - received stripe webhook event: {}", event);
-//        TODO do the cancel event too (own controller endpoint from angular
         if (event.getType().contains(SESSION)) {
             processSession(event);
         }
@@ -64,11 +63,9 @@ public class StripePayment implements PaymentService {
 
     private void processSession(Event event) {
         if (("checkout.session.completed").equals(event.getType())) {
-//            TODO update booking based on the reference id
             Session sessionEvent = (Session) event.getDataObjectDeserializer().getObject().orElseThrow(NoSuchElementException::new);
             String clientReferenceId = sessionEvent.getClientReferenceId();
-            log.info("client reference: {}", clientReferenceId);
-//            bookingService.updateBookingPaymentStatus(PaymentStatus.SUCCESS);
+            bookingService.updateBookingPaymentStatus(clientReferenceId, PaymentStatus.SUCCESS);
         }
     }
 

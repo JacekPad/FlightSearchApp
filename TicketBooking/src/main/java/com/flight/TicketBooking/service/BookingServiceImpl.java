@@ -26,10 +26,9 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void updateBookingPaymentStatus(PaymentStatus status) {
-        log.info("BookingService - updating payment status for id: {} to {}", "test", status.toString());
-//        TODO some exception and proper ID
-        BookingEntity booking = bookingRepository.findById(123l).orElseThrow(NoSuchElementException::new);
+    public void updateBookingPaymentStatus(String clientReferenceId, PaymentStatus status) {
+        log.info("BookingService - updating payment status for id: {} to {}", clientReferenceId, status.toString());
+        BookingEntity booking = bookingRepository.findByClientReferenceId(clientReferenceId).orElseThrow(NoSuchElementException::new);
         booking.setPaymentStatus(status);
         bookingRepository.save(booking);
     }

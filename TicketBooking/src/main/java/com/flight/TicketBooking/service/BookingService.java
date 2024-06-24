@@ -7,5 +7,5 @@ public interface BookingService {
 
     BookingEntity saveBookingData(BookingEntity bookingEntity);
 
-    void updateBookingPaymentStatus(PaymentStatus status);
+    void updateBookingPaymentStatus(String clientReferenceId, PaymentStatus status);
 }
