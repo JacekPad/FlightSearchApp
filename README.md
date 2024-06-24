@@ -18,5 +18,9 @@ More info in the FlightSearch directory.
 An Angular frontend application allowing users to search for flights, check each flight route's details, choose flight class and book available flights.
 More info in the userUI directory.
 
+### TicketBooking
+Backend application written in Java with Springboot framework and MySQL as a database. <br>
+More info in the TicketBooking directory.
+
 ## Installation
 Follow ```FlightSearch``` installation instructions and ```userUI``` installation instructions
