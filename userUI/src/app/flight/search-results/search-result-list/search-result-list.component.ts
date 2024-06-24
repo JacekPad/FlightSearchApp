@@ -44,7 +44,7 @@ export class SearchResultListComponent implements OnInit {
 
     if (this.lastChoice) {
       this.bookingService.bookingChoice = this.flightBooking;
-      this.router.navigate(['/booking']);
+      this.router.navigate(['/checkout']);
     }
     if (this.flightRoutes.routeReturn != null) {
       this.flightChoice = 'return';

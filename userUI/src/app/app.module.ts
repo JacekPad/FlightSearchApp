@@ -21,10 +21,10 @@ import { DatePipe } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FlightModule,
     BookingModule,
     MaterialImportsModule,
+    AppRoutingModule,
   ],
   providers: [
     provideAnimationsAsync(),

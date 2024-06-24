@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: TicketBooking
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/booking
+    username: root
+    password: root
+server:
+  port: 8090
+stripe:
+  secret_key: your key
+  public_key: your key

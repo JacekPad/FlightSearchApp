@@ -7,11 +7,15 @@ import { MaterialImportsModule } from '../shared/material-imports/material-impor
 import { FlightModule } from '../flight/flight.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SuccessComponent } from './checkout/success/success.component';
+import { CancelComponent } from './checkout/cancel/cancel.component';
 
 
 @NgModule({
   declarations: [
-    BookingFlightComponent
+    BookingFlightComponent,
+    SuccessComponent,
+    CancelComponent
   ],
   imports: [
     CommonModule,

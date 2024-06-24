@@ -8,6 +8,15 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-model';
+import { environment } from '../../../environments/environment.development';
+import { loadStripe } from '@stripe/stripe-js';
+import { HttpClient } from '@angular/common/http';
+import { CheckoutDTO } from '../model/checkout-dto-model';
+import { BookingEntity } from '../model/booking-entity-model';
+import { CheckoutInfo } from '../model/checkout-info-model';
+import { Passenger } from '../model/passenger-model';
+import { IFlightDetails } from '../../flight/model/flight-details';
+import { FlightEntity } from '../model/flight-model';
 
 @Component({
   selector: 'app-booking-flight',
@@ -15,6 +24,8 @@ import { IFlightRouteBooking } from '../../flight/model/flight-route-booking-mod
   styleUrl: './booking-flight.component.scss'
 })
 export class BookingFlightComponent implements OnInit {
+
+  stripe = loadStripe(environment.stripe_key);
 
   flightRouteDeparture$!: Observable<IFlightRouteBooking>;
   flightRouteReturn$!: Observable<IFlightRouteBooking>;
@@ -25,7 +36,8 @@ export class BookingFlightComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
      private bookingService: BookingService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private http: HttpClient
   ) { }
 
 
@@ -42,7 +54,7 @@ export class BookingFlightComponent implements OnInit {
     const flightRouteId = this.bookingService.bookingChoice.departureFlight.routeId
     const flightId = this.bookingService.bookingChoice.departureFlight.flightId
     const flightClass = this.bookingService.bookingChoice.departureFlight.flightClass
-    this.flightRouteDeparture$ = this.bookingService.getBookingById(flightRouteId, flightId, flightClass);   
+    this.flightRouteDeparture$ = this.bookingService.getBookingById(flightRouteId, flightId, flightClass);
   }
 
   private getReturnRoute() {
@@ -99,4 +111,70 @@ export class BookingFlightComponent implements OnInit {
       stepper.next();
     }
   }
+
+  totalPrice(): number {
+    if (this.bookingService.bookingChoice.returnFlight != null) {
+      return this.bookingService.bookingChoice.departureFlight.ticketPrice + this.bookingService.bookingChoice.returnFlight.ticketPrice;
+    } else {
+      return this.bookingService.bookingChoice.departureFlight.ticketPrice;
+    }
+  }
+
+  async onCheckout(flights: IFlightDetails[]) {
+    const checkoutDTO: CheckoutDTO = new CheckoutDTO();
+    checkoutDTO.checkoutInfo = this.createCheckoutInfo();
+    checkoutDTO.bookingEntity = this.createBookingInfo(flights);
+    const stripe = await this.stripe;
+    this.http.post<IDataResp>('/booking/checkout', checkoutDTO).subscribe(data => {
+      stripe?.redirectToCheckout({
+        sessionId: data.id,
+      });
+    });
+  }
+
+  createCheckoutInfo(): CheckoutInfo {
+    const checkoutInfo = new CheckoutInfo;
+    checkoutInfo.routeId = this.bookingService.bookingChoice.departureFlight.routeId;
+    checkoutInfo.currency = 'pln';
+    checkoutInfo.price = this.totalPrice();
+    checkoutInfo.cancelUrl = 'http://localhost:4200/checkout/cancel'
+    checkoutInfo.successUrl = 'http://localhost:4200/checkout/success'
+    return checkoutInfo;
+  }
+
+  createBookingInfo(flights: IFlightDetails[]): BookingEntity  {
+    const bookingEntity = new BookingEntity();
+    bookingEntity.passengers = this.mapPassengers();
+    bookingEntity.email = this.bookingForm.get('email')?.value;
+    bookingEntity.phoneNumber = this.bookingForm.get('phoneNumber')?.value;
+    let flightList: FlightEntity[] = [];
+    for (const flight of flights) {
+      const flightEntity = new FlightEntity();
+      flightEntity.id = flight.flightId.toString();
+      flightList.push(flightEntity);
+    }
+    bookingEntity.flights = flightList;
+    return bookingEntity;
+  }
+
+  mapPassengers(): Passenger[] {
+    let passengers: Passenger[] = [];
+    const passengerForm = this.bookingForm.get('passangers') as FormArray;
+    const passengerKeys = Object.keys(passengerForm.controls);
+    for (const key of passengerKeys) {
+      const formArr = passengerForm.get(key) as FormArray;
+      for (const control of formArr.controls) {
+        let passenger = new Passenger();
+        passenger.name = control.get('name')?.value;
+        passenger.surname = control.get('surname')?.value;
+        passenger.passengerAge = key.toUpperCase();
+        passengers.push(passenger);
+      }
+    }
+    return passengers;
+  }
+}
+
+export interface IDataResp {
+  id: string
 }
